@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 3d169f6fe7f218541b1244a5c86501c6
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - pauseMenuUI: {fileID: 8999264562427328852, guid: 0162115598299574a8c51ad7a5eac16c, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
