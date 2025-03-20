@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractablePersiana : MonoBehaviour, IInteractable
+public class InteractableLuz : MonoBehaviour, IInteractable
 {
     public void OnClickAction()
     {
-        Debug.Log("Clickaste en la persiana!!!!");
+        Debug.Log("Clickaste en la luz!!!!");
     }
     void OnEnable() 
     {

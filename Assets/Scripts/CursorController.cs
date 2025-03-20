@@ -49,7 +49,7 @@ public class CursorController : MonoBehaviour
             if (sqrMag<DistanceTreshold*DistanceTreshold) 
             {
                 newSelectionTransform = interactablesManager.Interactables[itemIndex].transform;
-                if (!cursorIsInteractive) 
+                if (cursorIsInteractive==false) 
                 { 
                     InteractiveCursorTexture(); 
                 }
