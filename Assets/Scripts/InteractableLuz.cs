@@ -1,12 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractableLuz : MonoBehaviour, IInteractable
 {
+    public static Action OnClickLight;
     public void OnClickAction()
     {
         Debug.Log("Clickaste en la luz!!!!");
+        OnClickLight.Invoke();
     }
     void OnEnable() 
     {
@@ -16,4 +19,5 @@ public class InteractableLuz : MonoBehaviour, IInteractable
     {
         InteractablesManager.RemoveFromInteractablesEvent.Invoke(transform);
     }
+    
 }

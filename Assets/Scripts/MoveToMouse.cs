@@ -14,13 +14,19 @@ public class MoveToMouse : MonoBehaviour
     }
     private void Update()
     {
+        MovePlayer();
+        
+    }
+    private void MovePlayer() {
         bool isMoving = false;
         if (target.x != transform.position.x) { isMoving = true; }
-        if (Input.GetMouseButtonDown(0)&&!isMoving) 
+
+        if (Input.GetMouseButtonDown(0) && !isMoving)
         {
-            target.x = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
+            float mouseXPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
+            target.x = mouseXPosition;
+
         }
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-        
     }
 }
