@@ -225,51 +225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91fb059de3999c44e87ba5d29642fcf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &51284219
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 51284221}
-  - component: {fileID: 51284222}
-  m_Layer: 0
-  m_Name: CursorController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &51284221
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 51284219}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &51284222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 51284219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93a79bd7ab56ca64592c52a8b8067715, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 954205600240339045}
 --- !u!1 &116467489
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,13 +280,25 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 51284222}
-          m_TargetAssemblyTypeName: ClickManager, Assembly-CSharp
+        - m_Target: {fileID: 8818336922605507845}
+          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
           m_MethodName: GoToItem
           m_Mode: 2
           m_Arguments:
             m_ObjectArgument: {fileID: 798209755}
             m_ObjectArgumentAssemblyTypeName: ItemData, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 798209756}
+          m_TargetAssemblyTypeName: InteractableBombilla, Assembly-CSharp
+          m_MethodName: OnClickAction
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -722,6 +689,7 @@ GameObject:
   m_Component:
   - component: {fileID: 798209754}
   - component: {fileID: 798209755}
+  - component: {fileID: 798209756}
   m_Layer: 0
   m_Name: Bombilla
   m_TagString: Untagged
@@ -759,6 +727,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goToPoint: {fileID: 734362089}
+--- !u!114 &798209756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798209753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69172fd0a1171fb49867d2f73b138b1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &829975019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1482,6 +1462,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 954205600240339045}
+  - component: {fileID: 8818336922605507845}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1489,6 +1470,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8818336922605507845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8818336922605507844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a79bd7ab56ca64592c52a8b8067715, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8828857438884690366
 GameObject:
   m_ObjectHideFlags: 0
@@ -1533,7 +1526,6 @@ SceneRoots:
   - {fileID: 39129216}
   - {fileID: 8991594436716007875}
   - {fileID: 1740787104}
-  - {fileID: 51284221}
   - {fileID: 532427435}
   - {fileID: 8347970975839338076}
   - {fileID: 1207807187}
