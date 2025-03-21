@@ -5,13 +5,15 @@ using UnityEngine;
 public class InteractableBombilla : MonoBehaviour, IInteractable
 {
     private Light luz;
-    private bool lightIsOn; 
+    private bool lightIsOn;
+    public bool LightIsOn { get; set; }
     private void Start()
     {
-        luz = GetComponentInChildren<Light>();
+        luz = GetComponentInChildren <Light>();
         if (luz.enabled) lightIsOn=true;
         else lightIsOn = false;
     }
+  
     public void OnClickAction()
     {
         SwitchLight();

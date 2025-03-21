@@ -1,25 +1,42 @@
 using UnityEngine;
-
+using System.Collections;
+using System; 
 public class PlayerController : MonoBehaviour {
     private float speed = 10f;
     private float accuracy = 0.5f;
-    public void MoveToPoint(Vector2 targetPoint)
-    {
-        Vector2 targetX = new Vector2(targetPoint.x, transform.position.y);
-        while (Vector2.Distance(transform.position, targetX) > accuracy)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, targetX, speed * Time.deltaTime);
+    private bool isMoving;
 
+    public IEnumerator MoveToPoint(Vector2 point, Action onArrived = null) 
+    {
+        isMoving = true;
+        Vector2 targetPoint = new Vector2(point.x, transform.position.y);
+
+        while (Vector2.Distance(transform.position, targetPoint) > accuracy)
+        {
+
+            transform.position = Vector2.MoveTowards(
+                transform.position,
+                targetPoint,
+                speed * Time.deltaTime
+            );
+            yield return null;
         }
-        transform.position = targetX;
+
+        transform.position = targetPoint;
+        isMoving = false;
+        onArrived?.Invoke(); 
     }
 
     public void GoToItem(ItemData item)
     {
+        IInteractable interactableItem = item.GetComponent<IInteractable>();
+        if (interactableItem == null) return;
 
-        MoveToPoint(item.GoToPoint.position);
-
+        StartCoroutine(MoveToPoint(item.GoToPoint.position, () => Interact(interactableItem)));
     }
 
-    
+    public void Interact(IInteractable item)
+    {
+        item.OnClickAction(); 
+    }
 }

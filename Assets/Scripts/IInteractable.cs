@@ -1,8 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface IInteractable 
-{
-    void OnClickAction() { }
+public interface IInteractable {
+    void OnClickAction(); // Elimina la implementación por defecto
 }
