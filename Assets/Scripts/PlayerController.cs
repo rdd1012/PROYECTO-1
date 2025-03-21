@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour {
     private float speed = 10f;
     private float accuracy = 0.5f;
     private bool isMoving;
+    private IInteractable interaction;
 
     public IEnumerator MoveToPoint(Vector2 point, Action onArrived = null) 
     {
@@ -26,13 +27,20 @@ public class PlayerController : MonoBehaviour {
         isMoving = false;
         onArrived?.Invoke(); 
     }
-
+    private void OnArrival()
+    {
+        if (interaction != null)
+        {
+            Interact(interaction);
+            interaction = null; 
+        }
+    }
     public void GoToItem(ItemData item)
     {
         IInteractable interactableItem = item.GetComponent<IInteractable>();
         if (interactableItem == null) return;
 
-        StartCoroutine(MoveToPoint(item.GoToPoint.position, () => Interact(interactableItem)));
+        StartCoroutine(MoveToPoint(item.GoToPoint.position, OnArrival));
     }
 
     public void Interact(IInteractable item)
