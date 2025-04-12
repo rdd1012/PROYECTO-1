@@ -2,11 +2,24 @@ using UnityEngine;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
-    private float speed = 10f;
+    public static PlayerController Instance; // Añade esta línea
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+        private float speed = 10f;
     private bool isMovingLeft=false;
     public bool IsMovingLeft { get { return isMovingLeft; } }
 
-    public void GoToItem(ItemData item)
+    public void GoToItem(InteractableData item)
     {
         IInteractable interactableItem = item.GetComponent<IInteractable>();
         if (interactableItem == null) return;

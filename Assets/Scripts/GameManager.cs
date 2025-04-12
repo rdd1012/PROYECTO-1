@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
-
+    public static GameManager Instance;
     [SerializeField] private Texture2D interactiveCursorTexture;
 
     
@@ -13,5 +13,22 @@ public class GameManager : MonoBehaviour {
     public void SetCursorDefault()
     {
         Cursor.SetCursor(default, default, default);
+    }
+    [Header("Inventario")]
+    public GameObject canvasInventario;
+    public GameObject[] itemsSlots,itemImages;
+    public Sprite emptySlots;
+    void Awake()
+    {
+        // Implementación Singleton
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Opcional: persistir entre escenas
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
