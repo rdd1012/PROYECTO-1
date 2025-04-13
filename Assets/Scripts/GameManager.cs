@@ -20,11 +20,10 @@ public class GameManager : MonoBehaviour {
     public Sprite emptySlots;
     void Awake()
     {
-        // Implementación Singleton
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Opcional: persistir entre escenas
+            DontDestroyOnLoad(gameObject); 
         }
         else
         {
