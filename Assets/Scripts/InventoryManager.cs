@@ -11,6 +11,10 @@ public class InventoryManager : MonoBehaviour
     {
         Instance = this;
     }
+    private void Start()
+    {
+        UpdateUI();
+    }
 
     public void AddItem(Item newItem)
     {

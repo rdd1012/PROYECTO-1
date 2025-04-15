@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
-    public static PlayerController Instance; // Añade esta línea
+    public static PlayerController Instance; 
 
     void Awake()
     {
@@ -30,7 +30,8 @@ public class PlayerController : MonoBehaviour {
     {
         Vector2 targetPoint = new Vector2(point.x, transform.position.y);
 
-         isMovingLeft = targetPoint.x < transform.position.x;
+        //if (targetPoint.x != transform.position.x) 
+        isMovingLeft = targetPoint.x < transform.position.x;
 
         while (Vector2.Distance(transform.position, targetPoint) > 0f)
         {
