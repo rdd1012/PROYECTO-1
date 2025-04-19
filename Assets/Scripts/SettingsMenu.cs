@@ -1,59 +1,57 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.Audio;
+using TMPro;
 using UnityEngine.UI;
 
-public class SettingsMenu : MonoBehaviour
-{
-    [SerializeField] private AudioMixer audioMixer;
-    [SerializeField] private TextMeshProUGUI counterText;
-    [SerializeField] private TMP_Dropdown resolutionDropdown;
-    float counter;
-
-    Resolution[] resolutions;
+public class SettingsMenu : MonoBehaviour {
+    [Header("Referencias UI")]
+    [SerializeField] private Slider masterSlider;
+    [SerializeField] private Slider musicSlider;
+    [SerializeField] private Slider sfxSlider;
+    [SerializeField] private TextMeshProUGUI masterPercent;
+    [SerializeField] private TextMeshProUGUI musicPercent;
+    [SerializeField] private TextMeshProUGUI sfxPercent;
 
     private void Start()
     {
-        resolutions = Screen.resolutions;
-        resolutionDropdown.ClearOptions();
-        List<string> options = new List<string>() ;
-
-
-        int currentResolutionIndex = 0;
-        for (int i=0; i < resolutions.Length; i++ ) {
-            string option = resolutions[i].width + " x " + resolutions[i].height;
-            options.Add(option);
-
-            if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height) 
-            {
-                currentResolutionIndex = i;
-            }
-        }
-        resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value=currentResolutionIndex;
-        resolutionDropdown.RefreshShownValue();
+        InitializeSliders();
+        UpdateAllPercentages();
     }
 
-    public void SetVolume(float volume) {
-        audioMixer.SetFloat("mainVolume",volume);
-        counter = (volume+80f) * 1.25f;
-    }
-
-    public void SetFullScreen(bool isFullScreen) {
-        Screen.fullScreen = isFullScreen;
-    }
-    public void Update()
+    private void InitializeSliders()
     {
-        counter =(int)counter; 
-        counterText.text = counter.ToString();
-    }
-    public void SetResolution(int resolutionIndex) {
-        Resolution resolution = resolutions[resolutionIndex];
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+        // Configurar valores iniciales desde PlayerPrefs
+        masterSlider.value = AudioManager.Instance.GetLinearVolume("MasterVolume");
+        musicSlider.value = AudioManager.Instance.GetLinearVolume("MusicVolume");
+        sfxSlider.value = AudioManager.Instance.GetLinearVolume("SFXVolume");
+
+        // Configurar listeners
+        masterSlider.onValueChanged.AddListener(v => {
+            AudioManager.Instance.SetMasterVolume(v);
+            UpdatePercentages();
+        });
+
+        musicSlider.onValueChanged.AddListener(v => {
+            AudioManager.Instance.SetMusicVolume(v);
+            UpdatePercentages();
+        });
+
+        sfxSlider.onValueChanged.AddListener(v => {
+            AudioManager.Instance.SetSFXVolume(v);
+            UpdatePercentages();
+        });
     }
 
+    private void UpdateAllPercentages()
+    {
+        masterPercent.text = $"{Mathf.RoundToInt(masterSlider.value * 100)}%";
+        musicPercent.text = $"{Mathf.RoundToInt(musicSlider.value * 100)}%";
+        sfxPercent.text = $"{Mathf.RoundToInt(sfxSlider.value * 100)}%";
+    }
 
+    private void UpdatePercentages()
+    {
+        masterPercent.text = $"{Mathf.RoundToInt(masterSlider.value * 100)}%";
+        musicPercent.text = $"{Mathf.RoundToInt(AudioManager.Instance.GetLinearVolume("MusicVolume") * 100)}%";
+        sfxPercent.text = $"{Mathf.RoundToInt(AudioManager.Instance.GetLinearVolume("SFXVolume") * 100)}%";
+    }
 }
