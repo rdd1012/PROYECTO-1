@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86149b2035fb2754580670188e1e8430, type: 3}
-  m_Name: Cepillo
+  m_Name: Pomo
   m_EditorClassIdentifier: 
-  itemID: 0
-  itemName: Cepillo
+  itemID: 2
+  itemName: Pomo
   icon: {fileID: 21300000, guid: d353fba27b9cf5944ad98f6553925150, type: 3}

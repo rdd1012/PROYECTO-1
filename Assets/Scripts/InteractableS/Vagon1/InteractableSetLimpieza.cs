@@ -15,7 +15,8 @@ public class InteractableSetLimpieza : MonoBehaviour, IInteractable {
                if (_item.itemID == item.itemID) 
                {
                     inventoryHasItem = true;
-               }
+                    break;
+                }
             }
             if (!inventoryHasItem) InventoryManager.Instance.AddItem(item);
             

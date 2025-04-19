@@ -178,8 +178,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1166497672728154000}
   - component: {fileID: 1495095748082605227}
-  - component: {fileID: 5211613986685054299}
   - component: {fileID: 1669302491398248399}
+  - component: {fileID: 2570192761569445210}
   m_Layer: 0
   m_Name: BombillaItem
   m_TagString: Untagged
@@ -218,18 +218,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goToPoint: {fileID: 2429326267796511747}
   requiredItemID: -1
---- !u!114 &5211613986685054299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4601458160192739557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69172fd0a1171fb49867d2f73b138b1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &1669302491398248399
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -282,6 +270,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2570192761569445210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4601458160192739557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa9ccc0071ee5d489a50c28d47adca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4634063778378116545
 GameObject:
   m_ObjectHideFlags: 0
