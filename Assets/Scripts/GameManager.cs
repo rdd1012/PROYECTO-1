@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
     public static GameManager Instance;
+    private int target = 60;
     [SerializeField] private Texture2D interactiveCursorTexture;
 
     
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour {
     public Sprite emptySlots;
     void Awake()
     {
+
         if (Instance == null)
         {
             Instance = this;
@@ -29,5 +31,8 @@ public class GameManager : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = target;
     }
+
 }
