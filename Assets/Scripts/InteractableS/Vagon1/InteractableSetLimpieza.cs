@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractableSetLimpieza : MonoBehaviour, IInteractable {
-    [SerializeField] private Item item;
+    [SerializeField] private Item itemToGive;
     private bool inventoryHasItem = false;
     public void OnClickAction()
     {
@@ -16,7 +16,7 @@ public class InteractableSetLimpieza : MonoBehaviour, IInteractable {
         {
             foreach (Item _item in InventoryManager.Instance.items)
             {
-                if (_item.itemID == item.itemID)
+                if (_item.itemID == itemToGive.itemID)
                 {
                     inventoryHasItem = true;
                     break;
@@ -24,7 +24,7 @@ public class InteractableSetLimpieza : MonoBehaviour, IInteractable {
             }
             if (!inventoryHasItem)
             {
-                InventoryManager.Instance.AddItem(item);
+                InventoryManager.Instance.AddItem(itemToGive);
                 inventoryHasItem = true;
             }
 

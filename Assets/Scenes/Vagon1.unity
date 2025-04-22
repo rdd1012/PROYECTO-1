@@ -337,7 +337,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goToPoint: {fileID: 1772866103}
-  requiredItemID: -1
+  requiredItemID: 2
+  requireSelectedItem: 1
 --- !u!1 &85938113
 GameObject:
   m_ObjectHideFlags: 0
@@ -1511,7 +1512,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goToPoint: {fileID: 1049964466}
-  requiredItemID: -1
+  requiredItemID: 0
+  requireSelectedItem: 1
 --- !u!1 &387737987
 GameObject:
   m_ObjectHideFlags: 0
@@ -2365,6 +2367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goToPoint: {fileID: 1651462588}
   requiredItemID: -1
+  requireSelectedItem: 1
 --- !u!114 &583374201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2377,7 +2380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ef174bc8a50c746bdadbdffa03d619, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 0be4e94ca9bd7fc4389260a35e3c4fef, type: 2}
+  itemToGive: {fileID: 11400000, guid: 0be4e94ca9bd7fc4389260a35e3c4fef, type: 2}
 --- !u!1 &634303471
 GameObject:
   m_ObjectHideFlags: 0
@@ -2547,7 +2550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408b8fb78deba75499130bf896ffde33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 593c056f1bb89024fb9b51a8dc716b9a, type: 2}
+  itemToGive: {fileID: 11400000, guid: 593c056f1bb89024fb9b51a8dc716b9a, type: 2}
   puzzleCanvas: {fileID: 634303474}
 --- !u!212 &677277460
 SpriteRenderer:
@@ -2615,6 +2618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goToPoint: {fileID: 795930659}
   requiredItemID: -1
+  requireSelectedItem: 1
 --- !u!1 &795930658
 GameObject:
   m_ObjectHideFlags: 0
@@ -4667,7 +4671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6e7b4c3077125d438812a0f9e477747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 1e3f42d612310f6479ba35d85c3fe398, type: 2}
+  itemToGive: {fileID: 11400000, guid: 1e3f42d612310f6479ba35d85c3fe398, type: 2}
 --- !u!212 &1652100388
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4733,7 +4737,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goToPoint: {fileID: 956619768}
-  requiredItemID: -1
+  requiredItemID: 1
+  requireSelectedItem: 1
 --- !u!1 &1740787102
 GameObject:
   m_ObjectHideFlags: 0
@@ -5586,16 +5591,36 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1366357889535351514, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: selectedSlotColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366357889535351514, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: selectedSlotColor.g
+      value: 0.9559487
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366357889535351514, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: selectedSlotColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603630080115702167, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4179789230362554413}
+    - target: {fileID: 2603630080115702167, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4179789230362554413}
     - target: {fileID: 2735168736663999372, guid: 521d1d5290c92aa49a76f57707512133,
         type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 330585545}
-    - target: {fileID: 2735168736663999372, guid: 521d1d5290c92aa49a76f57707512133,
-        type: 3}
-      propertyPath: m_PlaneDistance
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3851412734031756080, guid: 521d1d5290c92aa49a76f57707512133,
         type: 3}
       propertyPath: m_Name
@@ -5701,6 +5726,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7013393189429829693, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4179789230362554413}
+    - target: {fileID: 7013393189429829693, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4179789230362554413}
+    - target: {fileID: 7847479921814540744, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4179789230362554413}
+    - target: {fileID: 7847479921814540744, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4179789230362554413}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

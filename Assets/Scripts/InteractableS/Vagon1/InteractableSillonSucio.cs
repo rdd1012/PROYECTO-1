@@ -4,11 +4,21 @@ using UnityEngine;
 using static UnityEditor.Progress;
 
 public class InteractableSillonSucio : MonoBehaviour, IInteractable {
+    bool teniaObjeto = false;
+    private InteractableData interactableData;
+    private void Start()
+    {
+        interactableData = GetComponent<InteractableData>();
+    }
     public void OnClickAction()
     {
-        QuitarItem(0);       
+        if (interactableData.CheckItemRequirement())
+        {
+            QuitarItem(interactableData.requiredItemID);
+        }
     }
-    private void QuitarItem(int itemID) {
+    private void QuitarItem(int itemID)
+    {
 
         if (InventoryManager.Instance != null)
         {
@@ -16,6 +26,7 @@ public class InteractableSillonSucio : MonoBehaviour, IInteractable {
             {
                 if (_item.itemID == itemID)
                 {
+                    teniaObjeto = true;
                     InventoryManager.Instance.RemoveItem(itemID);
                     break;
                 }
