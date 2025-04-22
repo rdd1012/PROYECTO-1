@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 public class BackGroundMusic : MonoBehaviour
 {
     AudioSource audioSource;
-    [SerializeField] List<AudioClip> listaMusicaMenu = new List<AudioClip>();
-    [SerializeField] List<AudioClip> listaMusicaNivel1 = new List<AudioClip>();
-    private List<AudioSource> audioSources = new List<AudioSource>();
+    [SerializeField] List<AudioClip> listaMusicaMenu = new();
+    [SerializeField] List<AudioClip> listaMusicaNivel1 = new();
+    private List<AudioSource> audioSources = new();
     public static BackGroundMusic Instance { get; private set; }
     int escena;
     private void Awake()
