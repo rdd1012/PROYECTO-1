@@ -1,38 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Timeline.Actions.MenuPriority;
 
 public class InteractableNPCLibro : MonoBehaviour, IInteractable {
-    [SerializeField] private Item item;
-    bool inventoryHasItem = false;
-    bool teniaObjeto=false;
+    private InteractableData interactableData; 
+    [SerializeField] private Item itemToGive; 
+    bool teniaObjeto = false;
+    private bool inventoryHasItem = false;
+    private void Start()
+    {
+        interactableData = GetComponent<InteractableData>();
+    }
     public void OnClickAction()
     {
-        QuitarItem(1);
-        if (teniaObjeto) GiveItem();
-
-
-    }
-    private void GiveItem()
-    {
-        if (InventoryManager.Instance != null)
+        if (interactableData.CheckItemRequirement())
         {
-            foreach (Item _item in InventoryManager.Instance.items)
+            QuitarItem(interactableData.requiredItemID);
+            if (teniaObjeto)
             {
-                if (_item.itemID == item.itemID)
-                {
-                    inventoryHasItem = true;
-                    break;
-                }
+                GiveItem();
             }
-            if (!inventoryHasItem)
-            {
-                InventoryManager.Instance.AddItem(item);
-                inventoryHasItem = true;
-            }
-
+        }
+        else
+        {
+            Debug.Log("Necesitas el item requerido");
         }
     }
+
+
     private void QuitarItem(int itemID)
     {
 
@@ -49,6 +43,24 @@ public class InteractableNPCLibro : MonoBehaviour, IInteractable {
             }
         }
     }
+    private void GiveItem()
+    {
+        if (InventoryManager.Instance != null)
+        {
+            foreach (Item _item in InventoryManager.Instance.items)
+            {
+                if (_item.itemID == itemToGive.itemID)
+                {
+                    inventoryHasItem = true;
+                    break;
+                }
+            }
+            if (!inventoryHasItem)
+            {
+                InventoryManager.Instance.AddItem(itemToGive);
+                inventoryHasItem = true;
+            }
 
-
+        }
+    }
 }

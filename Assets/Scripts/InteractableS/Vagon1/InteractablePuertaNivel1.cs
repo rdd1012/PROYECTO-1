@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class InteractablePuertaNivel1 : MonoBehaviour, IInteractable {
     bool teniaObjeto = false;
+    private InteractableData interactableData;
+    private void Start()
+    {
+        interactableData = GetComponent<InteractableData>();
+    }
     public void OnClickAction()
     {
-        QuitarItem(2);
+        QuitarItem(interactableData.requiredItemID);
         if (teniaObjeto) { }
     }
     private void QuitarItem(int itemID)
