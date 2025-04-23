@@ -4,7 +4,6 @@ using UnityEngine;
 using static UnityEditor.Progress;
 
 public class InteractableSillonSucio : MonoBehaviour, IInteractable {
-    bool teniaObjeto = false;
     private InteractableData interactableData;
     private void Start()
     {
@@ -26,7 +25,6 @@ public class InteractableSillonSucio : MonoBehaviour, IInteractable {
             {
                 if (_item.itemID == itemID)
                 {
-                    teniaObjeto = true;
                     InventoryManager.Instance.RemoveItem(itemID);
                     break;
                 }
