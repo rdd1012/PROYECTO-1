@@ -68,6 +68,7 @@ public class InventoryManager : MonoBehaviour
         if (itemToRemove != null)
         {
             items.Remove(itemToRemove);
+            DeselectItem();
             UpdateUI();
         }
     }

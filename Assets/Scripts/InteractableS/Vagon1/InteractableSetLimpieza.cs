@@ -5,9 +5,15 @@ using UnityEngine;
 
 public class InteractableSetLimpieza : MonoBehaviour, IInteractable {
     [SerializeField] private Item itemToGive;
+    private InteractableVisuals interactableVisuals;
     private bool inventoryHasItem = false;
+    private void Start()
+    {
+        interactableVisuals = transform.parent.GetComponentInChildren<InteractableVisuals>();
+    }
     public void OnClickAction()
     {
+        interactableVisuals.DoSelectAnimation();
         GiveItem();
     }
     private void GiveItem()
