@@ -9,11 +9,18 @@ public class InteractableNPCMaletin : MonoBehaviour, IInteractable {
     private bool inventoryHasItem = false;
     [SerializeField] private Item itemToGive;
     [SerializeField] private Canvas puzzleCanvas;
+    //private InteractableVisuals interactableVisuals;
     public bool GetPuzzleCompleto() { return puzzleCompleto; }
     public void SetPuzzleCompleto(bool _puzzleCompleto) { puzzleCompleto = _puzzleCompleto; }
+    private void Start()
+    {
+        //interactableVisuals = transform.parent.GetComponentInChildren<InteractableVisuals>();
+    }
     public void OnClickAction()
     {
-        puzzleCanvas.gameObject.SetActive(true);
+
+        // interactableVisuals.DoSelectAnimation();
+        if (!puzzleCompleto) puzzleCanvas.gameObject.SetActive(true);
     }
     private void Update()
     {

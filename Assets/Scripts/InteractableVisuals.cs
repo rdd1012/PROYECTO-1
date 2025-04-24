@@ -9,6 +9,7 @@ public class InteractableVisuals : MonoBehaviour {
 
     private void Start()
     {
+
         escalaOG = transform.localScale;
     }
 

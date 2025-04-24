@@ -14,7 +14,7 @@ public class CameraController : MonoBehaviour
         if (Input.mousePosition.x < edgeScrollSize) { inputDir.x = -1f; }
         if (Input.mousePosition.x > Screen.width - edgeScrollSize) { inputDir.x = +1f; }
         Vector3 moveDir = transform.right * inputDir.x;
-        float moveSpeed = 10f;
+        float moveSpeed = 15f;
 
         transform.position += moveDir * moveSpeed * Time.deltaTime;
     }
