@@ -3025,7 +3025,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 80fd9466acbbbf7438b7b684d886dd98,
         type: 3}
       propertyPath: m_Name
-      value: Extraer
+      value: VagonMESH
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
