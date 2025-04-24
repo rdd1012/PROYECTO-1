@@ -10,7 +10,7 @@ public class PuzzleMaletin : MonoBehaviour {
     private int numero1 = 0;
     private int numero2 = 0;
     private int numero3 = 0;
-    [SerializeField] InteractableNPCMaletin interactableNPCMaletin;
+    [SerializeField] InteractableMaletin interactableNPCMaletin;
 
     [SerializeField] int[] numerosSolucion;
 

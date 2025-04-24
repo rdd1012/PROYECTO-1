@@ -4,22 +4,22 @@ using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEditor.Progress;
 
-public class InteractableNPCMaletin : MonoBehaviour, IInteractable {
+public class InteractableMaletin : MonoBehaviour, IInteractable {
     private bool puzzleCompleto = false;
     private bool inventoryHasItem = false;
     [SerializeField] private Item itemToGive;
     [SerializeField] private Canvas puzzleCanvas;
-    //private InteractableVisuals interactableVisuals;
+    private InteractableVisuals interactableVisuals;
     public bool GetPuzzleCompleto() { return puzzleCompleto; }
     public void SetPuzzleCompleto(bool _puzzleCompleto) { puzzleCompleto = _puzzleCompleto; }
     private void Start()
     {
-        //interactableVisuals = transform.parent.GetComponentInChildren<InteractableVisuals>();
+        interactableVisuals = transform.parent.GetComponentInChildren<InteractableVisuals>();
     }
     public void OnClickAction()
     {
 
-        // interactableVisuals.DoSelectAnimation();
+         interactableVisuals.DoSelectAnimation();
         if (!puzzleCompleto) puzzleCanvas.gameObject.SetActive(true);
     }
     private void Update()

@@ -13,6 +13,7 @@ public class InteractableBombilla : MonoBehaviour, IInteractable
     [SerializeField] Sprite spriteApagado;
     private void Start()
     {
+        spriteRenderer = transform.parent.GetComponentInChildren<SpriteRenderer>();
         interactableVisuals = transform.parent.GetComponentInChildren<InteractableVisuals>();
         luz = GetComponentInChildren <Light>();
         if (luz.enabled) lightIsOn=true;
@@ -24,7 +25,7 @@ public class InteractableBombilla : MonoBehaviour, IInteractable
         interactableVisuals.DoSelectAnimation();
         SwitchLight();
     }
-    private void TurnOnLight() { luz.enabled = true; lightIsOn = true; }
-    private void TurnOffLight() { luz.enabled = false; lightIsOn = false; }
+    private void TurnOnLight() { luz.enabled = true; lightIsOn = true; spriteRenderer.sprite = spriteEncendido; }
+    private void TurnOffLight() { luz.enabled = false; lightIsOn = false; spriteRenderer.sprite = spriteApagado; }
     private void SwitchLight() { if (lightIsOn) TurnOffLight(); else TurnOnLight(); }
 }

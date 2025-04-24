@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 2
   itemName: Pomo
-  icon: {fileID: 21300000, guid: f408bf3d8e5d585478614b04d06bf9dc, type: 3}
+  icon: {fileID: 21300000, guid: 8c731640bbc606d4896fd29669c92364, type: 3}
