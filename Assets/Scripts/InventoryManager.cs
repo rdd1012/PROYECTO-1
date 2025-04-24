@@ -78,7 +78,31 @@ public class InventoryManager : MonoBehaviour
         for (int i = 0; i < itemSlots.Length; i++)
         {
             var slotImage = itemSlots[i].GetComponent<UnityEngine.UI.Image>();
-            slotImage.sprite = i < items.Count ? items[i].icon : GameManager.Instance.emptySlots;
+
+            if (slotImage != null)
+            {
+                // asignar sprite y ajustar tamaño
+                if (i < items.Count && items[i].icon != null)
+                {
+                    slotImage.sprite = items[i].icon;
+                    slotImage.enabled = true;
+
+                    // ajustar tamaño del sprite
+                    RectTransform rectTransform = itemSlots[i].GetComponent<RectTransform>();
+                    rectTransform.sizeDelta = new Vector2(550, 550); 
+                    slotImage.preserveAspect = true;
+                }
+                else
+                {
+                    // sprite para slot vacío
+                    slotImage.sprite = GameManager.Instance.emptySlots;
+                    slotImage.enabled = false; 
+                }
+            }
+            else
+            {
+                Debug.LogWarning($"Slot {i} no tiene componente Image");
+            }
         }
     }
 }

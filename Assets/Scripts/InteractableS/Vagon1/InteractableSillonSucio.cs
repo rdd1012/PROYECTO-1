@@ -5,12 +5,15 @@ using static UnityEditor.Progress;
 
 public class InteractableSillonSucio : MonoBehaviour, IInteractable {
     private InteractableData interactableData;
+    //private InteractableVisuals interactableVisuals;
     private void Start()
     {
+        //interactableVisuals = transform.parent.GetComponentInChildren<InteractableVisuals>();
         interactableData = GetComponent<InteractableData>();
     }
     public void OnClickAction()
     {
+        // interactableVisuals.DoSelectAnimation();
         if (interactableData.CheckItemRequirement())
         {
             QuitarItem(interactableData.requiredItemID);

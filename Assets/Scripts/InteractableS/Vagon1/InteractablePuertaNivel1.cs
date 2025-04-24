@@ -5,12 +5,16 @@ using UnityEngine;
 public class InteractablePuertaNivel1 : MonoBehaviour, IInteractable {
     bool teniaObjeto = false;
     private InteractableData interactableData;
+    //private InteractableVisuals interactableVisuals;
+
     private void Start()
     {
+        //interactableVisuals = transform.parent.GetComponentInChildren<InteractableVisuals>();
         interactableData = GetComponent<InteractableData>();
     }
     public void OnClickAction()
     {
+       // interactableVisuals.DoSelectAnimation();
         QuitarItem(interactableData.requiredItemID);
         if (teniaObjeto) { }
     }

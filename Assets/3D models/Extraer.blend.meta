@@ -3,7 +3,87 @@ guid: 80fd9466acbbbf7438b7b684d886dd98
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 14_Madera
+    second: {fileID: 2100000, guid: 6c9bc5ad85c63a444ab80e81eed66b14, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Interior_tren
+    second: {fileID: 2100000, guid: fdf7310a378063b43a9815c664567bc9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal
+    second: {fileID: 2100000, guid: 51ba9f6eff806a842a7182caeaf36655, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal_2
+    second: {fileID: 2100000, guid: a57840f5f76b16c408592123b3250e94, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal_3
+    second: {fileID: 2100000, guid: c6a8bf57b7c801f4bbd5841334572b6d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal_4
+    second: {fileID: 2100000, guid: 9c1f1e2df02df3741950df193c676ef4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cajoneras
+    second: {fileID: 2100000, guid: d411d0e825c576d4596be31a8901b7c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: exterior_tren
+    second: {fileID: 2100000, guid: a024c9323f9d29541b93d81e8c0f0a4a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lampara
+    second: {fileID: 2100000, guid: acf548dd09c38ec47ab8dd89a1c5da7e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: madera_2
+    second: {fileID: 2100000, guid: be0f2a04763d8364c90198f3c736f0b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal_4
+    second: {fileID: 2100000, guid: 9d66a77182a476f4cac83bd0404f16d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal_5
+    second: {fileID: 2100000, guid: 96274c7f6bb84e14a827a387c394313d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: textil
+    second: {fileID: 2100000, guid: 9bbc9831b0ea366438295223000c48d8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: textil_2
+    second: {fileID: 2100000, guid: 48a2bacab19b6fb4da6bb6d5443617bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ventana
+    second: {fileID: 2100000, guid: 6ebd16ef8a7173d4e8856913742571f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: vias
+    second: {fileID: 2100000, guid: f96bb60d8d7c4db44ac97bffc9930af6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
