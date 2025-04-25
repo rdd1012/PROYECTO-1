@@ -10,6 +10,8 @@ public class SillonSucioPantalla : MonoBehaviour
         if (sillon.InteractableData.CheckItemRequirement())
         {
             sillon.QuitarItem(sillon.InteractableData.requiredItemID);
+            image.gameObject.SetActive(false);
+            GameManager.Instance.SetCursorDefault();
         }
 
     }
