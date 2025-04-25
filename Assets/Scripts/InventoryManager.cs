@@ -81,16 +81,10 @@ public class InventoryManager : MonoBehaviour
 
             if (slotImage != null)
             {
-                // asignar sprite y ajustar tamaño
                 if (i < items.Count && items[i].icon != null)
                 {
                     slotImage.sprite = items[i].icon;
                     slotImage.enabled = true;
-
-                    // ajustar tamaño del sprite
-                    RectTransform rectTransform = itemSlots[i].GetComponent<RectTransform>();
-                    rectTransform.sizeDelta = new Vector2(550, 550); 
-                    slotImage.preserveAspect = true;
                 }
                 else
                 {

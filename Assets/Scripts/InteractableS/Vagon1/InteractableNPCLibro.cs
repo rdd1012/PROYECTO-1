@@ -6,15 +6,12 @@ public class InteractableNPCLibro : MonoBehaviour, IInteractable {
     [SerializeField] private Item itemToGive; 
     bool teniaObjeto = false;
     private bool inventoryHasItem = false;
-    //private InteractableVisuals interactableVisuals;
     private void Start()
     {
-       // interactableVisuals = transform.parent.GetComponentInChildren<InteractableVisuals>();
         interactableData = GetComponent<InteractableData>();
     }
     public void OnClickAction()
     {
-        //interactableVisuals.DoSelectAnimation();
         if (interactableData.CheckItemRequirement())
         {
             QuitarItem(interactableData.requiredItemID);

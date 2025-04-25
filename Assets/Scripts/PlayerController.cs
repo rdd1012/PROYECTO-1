@@ -2,7 +2,8 @@ using UnityEngine;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
-    public static PlayerController Instance; 
+    public static PlayerController Instance;
+    bool isMoving=false;
 
     void Awake()
     {
@@ -21,10 +22,20 @@ public class PlayerController : MonoBehaviour {
 
     public void GoToItem(InteractableData item)
     {
+        if (item == null || item.GoToPoint == null) return; 
+
+        InteractableVisuals itemvisuals = item.transform.parent.GetComponentInChildren<InteractableVisuals>();
+        if (itemvisuals == null) return; 
+
         IInteractable interactableItem = item.GetComponent<IInteractable>();
         if (interactableItem == null) return;
 
-        StartCoroutine(MoveToPoint(item.GoToPoint.position, interactableItem));
+        StartCoroutine(itemvisuals.SelectAnimation());
+
+        if (!isMoving)
+        {
+            StartCoroutine(MoveToPoint(item.GoToPoint.position, interactableItem));
+        }
     }
     public IEnumerator MoveToPoint(Vector2 point, IInteractable interactable)
     {
@@ -35,9 +46,11 @@ public class PlayerController : MonoBehaviour {
 
         while (Vector2.Distance(transform.position, targetPoint) > 0f)
         {
+            isMoving = true;
             transform.position = Vector2.MoveTowards(transform.position, targetPoint, speed * Time.deltaTime);
             yield return null;
         }
+        isMoving = false;
 
         transform.position = targetPoint;
 
