@@ -40,7 +40,6 @@ public class PuzzleMaletin : MonoBehaviour {
     }
     IEnumerator VerificacionRetrasada()
     {
-        verificandoSolucion = true;
 
         
         yield return new WaitForSecondsRealtime(1f); 
@@ -58,7 +57,6 @@ public class PuzzleMaletin : MonoBehaviour {
             PantallaVictoria();
         }
 
-        verificandoSolucion = false;
     }
     public void SumarNumero(TextMeshProUGUI numeroTMP)
     {

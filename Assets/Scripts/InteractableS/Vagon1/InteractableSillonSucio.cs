@@ -5,18 +5,20 @@ using static UnityEditor.Progress;
 
 public class InteractableSillonSucio : MonoBehaviour, IInteractable {
     private InteractableData interactableData;
+    public InteractableData InteractableData { 
+        get {return interactableData; }
+        private set {interactableData = value; }}
+    [SerializeField] Canvas sillonSucioPantalla;
     private void Start()
     {
         interactableData = GetComponent<InteractableData>();
     }
     public void OnClickAction()
     {
-        if (interactableData.CheckItemRequirement())
-        {
-            QuitarItem(interactableData.requiredItemID);
-        }
+        sillonSucioPantalla.gameObject.SetActive(true);
+        
     }
-    private void QuitarItem(int itemID)
+    public void QuitarItem(int itemID)
     {
 
         if (InventoryManager.Instance != null)
