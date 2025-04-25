@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     public static GameManager Instance;
@@ -15,10 +16,11 @@ public class GameManager : MonoBehaviour {
     {
         Cursor.SetCursor(default, default, default);
     }
-    [Header("Inventario")]
-    public GameObject canvasInventario;
-    public GameObject[] itemsSlots,itemImages;
-    public Sprite emptySlots;
+    public void PasarDeNivel()
+    {
+       int EscenaActual= SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(EscenaActual++);
+    }
     void Awake()
     {
 

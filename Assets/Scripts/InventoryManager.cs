@@ -7,10 +7,12 @@ public class InventoryManager : MonoBehaviour
 {
     [SerializeField] private Color selectedSlotColor = Color.grey;
     public static InventoryManager Instance;
-    public List<Item> items = new List<Item>();
-    public GameObject[] itemSlots;
-    public Image[] slotImages;
-    public Item selectedItem;
+    [SerializeField] private List<Item> items = new List<Item>();
+    public List<Item> Items { get { return items; } set { items = Items; } }
+    [SerializeField]private GameObject[] itemSlots;
+    [SerializeField] private Image[] slotImages;
+    [SerializeField] private Item selectedItem;
+    public Item SelectedItem { get { return selectedItem; } set { selectedItem = SelectedItem; } }
     private int selectedSlotIndex = -1;
 
     void Awake()
@@ -89,7 +91,7 @@ public class InventoryManager : MonoBehaviour
                 else
                 {
                     // sprite para slot vacío
-                    slotImage.sprite = GameManager.Instance.emptySlots;
+                    slotImage.sprite = null;
                     slotImage.enabled = false; 
                 }
             }

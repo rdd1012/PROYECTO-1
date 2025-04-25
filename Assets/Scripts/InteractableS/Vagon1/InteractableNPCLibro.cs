@@ -32,7 +32,7 @@ public class InteractableNPCLibro : MonoBehaviour, IInteractable {
 
         if (InventoryManager.Instance != null)
         {
-            foreach (Item _item in InventoryManager.Instance.items)
+            foreach (Item _item in InventoryManager.Instance.Items)
             {
                 if (_item.itemID == itemID)
                 {
@@ -47,7 +47,7 @@ public class InteractableNPCLibro : MonoBehaviour, IInteractable {
     {
         if (InventoryManager.Instance != null)
         {
-            foreach (Item _item in InventoryManager.Instance.items)
+            foreach (Item _item in InventoryManager.Instance.Items)
             {
                 if (_item.itemID == itemToGive.itemID)
                 {
