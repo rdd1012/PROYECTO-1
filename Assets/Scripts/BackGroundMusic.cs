@@ -35,7 +35,8 @@ public class BackGroundMusic : MonoBehaviour
     {
         source.loop = true;
         source.playOnAwake = false;
-        source.spatialBlend = 0; 
+        source.spatialBlend = 0;
+        source.volume = 0.25f;
     }
     void CreateAudioSources(List<AudioClip> clips)
     {
