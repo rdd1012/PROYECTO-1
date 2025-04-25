@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class BackGroundMusic : MonoBehaviour
 {
+    [SerializeField]float volumen=1f;
     AudioSource audioSource;
     [SerializeField] List<AudioClip> listaMusicaMenu = new();
     [SerializeField] List<AudioClip> listaMusicaNivel1 = new();
@@ -36,7 +37,7 @@ public class BackGroundMusic : MonoBehaviour
         source.loop = true;
         source.playOnAwake = false;
         source.spatialBlend = 0;
-        source.volume = 0.25f;
+        source.volume = volumen;
     }
     void CreateAudioSources(List<AudioClip> clips)
     {

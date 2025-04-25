@@ -6,9 +6,11 @@ public class InteractableNPCLibro : MonoBehaviour, IInteractable {
     [SerializeField] private Item itemToGive; 
     bool teniaObjeto = false;
     private bool inventoryHasItem = false;
+    AudioSource audioSource;
     private void Start()
     {
         interactableData = GetComponent<InteractableData>();
+        audioSource = GetComponent<AudioSource>();
     }
     public void OnClickAction()
     {
@@ -59,6 +61,7 @@ public class InteractableNPCLibro : MonoBehaviour, IInteractable {
             {
                 InventoryManager.Instance.AddItem(itemToGive);
                 inventoryHasItem = true;
+                audioSource.Play();
             }
 
         }
