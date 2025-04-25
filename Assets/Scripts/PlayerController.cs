@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (item == null || item.GoToPoint == null) return; 
 
-        InteractableVisuals itemvisuals = item.transform.parent.GetComponentInChildren<InteractableVisuals>();
+        InteractableVisuals itemvisuals = item.GetComponentInChildren<InteractableVisuals>();
         if (itemvisuals == null) return; 
 
         IInteractable interactableItem = item.GetComponent<IInteractable>();
