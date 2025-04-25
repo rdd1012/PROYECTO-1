@@ -10,15 +10,15 @@ public class InteractableMaletin : MonoBehaviour, IInteractable {
     [SerializeField] private Item itemToGive;
     [SerializeField] private Canvas puzzleCanvas;
     private InteractableVisuals interactableVisuals;
+    AudioSource audioSource;
     public bool GetPuzzleCompleto() { return puzzleCompleto; }
     public void SetPuzzleCompleto(bool _puzzleCompleto) { puzzleCompleto = _puzzleCompleto; }
     private void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
     public void OnClickAction()
     {
-
         if (!puzzleCompleto) puzzleCanvas.gameObject.SetActive(true);
     }
     private void Update()
@@ -26,6 +26,7 @@ public class InteractableMaletin : MonoBehaviour, IInteractable {
         if (puzzleCompleto)
         {
             GiveItem();
+            
         }
     }
 
@@ -45,6 +46,7 @@ public class InteractableMaletin : MonoBehaviour, IInteractable {
             {
                 InventoryManager.Instance.AddItem(itemToGive);
                 inventoryHasItem = true;
+                audioSource.Play();
             }
 
         }

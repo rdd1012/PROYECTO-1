@@ -6,6 +6,11 @@ using UnityEngine;
 public class InteractableSetLimpieza : MonoBehaviour, IInteractable {
     [SerializeField] private Item itemToGive;
     private bool inventoryHasItem = false;
+    AudioSource audioSource;
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     public void OnClickAction()
     {
         GiveItem();
@@ -26,6 +31,7 @@ public class InteractableSetLimpieza : MonoBehaviour, IInteractable {
             {
                 InventoryManager.Instance.AddItem(itemToGive);
                 inventoryHasItem = true;
+                audioSource.Play();
             }
 
         }
