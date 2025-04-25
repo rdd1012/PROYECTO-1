@@ -14,11 +14,12 @@ public class InteractableData : MonoBehaviour
 
         if (requireSelectedItem)
         {
-            return InventoryManager.Instance.selectedItem?.itemID == requiredItemID;
+            return InventoryManager.Instance.SelectedItem?.itemID == requiredItemID;
         }
         else
         {
-            return InventoryManager.Instance.items.Exists(i => i.itemID == requiredItemID);
+            return InventoryManager.Instance.Items.Exists(i => i.itemID == requiredItemID);
+
         }
     }
 }

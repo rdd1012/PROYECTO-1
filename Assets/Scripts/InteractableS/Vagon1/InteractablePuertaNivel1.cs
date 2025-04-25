@@ -5,25 +5,22 @@ using UnityEngine;
 public class InteractablePuertaNivel1 : MonoBehaviour, IInteractable {
     bool teniaObjeto = false;
     private InteractableData interactableData;
-    //private InteractableVisuals interactableVisuals;
 
     private void Start()
     {
-        //interactableVisuals = transform.parent.GetComponentInChildren<InteractableVisuals>();
         interactableData = GetComponent<InteractableData>();
     }
     public void OnClickAction()
     {
-       // interactableVisuals.DoSelectAnimation();
         QuitarItem(interactableData.requiredItemID);
-        if (teniaObjeto) { }
+        if (teniaObjeto) { GameManager.Instance.PasarDeNivel(); }
     }
     private void QuitarItem(int itemID)
     {
 
         if (InventoryManager.Instance != null)
         {
-            foreach (Item _item in InventoryManager.Instance.items)
+            foreach (Item _item in InventoryManager.Instance.Items)
             {
                 if (_item.itemID == itemID)
                 {
