@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class InteractableVisuals : MonoBehaviour {
     Vector3 escalaOG;
-    private Coroutine currentAnimation;
 
     private void Start()
     {
@@ -13,16 +12,8 @@ public class InteractableVisuals : MonoBehaviour {
         escalaOG = transform.localScale;
     }
 
-    public void DoSelectAnimation()
-    {
-        if (currentAnimation != null)
-        {
-            StopCoroutine(currentAnimation);
-        }
-        currentAnimation = StartCoroutine(SelectAnimation());
-    }
 
-    IEnumerator SelectAnimation()
+    public IEnumerator SelectAnimation()
     {
         float duration = 0.1f;
         float elapsed = 0;

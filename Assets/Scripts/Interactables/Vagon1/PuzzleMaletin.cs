@@ -1,16 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class PuzzleMaletin : MonoBehaviour {
     [SerializeField] TextMeshProUGUI numeroUno;
     [SerializeField] TextMeshProUGUI numeroDos;
     [SerializeField] TextMeshProUGUI numeroTres;
+    [SerializeField] Image pantallaVictoria;
+    [SerializeField] Image puzzle;
+    [SerializeField] InteractableMaletin interactableMaletin;
+    private bool verificandoSolucion;
     private int numero1 = 0;
     private int numero2 = 0;
     private int numero3 = 0;
-    [SerializeField] InteractableMaletin interactableNPCMaletin;
 
     [SerializeField] int[] numerosSolucion;
 
@@ -30,10 +35,31 @@ public class PuzzleMaletin : MonoBehaviour {
             numero2 == numerosSolucion[1] &&
             numero3 == numerosSolucion[2])
         {
-            interactableNPCMaletin.SetPuzzleCompleto(true);
+            StartCoroutine(VerificacionRetrasada());
         }
     }
+    IEnumerator VerificacionRetrasada()
+    {
+        verificandoSolucion = true;
 
+        
+        yield return new WaitForSecondsRealtime(1f); 
+
+        
+        int numero1, numero2, numero3;
+        int.TryParse(numeroUno.text.Trim(), out numero1);
+        int.TryParse(numeroDos.text.Trim(), out numero2);
+        int.TryParse(numeroTres.text.Trim(), out numero3);
+
+        if (numero1 == numerosSolucion[0] &&
+            numero2 == numerosSolucion[1] &&
+            numero3 == numerosSolucion[2])
+        {
+            PantallaVictoria();
+        }
+
+        verificandoSolucion = false;
+    }
     public void SumarNumero(TextMeshProUGUI numeroTMP)
     {
         int numero;
@@ -64,4 +90,19 @@ public class PuzzleMaletin : MonoBehaviour {
         Time.timeScale = 1f;
         this.gameObject.SetActive(false);
     }
+    void PantallaVictoria()
+    {
+        puzzle.gameObject.SetActive(false);
+        pantallaVictoria.gameObject.SetActive(true);
+    }
+    public void LibroPantallaVictoria() 
+    {
+        StartCoroutine(LibroPantallaVictoriaCR());
+    }
+    IEnumerator LibroPantallaVictoriaCR() 
+    {
+        interactableMaletin.SetPuzzleCompleto(true);
+        yield return new WaitForSecondsRealtime(2f);
+        SalirPuzzle();
+    } 
 }

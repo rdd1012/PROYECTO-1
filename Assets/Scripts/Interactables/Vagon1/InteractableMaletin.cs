@@ -14,12 +14,11 @@ public class InteractableMaletin : MonoBehaviour, IInteractable {
     public void SetPuzzleCompleto(bool _puzzleCompleto) { puzzleCompleto = _puzzleCompleto; }
     private void Start()
     {
-        interactableVisuals = transform.parent.GetComponentInChildren<InteractableVisuals>();
+        
     }
     public void OnClickAction()
     {
 
-         interactableVisuals.DoSelectAnimation();
         if (!puzzleCompleto) puzzleCanvas.gameObject.SetActive(true);
     }
     private void Update()
@@ -29,6 +28,7 @@ public class InteractableMaletin : MonoBehaviour, IInteractable {
             GiveItem();
         }
     }
+
     private void GiveItem()
     {
         if (InventoryManager.Instance != null)
