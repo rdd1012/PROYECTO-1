@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
     public static PlayerController Instance;
-    bool isMoving=false;
+    bool isMoving = false;
     Animator anim;
     private void Start()
     {
@@ -22,16 +22,16 @@ public class PlayerController : MonoBehaviour {
             Destroy(gameObject);
         }
     }
-        private float speed = 10f;
-    private bool isMovingLeft=false;
+    private float speed = 10f;
+    private bool isMovingLeft = false;
     public bool IsMovingLeft { get { return isMovingLeft; } }
 
     public void GoToItem(InteractableData item)
     {
-        if (item == null || item.GoToPoint == null) return; 
+        if (item == null || item.GoToPoint == null) return;
 
         InteractableVisuals itemvisuals = item.GetComponentInChildren<InteractableVisuals>();
-        if (itemvisuals == null) return; 
+        if (itemvisuals == null) return;
 
         IInteractable interactableItem = item.GetComponent<IInteractable>();
         if (interactableItem == null) return;
@@ -40,28 +40,40 @@ public class PlayerController : MonoBehaviour {
 
         if (!isMoving)
         {
-            StartCoroutine(MoveToPoint(item.GoToPoint.position, interactableItem));
+            StartCoroutine(MoveToPoint(
+                item.GoToPoint.position, 
+                item.GetComponentInChildren<InteractableVisuals>().gameObject.transform.position, 
+                interactableItem
+                ));
         }
     }
-    public IEnumerator MoveToPoint(Vector2 point, IInteractable interactable)
+    public IEnumerator MoveToPoint(Vector2 point, Vector2 pointVisuals , IInteractable interactable)
     {
         Vector2 targetPoint = new Vector2(point.x, transform.position.y);
-        
-        //if (targetPoint.x != transform.position.x) 
-        isMovingLeft = targetPoint.x < transform.position.x;
+
+        isMoving = true;
+        anim.Play("Caminar");
+        anim.SetBool("EstaCaminando", true);
+
         while (Vector2.Distance(transform.position, targetPoint) > 0f)
         {
-            isMoving = true;
-            anim.Play("Caminar");
-            anim.SetBool("EstaCaminando", true);
+            Vector2 targetPointVisuals = new Vector2(pointVisuals.x, transform.position.y);
+            float direction = Mathf.Sign(targetPointVisuals.x - transform.position.x);
+
+            if (direction != Mathf.Sign(transform.localScale.x))
+            {
+                Vector3 newScale = transform.localScale;
+                newScale.x = Mathf.Abs(newScale.x) * direction;
+                transform.localScale = newScale;
+            }
 
             transform.position = Vector2.MoveTowards(transform.position, targetPoint, speed * Time.deltaTime);
             yield return null;
         }
+
         isMoving = false;
         anim.Play("Idle");
         anim.SetBool("EstaCaminando", false);
-
         transform.position = targetPoint;
 
         if (interactable != null)
