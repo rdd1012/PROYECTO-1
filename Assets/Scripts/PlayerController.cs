@@ -5,12 +5,14 @@ public class PlayerController : MonoBehaviour {
     public static PlayerController Instance;
     bool isMoving = false;
     Animator anim;
+
     private void Start()
     {
         anim = GetComponentInChildren<Animator>();
         anim.Play("Idle");
         anim.SetBool("EstaCaminando", false);
     }
+
     void Awake()
     {
         if (Instance == null)
@@ -22,6 +24,7 @@ public class PlayerController : MonoBehaviour {
             Destroy(gameObject);
         }
     }
+
     private float speed = 10f;
     private bool isMovingLeft = false;
     public bool IsMovingLeft { get { return isMovingLeft; } }
@@ -40,6 +43,7 @@ public class PlayerController : MonoBehaviour {
 
         Vector2 targetPoint = new Vector2(item.GoToPoint.position.x, transform.position.y);
 
+       
         if (Vector2.Distance(transform.position, targetPoint) <= 0.01f)
         {
             Interact(interactableItem);
@@ -55,6 +59,7 @@ public class PlayerController : MonoBehaviour {
             ));
         }
     }
+
     public IEnumerator MoveToPoint(Vector2 point, Vector2 pointVisuals, IInteractable interactable)
     {
         Vector2 targetPoint = new Vector2(point.x, transform.position.y);
@@ -65,6 +70,7 @@ public class PlayerController : MonoBehaviour {
         Vector2 targetPointVisuals = new Vector2(pointVisuals.x, transform.position.y);
         float direction = Mathf.Sign(targetPointVisuals.x - transform.position.x);
 
+        
         if (direction != Mathf.Sign(transform.localScale.x))
         {
             Vector3 newScale = transform.localScale;
@@ -72,13 +78,14 @@ public class PlayerController : MonoBehaviour {
             transform.localScale = newScale;
         }
 
+        
         while (Vector2.Distance(transform.position, targetPoint) > 0f)
         {
             transform.position = Vector2.MoveTowards(transform.position, targetPoint, speed * Time.deltaTime);
             yield return null;
         }
 
-        // Solo gira si hay diferencia en la posición X
+        
         if (!Mathf.Approximately(targetPointVisuals.x, targetPoint.x))
         {
             float lookDirection = Mathf.Sign(targetPointVisuals.x - transform.position.x);
@@ -90,6 +97,7 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
+        
         isMoving = false;
         anim.Play("Idle");
         anim.SetBool("EstaCaminando", false);
