@@ -2591,7 +2591,7 @@ MonoBehaviour:
   numeroTres: {fileID: 777778611}
   pantallaVictoria: {fileID: 2086189772}
   puzzle: {fileID: 1070829645}
-  interactableMaletin: {fileID: 0}
+  interactableMaletin: {fileID: 299751440}
   numerosSolucion: 020000000400000003000000
 --- !u!1 &660993800
 GameObject:
