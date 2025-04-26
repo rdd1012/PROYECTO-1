@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour {
         return EventSystem.current.IsPointerOverGameObject();
     }
 
-
+    
     public void SetCursorDefault()
     {
         Cursor.SetCursor(defaultCursorTexture, Vector2.zero, CursorMode.Auto);
