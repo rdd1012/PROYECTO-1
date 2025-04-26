@@ -38,6 +38,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Fondo
+    uniqueID: 1558106955
+    locked: 0
+  - name: Cortinas
+    uniqueID: 1203398363
+    locked: 0
+  - name: Bombillas
+    uniqueID: 950578181
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Delante
+    uniqueID: 3321316981
     locked: 0
