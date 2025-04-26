@@ -9,6 +9,7 @@ public class BackGroundMusic : MonoBehaviour
     [SerializeField] List<AudioClip> listaMusicaMenu = new();
     [SerializeField] List<AudioClip> listaMusicaNivel1 = new();
     private List<AudioSource> audioSources = new();
+    public List<AudioSource> AudioSources { get { return audioSources; } set { audioSources = AudioSources;  } }
     public static BackGroundMusic Instance { get; private set; }
     int escena;
     private void Awake()

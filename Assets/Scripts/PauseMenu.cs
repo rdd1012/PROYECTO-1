@@ -8,10 +8,12 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused;
     [SerializeField]private GameObject pauseMenuUI;
     [SerializeField] private GameObject optionsMenu;
+    AudioSource audioSource;
 
     private void Start()
     {
         GameIsPaused=false;
+        audioSource = GetComponent<AudioSource>();
     }
     // Update is called once per frame
     private void Update()
@@ -41,12 +43,22 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+        foreach (AudioSource audioSource in BackGroundMusic.Instance.AudioSources) 
+        {
+            audioSource.Stop();
+        }
+        audioSource.Play();
 
     }
     public void Resume(){
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
+        foreach (AudioSource audioSource in BackGroundMusic.Instance.AudioSources)
+        {
+            audioSource.Play();
+        }
+        audioSource.Stop();
 
     }
     public void QuitGame()
