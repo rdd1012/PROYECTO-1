@@ -10,11 +10,10 @@ public class InteractableNPCLibro : MonoBehaviour, IInteractable {
     SpriteRenderer spriteRenderer;
     [SerializeField] Sprite normal;
     [SerializeField] Sprite hablando;
-    [SerializeField] Sprite libroNormal;
-    [SerializeField] Sprite libroHablando;
+    [SerializeField] Sprite libro;
     private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         interactableData = GetComponent<InteractableData>();
         audioSource = GetComponent<AudioSource>();
     }
@@ -46,7 +45,9 @@ public class InteractableNPCLibro : MonoBehaviour, IInteractable {
                 {
                     teniaObjeto = true;
                     InventoryManager.Instance.RemoveItem(itemID);
+                    spriteRenderer.sprite = libro;
                     break;
+                    
                 }
             }
         }
@@ -68,6 +69,7 @@ public class InteractableNPCLibro : MonoBehaviour, IInteractable {
                 InventoryManager.Instance.AddItem(itemToGive);
                 inventoryHasItem = true;
                 audioSource.Play();
+                
             }
 
         }
