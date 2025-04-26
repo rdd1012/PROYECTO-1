@@ -7,8 +7,14 @@ public class InteractableNPCLibro : MonoBehaviour, IInteractable {
     bool teniaObjeto = false;
     private bool inventoryHasItem = false;
     AudioSource audioSource;
+    SpriteRenderer spriteRenderer;
+    [SerializeField] Sprite normal;
+    [SerializeField] Sprite hablando;
+    [SerializeField] Sprite libroNormal;
+    [SerializeField] Sprite libroHablando;
     private void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         interactableData = GetComponent<InteractableData>();
         audioSource = GetComponent<AudioSource>();
     }
