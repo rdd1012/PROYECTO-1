@@ -7,9 +7,14 @@ public class InteractableCortina : MonoBehaviour,IInteractable
     [SerializeField] AudioClip sonidoAbrir;
     [SerializeField] AudioClip sonidoCerrar;
     AudioSource audioSource;
+    Animator animator;
+    SpriteRenderer spriteRenderer;
+    [SerializeField]Sprite abierta;
+    [SerializeField]Sprite cerrada;
     private bool isOpen=true;
     private void Start()
     {
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
     }
     public void OnClickAction()
@@ -20,13 +25,16 @@ public class InteractableCortina : MonoBehaviour,IInteractable
     {
 
         isOpen = true;
-
+        animator.Play("ABRIR");
+        spriteRenderer.sprite = abierta;
         audioSource.clip = sonidoAbrir;
     }
     private void CerrarPersiana()
     {
 
-        isOpen = true;
+        isOpen = false;
+        animator.Play("CERRAR");
+        spriteRenderer.sprite = cerrada;
         audioSource.clip = sonidoCerrar;
     }
     private void UtilizarPersiana()
