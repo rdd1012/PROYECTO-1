@@ -601,7 +601,7 @@ GameObject:
   - component: {fileID: 145457592}
   - component: {fileID: 145457591}
   - component: {fileID: 145457593}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Puerta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -979,7 +979,7 @@ GameObject:
   - component: {fileID: 299751440}
   - component: {fileID: 299751442}
   - component: {fileID: 299751443}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Maletin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1804,7 +1804,7 @@ GameObject:
   - component: {fileID: 503340194}
   - component: {fileID: 503340196}
   - component: {fileID: 503340197}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: SetLimpieza
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2029,86 +2029,21 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 532427435}
-  - component: {fileID: 532427434}
-  - component: {fileID: 532427433}
-  - component: {fileID: 532427432}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Interactables
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &532427432
-MonoBehaviour:
+--- !u!4 &532427435
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 532427431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
---- !u!114 &532427433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532427431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
---- !u!223 &532427434
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532427431}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 330585545}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 0
-  m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
---- !u!224 &532427435
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532427431}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -2128,11 +2063,6 @@ RectTransform:
   - {fileID: 1646831696}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1, y: 1}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &567382815
 GameObject:
   m_ObjectHideFlags: 0
@@ -2146,7 +2076,7 @@ GameObject:
   - component: {fileID: 567382817}
   - component: {fileID: 567382819}
   - component: {fileID: 567382820}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: NPCLibro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2396,10 +2326,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -3088,10 +3018,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -3379,6 +3309,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cortinas (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8868327664052300896, guid: d74a397c48fcd2649a1dd97b7e072c7d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4395,6 +4330,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bombilla (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5913990723549645589, guid: 5faf6de75f867534b9d377a5238b5d2f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4533,6 +4473,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bombilla (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5913990723549645589, guid: 5faf6de75f867534b9d377a5238b5d2f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4816,6 +4761,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cortinas
       objectReference: {fileID: 0}
+    - target: {fileID: 8868327664052300896, guid: d74a397c48fcd2649a1dd97b7e072c7d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5036,18 +4986,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363801914}
   m_CullTransparentMesh: 1
---- !u!114 &1363831973 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9054798303557171565, guid: 521d1d5290c92aa49a76f57707512133,
-    type: 3}
-  m_PrefabInstance: {fileID: 743830385474032360}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1404254730
 GameObject:
   m_ObjectHideFlags: 0
@@ -5759,6 +5697,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cortinas (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8868327664052300896, guid: d74a397c48fcd2649a1dd97b7e072c7d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9210679467929465036, guid: d74a397c48fcd2649a1dd97b7e072c7d,
         type: 3}
       propertyPath: m_Color.a
@@ -5951,21 +5894,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3309338747565399902, guid: f43a65ee4a4243543af66a7b5be9c09f,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.78431374
-      objectReference: {fileID: 0}
-    - target: {fileID: 4477256011982509448, guid: f43a65ee4a4243543af66a7b5be9c09f,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.78431374
-      objectReference: {fileID: 0}
-    - target: {fileID: 7924653771744220261, guid: f43a65ee4a4243543af66a7b5be9c09f,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6130,12 +6058,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1901068455 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 857490942636214716, guid: 521d1d5290c92aa49a76f57707512133,
-    type: 3}
-  m_PrefabInstance: {fileID: 743830385474032360}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1988878341
 GameObject:
   m_ObjectHideFlags: 0
@@ -6225,7 +6147,7 @@ GameObject:
   - component: {fileID: 2035135200}
   - component: {fileID: 2035135198}
   - component: {fileID: 2035135201}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: NPCMaletin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6639,7 +6561,7 @@ GameObject:
   - component: {fileID: 2119473901}
   - component: {fileID: 2119473900}
   - component: {fileID: 2119473902}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: SillonSucio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6949,16 +6871,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 330585545}
-    - target: {fileID: 3530879662616320639, guid: 521d1d5290c92aa49a76f57707512133,
-        type: 3}
-      propertyPath: tooltipText
-      value: 
-      objectReference: {fileID: 1363831973}
-    - target: {fileID: 3530879662616320639, guid: 521d1d5290c92aa49a76f57707512133,
-        type: 3}
-      propertyPath: tooltipPanel
-      value: 
-      objectReference: {fileID: 1901068455}
     - target: {fileID: 4868314352617485719, guid: 521d1d5290c92aa49a76f57707512133,
         type: 3}
       propertyPath: m_Pivot.x
@@ -7065,8 +6977,7 @@ PrefabInstance:
       value: Inventario
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 9154844539450029413, guid: 521d1d5290c92aa49a76f57707512133, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 521d1d5290c92aa49a76f57707512133, type: 3}
@@ -7197,6 +7108,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bombilla
+      objectReference: {fileID: 0}
+    - target: {fileID: 5913990723549645589, guid: 5faf6de75f867534b9d377a5238b5d2f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7517,7 +7433,7 @@ SceneRoots:
   - {fileID: 39129216}
   - {fileID: 8991594436716007875}
   - {fileID: 1740787104}
-  - {fileID: 532427435}
   - {fileID: 8347970975839338076}
   - {fileID: 5578703309063517762}
   - {fileID: 1874181579}
+  - {fileID: 532427435}
