@@ -1,7 +1,8 @@
+using System.Collections;
 using UnityEngine;
 using static UnityEditor.Timeline.Actions.MenuPriority;
 
-public class InteractableNPCLibro : MonoBehaviour, IInteractable {
+public class InteractableNPCLibro : MonoBehaviour, IInteractable,INPC {
     private InteractableData interactableData; 
     [SerializeField] private Item itemToGive; 
     bool teniaObjeto = false;
@@ -11,9 +12,13 @@ public class InteractableNPCLibro : MonoBehaviour, IInteractable {
     [SerializeField] Sprite normal;
     [SerializeField] Sprite hablando;
     [SerializeField] Sprite libro;
+    [SerializeField] private NPCdialogoSO dialogos; 
+    YapBubble yapBubble;
     private void Start()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        yapBubble = GetComponentInChildren<YapBubble>();
+        yapBubble.gameObject.SetActive(false);
         interactableData = GetComponent<InteractableData>();
         audioSource = GetComponent<AudioSource>();
     }
@@ -22,6 +27,8 @@ public class InteractableNPCLibro : MonoBehaviour, IInteractable {
         if (interactableData.CheckItemRequirement())
         {
             QuitarItem(interactableData.requiredItemID);
+            
+            StartCoroutine(Yap(dialogos.frases[1]));
             if (teniaObjeto)
             {
                 GiveItem();
@@ -29,10 +36,16 @@ public class InteractableNPCLibro : MonoBehaviour, IInteractable {
         }
         else
         {
-            Debug.Log("Necesitas el item requerido");
+            StartCoroutine(Yap(dialogos.frases[0]));
         }
     }
-
+    public IEnumerator Yap(string _text)
+    {
+        yapBubble.gameObject.SetActive(true);
+        yapBubble.SetupText(_text);
+        yield return new WaitForSeconds(3f);
+        yapBubble.gameObject.SetActive(false);
+    }
 
     private void QuitarItem(int itemID)
     {
