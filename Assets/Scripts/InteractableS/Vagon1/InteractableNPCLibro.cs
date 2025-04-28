@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using static UnityEditor.Timeline.Actions.MenuPriority;
+//using static UnityEditor.Timeline.Actions.MenuPriority;
 
 public class InteractableNPCLibro : MonoBehaviour, IInteractable,INPC {
     private InteractableData interactableData; 
@@ -41,10 +41,13 @@ public class InteractableNPCLibro : MonoBehaviour, IInteractable,INPC {
     }
     public IEnumerator Yap(string _text)
     {
+        spriteRenderer.sprite = hablando;
         yapBubble.gameObject.SetActive(true);
         yapBubble.SetupText(_text);
         yield return new WaitForSeconds(3f);
         yapBubble.gameObject.SetActive(false);
+        if (teniaObjeto) spriteRenderer.sprite = libro;
+        else spriteRenderer.sprite = normal;
     }
 
     private void QuitarItem(int itemID)

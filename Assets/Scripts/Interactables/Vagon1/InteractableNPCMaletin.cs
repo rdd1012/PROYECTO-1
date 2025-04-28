@@ -1,5 +1,5 @@
 using UnityEngine;
-using static UnityEditor.Timeline.Actions.MenuPriority;
+//using static UnityEditor.Timeline.Actions.MenuPriority;
 
 public class InteractableNPCMaletin : MonoBehaviour, IInteractable {
     private InteractableData interactableData; 
