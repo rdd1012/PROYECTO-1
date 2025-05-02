@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class InteractableNPCLibro : MonoBehaviour, IInteractable,INPC {
+public class InteractableNPCLibro : NPCBase, IInteractable {
     private InteractableData interactableData; 
     [SerializeField] private Item itemToGive; 
     bool teniaObjeto = false;
@@ -9,6 +9,7 @@ public class InteractableNPCLibro : MonoBehaviour, IInteractable,INPC {
     AudioSource audioSource;
     SpriteRenderer spriteRenderer;
     [SerializeField] Sprite normal;
+    [SerializeField] Sprite pestañeo;
     [SerializeField] Sprite hablando;
     [SerializeField] Sprite libro;
     [SerializeField] private NPCdialogoSO dialogos; 
@@ -20,6 +21,7 @@ public class InteractableNPCLibro : MonoBehaviour, IInteractable,INPC {
         yapBubble.gameObject.SetActive(false);
         interactableData = GetComponent<InteractableData>();
         audioSource = GetComponent<AudioSource>();
+        //StartCoroutine(Blink(normal,pestañeo));
     }
     public void OnClickAction()
     {
@@ -27,7 +29,7 @@ public class InteractableNPCLibro : MonoBehaviour, IInteractable,INPC {
         {
             QuitarItem(interactableData.requiredItemID);
             
-            StartCoroutine(Yap(dialogos.frases[1]));
+            StartCoroutine(Yap(dialogos.frases[1], hablando, normal, spriteRenderer, yapBubble));
             if (teniaObjeto)
             {
                 GiveItem();
@@ -35,18 +37,18 @@ public class InteractableNPCLibro : MonoBehaviour, IInteractable,INPC {
         }
         else
         {
-            StartCoroutine(Yap(dialogos.frases[0]));
+            StartCoroutine(Yap(dialogos.frases[0],hablando,normal,spriteRenderer,yapBubble));
         }
     }
-    public IEnumerator Yap(string _text)
+    public override IEnumerator Yap(string _text,Sprite _hablando,Sprite _normal,SpriteRenderer _spriteRenderer,YapBubble _yapbubble)
     {
-        spriteRenderer.sprite = hablando;
-        yapBubble.gameObject.SetActive(true);
-        yapBubble.SetupText(_text);
+        _spriteRenderer.sprite = _hablando;
+        _yapbubble.gameObject.SetActive(true);
+        _yapbubble.SetupText(_text);
         yield return new WaitForSeconds(3f);
-        yapBubble.gameObject.SetActive(false);
-        if (teniaObjeto) spriteRenderer.sprite = libro;
-        else spriteRenderer.sprite = normal;
+        _yapbubble.gameObject.SetActive(false);
+        if (teniaObjeto) _spriteRenderer.sprite = libro;
+        else _spriteRenderer.sprite = _normal;
     }
 
     private void QuitarItem(int itemID)
