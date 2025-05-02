@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-//using static UnityEditor.Timeline.Actions.MenuPriority;
 
 public class InteractableNPCLibro : MonoBehaviour, IInteractable,INPC {
     private InteractableData interactableData; 

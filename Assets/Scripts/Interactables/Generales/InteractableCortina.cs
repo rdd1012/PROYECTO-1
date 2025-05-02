@@ -10,9 +10,16 @@ public class InteractableCortina : MonoBehaviour,IInteractable
     [SerializeField] Sprite spriteAbrir;
     private SpriteRenderer spriteRenderer;
     AudioSource audioSource;
-    private bool isOpen=true;
+    Light sol;
+    private bool isOpen;
+    public bool IsOpen { get { return isOpen; } set { isOpen = value; } }
+    private void Awake()
+    {
+        isOpen = true;
+    }
     private void Start()
     {
+        sol = GetComponentInChildren<Light>();
         audioSource = GetComponent<AudioSource>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
@@ -26,6 +33,7 @@ public class InteractableCortina : MonoBehaviour,IInteractable
         isOpen = true;
         spriteRenderer.sprite = spriteAbrir;
         audioSource.clip = sonidoAbrir;
+        sol.gameObject.SetActive(true);
     }
     private void CerrarPersiana()
     {
@@ -33,6 +41,7 @@ public class InteractableCortina : MonoBehaviour,IInteractable
         isOpen = false;
         spriteRenderer.sprite = spriteCerrado;
         audioSource.clip = sonidoCerrar;
+        sol.gameObject.SetActive(false);
     }
     private void UtilizarPersiana()
     {
