@@ -4,7 +4,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
     private float moveSpeed = 15f;
     private int edgeScrollSize = 50;
-    private float minX = 19f;
+    private float minX = -19f;
     private float maxX = 19f;
     [SerializeField] GameObject flechaDerecha;
     [SerializeField] GameObject flechaIzquierda;
