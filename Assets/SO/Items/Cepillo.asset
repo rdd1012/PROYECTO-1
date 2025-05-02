@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 0
   itemName: Cepillo
-  icon: {fileID: 21300000, guid: 4ae09c7d289244840b1357a9e1b5e8ef, type: 3}
+  icon: {fileID: 21300000, guid: 2c044acc80a36734fa7a0ad2bc87f90c, type: 3}
