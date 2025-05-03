@@ -8,6 +8,12 @@ using UnityEngine.UI;
 public class InventoryManager : MonoBehaviour {
     [SerializeField] private Color selectedSlotColor = Color.grey;
     [SerializeField] private List<Item> items = new List<Item>();
+
+    [SerializeField] private AudioClip sonidoSeleccionar;
+    [SerializeField] private AudioClip sonidoDeseleccionar;
+    private AudioSource audioSource;
+
+
     public List<Item> Items { get { return items; } set { items = Items; } }
     [SerializeField] private GameObject[] itemSlots;
     [SerializeField] private Image[] slotImages;
@@ -104,7 +110,6 @@ public class InventoryManager : MonoBehaviour {
             });
             trigger.triggers.Add(entryEnter);
 
-            // Evento PointerExit
             EventTrigger.Entry entryExit = new EventTrigger.Entry();
             entryExit.eventID = EventTriggerType.PointerExit;
             entryExit.callback.AddListener((data) => {
@@ -122,14 +127,41 @@ public class InventoryManager : MonoBehaviour {
         if (isMouseOverSlot) ShowNombreInventario(slotIndex);
     }
 
-    
+
     public void SelectItem(int slotIndex)
     {
+        // Si hacemos clic en el slot ya seleccionado
+        if (selectedSlotIndex == slotIndex)
+        {
+            DeseleccionarItems();
+            return;
+        }
         selectedSlotIndex = slotIndex;
         selectedItem = items.Count > slotIndex ? items[slotIndex] : null;
-        if (selectedItem != null) UpdateSlotHighlights();
-    }
 
+        if (selectedItem != null)
+        {
+            audioSource.clip = sonidoSeleccionar;
+            audioSource.Play();
+            UpdateSlotHighlights();
+        }
+        else
+        {
+            DeseleccionarItems();
+        }
+    }
+    public void DeseleccionarItems()
+    {
+        if (selectedSlotIndex == -1) return;
+
+        audioSource.clip = sonidoDeseleccionar;
+        audioSource.Play();
+
+        selectedSlotIndex = -1;
+        selectedItem = null;
+
+        UpdateSlotHighlights();
+    }
     private void UpdateSlotHighlights()
     {
         for (int i = 0; i < slotImages.Length; i++)
@@ -138,16 +170,11 @@ public class InventoryManager : MonoBehaviour {
         }
     }
 
-    private void DeselectItem()
-    {
-        selectedSlotIndex--;
-        selectedItem = null;
-        UpdateSlotHighlights();
-    }
 
     private void Start()
     {
         UpdateUI();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void AddItem(Item newItem)
@@ -165,7 +192,7 @@ public class InventoryManager : MonoBehaviour {
         if (itemToRemove != null)
         {
             items.Remove(itemToRemove);
-            DeselectItem();
+            DeseleccionarItems();
             UpdateUI();
         }
     }

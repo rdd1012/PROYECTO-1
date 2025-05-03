@@ -4678,11 +4678,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 330585545}
-    - target: {fileID: 1649861395472119353, guid: 521d1d5290c92aa49a76f57707512133,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: -726545909
-      objectReference: {fileID: 0}
     - target: {fileID: 4868314352617485719, guid: 521d1d5290c92aa49a76f57707512133,
         type: 3}
       propertyPath: m_Pivot.x
@@ -4783,6 +4778,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6635481054642283475, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -2556540523406613550, guid: 5d7f157b44493f24eb34ad29335427d1,
+        type: 2}
     - target: {fileID: 6781942235281610935, guid: 521d1d5290c92aa49a76f57707512133,
         type: 3}
       propertyPath: m_Name
