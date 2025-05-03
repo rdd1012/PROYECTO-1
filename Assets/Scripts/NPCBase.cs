@@ -12,12 +12,14 @@ public abstract class NPCBase :MonoBehaviour {
         _yapbubble.gameObject.SetActive(false);
         _spriteRenderer.sprite = _normal;
     }
-    public IEnumerator Blink(Sprite _normal,Sprite _pestañeo,SpriteRenderer _spriteRenderer)
+    public IEnumerator Blink(Sprite _pestañeo,SpriteRenderer _spriteRenderer)
     {
+        Sprite _normal; 
 
         while (true) 
         {
-            yield return new WaitForSeconds(4f); 
+            yield return new WaitForSeconds(4f);
+            _normal = _spriteRenderer.sprite;
             _spriteRenderer.sprite = _pestañeo; 
             yield return new WaitForSeconds(0.1f); 
             _spriteRenderer.sprite = _normal; 
