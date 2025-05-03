@@ -8,6 +8,7 @@ public class BackGroundMusic : MonoBehaviour
     AudioSource audioSource;
     [SerializeField] List<AudioClip> listaMusicaMenu = new();
     [SerializeField] List<AudioClip> listaMusicaNivel1 = new();
+    [SerializeField] List<AudioClip> listaMusicaNivel2 = new();
     private List<AudioSource> audioSources = new();
     public List<AudioSource> AudioSources { get { return audioSources; } set { audioSources = AudioSources;  } }
     public static BackGroundMusic Instance { get; private set; }
@@ -84,6 +85,10 @@ public class BackGroundMusic : MonoBehaviour
                 break;
             case 1:
                 CreateAudioSources(listaMusicaNivel1);
+                PlayAllTracks();
+                break;
+            case 2:
+                CreateAudioSources(listaMusicaNivel2);
                 PlayAllTracks();
                 break;
         }
