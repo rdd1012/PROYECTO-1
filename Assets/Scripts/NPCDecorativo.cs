@@ -8,7 +8,7 @@ public class NPCDecorativo : NPCBase {
     private void Start()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        StartCoroutine(Blink(normal, pestañeo,spriteRenderer));
+        StartCoroutine(Blink(pestañeo,spriteRenderer));
     }
 }
    

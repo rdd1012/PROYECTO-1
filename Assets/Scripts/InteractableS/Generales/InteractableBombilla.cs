@@ -19,31 +19,32 @@ public class InteractableBombilla : MonoBehaviour, IInteractable
     {
         audioSource = GetComponent<AudioSource>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        luz = GetComponentInChildren <Light>();
-        if (luz.enabled) lightIsOn=true;
-        else lightIsOn = false;
+        luz = GetComponentInChildren<Light>();
+        if (luz.enabled) { lightIsOn = true; spriteRenderer.sprite = spriteEncendido; }
+        else {lightIsOn = false; spriteRenderer.sprite = spriteApagado;
+        }
     }
   
-    public void OnClickAction()
+    public  void OnClickAction()
     {
         SwitchLight();
         
     }
-    private void TurnOnLight() 
+    public void TurnOnLight() 
     {
         luz.enabled = true; 
         lightIsOn = true;
         spriteRenderer.sprite = spriteEncendido;
         audioSource.clip = sonidoEncender;
     }
-    private void TurnOffLight() 
+    public void TurnOffLight() 
     { 
         luz.enabled = false; 
         lightIsOn = false; 
         spriteRenderer.sprite = spriteApagado;
         audioSource.clip = sonidoApagar;
     }
-    private void SwitchLight() 
+    public void SwitchLight() 
     {
         if (lightIsOn) TurnOffLight();
         else TurnOnLight();
