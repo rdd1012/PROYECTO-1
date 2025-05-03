@@ -9,7 +9,8 @@ public class InteractableBombillaCarta : MonoBehaviour, IInteractable
     private bool lightIsOn;
     [SerializeField] private Item itemToGive;
     private bool inventoryHasItem = false;
-
+    private bool lucesBien;
+    public bool LucesBien { get { return lucesBien; }}
     private SpriteRenderer spriteRenderer;
     [SerializeField] Sprite spriteEncendido;
     [SerializeField] Sprite spriteApagado;
@@ -34,7 +35,7 @@ public class InteractableBombillaCarta : MonoBehaviour, IInteractable
   
     public void OnClickAction()
     {     
-        if (spriteRenderer.sprite == spriteEncendidoCarta) 
+        if (lucesBien) 
         {
             GiveItem();
         }
@@ -43,7 +44,7 @@ public class InteractableBombillaCarta : MonoBehaviour, IInteractable
         {
             if (ComprobarLuces() & ComprobarCortinas())
             {
-
+                lucesBien = true;
                 spriteRenderer.sprite = spriteEncendidoCarta;
             }
         }
