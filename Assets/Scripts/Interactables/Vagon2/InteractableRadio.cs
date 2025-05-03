@@ -11,6 +11,8 @@ public class InteractableRadio : MonoBehaviour, IInteractable {
     private bool inventoryHasItem = false;
     [SerializeField] private Item itemToGive;
     AudioSource audioSource;
+    public bool GetPuzzleCompleto() { return puzzleCompleto; }
+    public void SetPuzzleCompleto(bool _puzzleCompleto) { puzzleCompleto = _puzzleCompleto; }
     void Start()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -24,8 +26,9 @@ public class InteractableRadio : MonoBehaviour, IInteractable {
             radioFuera = true;
             spriteRenderer.sprite = spriteFuera;
             return;
-            if (!puzzleCompleto) puzzleCanvas.gameObject.SetActive(true);
+            
         }
+        if (!puzzleCompleto) puzzleCanvas.gameObject.SetActive(true);
     }
     IEnumerator ComprobarPuzzle()
     {
@@ -37,7 +40,7 @@ public class InteractableRadio : MonoBehaviour, IInteractable {
                 GiveItem();
                 estaCompleto = true;
             }
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSecondsRealtime(0.05f);
         }
 
     }

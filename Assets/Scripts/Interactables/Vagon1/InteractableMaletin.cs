@@ -21,9 +21,9 @@ public class InteractableMaletin : MonoBehaviour, IInteractable {
     {
         if (!puzzleCompleto) puzzleCanvas.gameObject.SetActive(true);
     }
-    IEnumerator ComprobarPuzzle() 
+    IEnumerator ComprobarPuzzle()
     {
-        bool estaCompleto=false;
+        bool estaCompleto = false;
         while (!estaCompleto)
         {
             if (puzzleCompleto)
@@ -31,8 +31,9 @@ public class InteractableMaletin : MonoBehaviour, IInteractable {
                 GiveItem();
                 estaCompleto = true;
             }
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSecondsRealtime(0.05f);
         }
+
     }
 
     private void GiveItem()

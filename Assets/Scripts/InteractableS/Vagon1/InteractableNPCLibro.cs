@@ -29,16 +29,14 @@ public class InteractableNPCLibro : NPCBase, IInteractable {
         {
             QuitarItem(interactableData.requiredItemID);
             
-            StartCoroutine(Yap(dialogos.frases[1], hablando, normal, spriteRenderer, yapBubble));
+            
             if (teniaObjeto)
             {
                 GiveItem();
             }
         }
-        else
-        {
-            StartCoroutine(Yap(dialogos.frases[0],hablando,normal,spriteRenderer,yapBubble));
-        }
+        if (teniaObjeto) StartCoroutine(Yap(dialogos.frases[1], hablando, normal, spriteRenderer, yapBubble));
+        else StartCoroutine(Yap(dialogos.frases[0], hablando, normal, spriteRenderer, yapBubble));
     }
     public override IEnumerator Yap(string _text,Sprite _hablando,Sprite _normal,SpriteRenderer _spriteRenderer,YapBubble _yapbubble)
     {

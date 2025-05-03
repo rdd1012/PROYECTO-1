@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8199339249561402055}
   - component: {fileID: 4945231455466662280}
   m_Layer: 0
-  m_Name: Sol
+  m_Name: sol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.83972144, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.7654487, b: 0.17924517, a: 1}
   m_Intensity: 0.3
   m_Range: 10
   m_SpotAngle: 30
