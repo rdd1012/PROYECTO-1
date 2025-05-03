@@ -8,7 +8,7 @@ public class InteractableNPCLibro : NPCBase, IInteractable {
     private bool inventoryHasItem = false;
     AudioSource audioSource;
     SpriteRenderer spriteRenderer;
-    [SerializeField] Sprite normal;
+    Sprite normal;
     [SerializeField] Sprite pestañeo;
     [SerializeField] Sprite hablando;
     [SerializeField] Sprite libro;
@@ -17,6 +17,7 @@ public class InteractableNPCLibro : NPCBase, IInteractable {
     private void Start()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        normal = spriteRenderer.sprite;
         yapBubble = GetComponentInChildren<YapBubble>();
         yapBubble.gameObject.SetActive(false);
         interactableData = GetComponent<InteractableData>();
