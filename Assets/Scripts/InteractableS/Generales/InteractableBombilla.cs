@@ -6,7 +6,7 @@ public class InteractableBombilla : MonoBehaviour, IInteractable
 {
     private Light luz;
     private bool lightIsOn;
-    public bool LightIsOn { get; set; }
+    public bool LightIsOn { get { return lightIsOn; } set { lightIsOn = value; } }
 
     private SpriteRenderer spriteRenderer;
     [SerializeField] Sprite spriteEncendido;
