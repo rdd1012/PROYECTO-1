@@ -21,12 +21,14 @@ public class CameraController : MonoBehaviour {
         if (Input.mousePosition.x < edgeScrollSize)
         {
             inputDir.x = -1f;
-            flechaIzquierda.SetActive(true);
+            if (Time.timeScale==1)
+                flechaIzquierda.SetActive(true);
         }
         else if (Input.mousePosition.x > Screen.width - edgeScrollSize)
         {
             inputDir.x = 1f;
-            flechaDerecha.SetActive(true);
+            if (Time.timeScale == 1)
+                flechaDerecha.SetActive(true);
         }
         else
         {

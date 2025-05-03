@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 943528153172033760}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13, y: -1.23, z: 0}
+  m_LocalPosition: {x: 13.5, y: -1.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -189,7 +189,7 @@ MonoBehaviour:
     FieldOfView: 60.000004
     OrthographicSize: 8
     NearClipPlane: 0
-    FarClipPlane: 30
+    FarClipPlane: 40
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
@@ -216,10 +216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91fb059de3999c44e87ba5d29642fcf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 15
-  edgeScrollSize: 20
-  minX: -20
-  maxX: 20
   flechaDerecha: {fileID: 943528153172033760}
   flechaIzquierda: {fileID: 6432990429106789360}
 --- !u!1 &6432990429106789360
@@ -248,7 +244,7 @@ Transform:
   m_GameObject: {fileID: 6432990429106789360}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13, y: -1.23, z: 0}
+  m_LocalPosition: {x: -13.5, y: -1.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

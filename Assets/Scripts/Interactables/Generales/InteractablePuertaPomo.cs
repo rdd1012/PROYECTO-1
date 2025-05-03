@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractablePuertaNivel1 : MonoBehaviour, IInteractable {
+public class InteractablePuertaPomo : MonoBehaviour, IInteractable {
     bool teniaObjeto = false;
     private InteractableData interactableData;
 

@@ -38,6 +38,11 @@ public class PuzzleMaletin : MonoBehaviour {
             StartCoroutine(VerificacionRetrasada());
         }
     }
+    void OnDisable()
+    {
+        Time.timeScale = 1f;
+    }
+
     IEnumerator VerificacionRetrasada()
     {
 
@@ -78,9 +83,9 @@ public class PuzzleMaletin : MonoBehaviour {
         ComprobarResultadoPuzzle();
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        if (isActiveAndEnabled) Time.timeScale = 0f;
+        Time.timeScale = 0f;
     }
 
     public void SalirPuzzle()
@@ -100,7 +105,7 @@ public class PuzzleMaletin : MonoBehaviour {
     IEnumerator LibroPantallaVictoriaCR() 
     {
         interactableMaletin.SetPuzzleCompleto(true);
-        yield return new WaitForSecondsRealtime(2f);
+        yield return new WaitForSecondsRealtime(1f);
         SalirPuzzle();
     } 
 }

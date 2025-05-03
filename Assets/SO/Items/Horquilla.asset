@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86149b2035fb2754580670188e1e8430, type: 3}
-  m_Name: Clip
+  m_Name: Horquilla
   m_EditorClassIdentifier: 
   itemID: 5
-  itemName: Clip
-  icon: {fileID: 21300000, guid: 4cf6c070760d3a140b22a71c102f4426, type: 3}
+  itemName: Horquilla
+  icon: {fileID: 21300000, guid: c3241061e4d936d4988be0b9571748af, type: 3}
