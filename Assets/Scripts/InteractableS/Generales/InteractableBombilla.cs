@@ -6,7 +6,7 @@ public class InteractableBombilla : MonoBehaviour, IInteractable
 {
     private Light luz;
     private bool lightIsOn;
-    public bool LightIsOn { get { return lightIsOn; } set { lightIsOn = value; } }
+    public bool LightIsOn { get; set; }
 
     private SpriteRenderer spriteRenderer;
     [SerializeField] Sprite spriteEncendido;
@@ -19,32 +19,31 @@ public class InteractableBombilla : MonoBehaviour, IInteractable
     {
         audioSource = GetComponent<AudioSource>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        luz = GetComponentInChildren<Light>();
-        if (luz.enabled) { lightIsOn = true; spriteRenderer.sprite = spriteEncendido; }
-        else {lightIsOn = false; spriteRenderer.sprite = spriteApagado;
-        }
+        luz = GetComponentInChildren <Light>();
+        if (luz.enabled) lightIsOn=true;
+        else lightIsOn = false;
     }
   
-    public  void OnClickAction()
+    public void OnClickAction()
     {
         SwitchLight();
         
     }
-    public void TurnOnLight() 
+    private void TurnOnLight() 
     {
         luz.enabled = true; 
         lightIsOn = true;
         spriteRenderer.sprite = spriteEncendido;
         audioSource.clip = sonidoEncender;
     }
-    public void TurnOffLight() 
+    private void TurnOffLight() 
     { 
         luz.enabled = false; 
         lightIsOn = false; 
         spriteRenderer.sprite = spriteApagado;
         audioSource.clip = sonidoApagar;
     }
-    public void SwitchLight() 
+    private void SwitchLight() 
     {
         if (lightIsOn) TurnOffLight();
         else TurnOnLight();

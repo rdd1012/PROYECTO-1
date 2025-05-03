@@ -21,7 +21,7 @@ public class InteractableNPCLibro : NPCBase, IInteractable {
         yapBubble.gameObject.SetActive(false);
         interactableData = GetComponent<InteractableData>();
         audioSource = GetComponent<AudioSource>();
-        StartCoroutine(Blink(pestañeo,spriteRenderer));
+        //StartCoroutine(Blink(normal,pestañeo));
     }
     public void OnClickAction()
     {
