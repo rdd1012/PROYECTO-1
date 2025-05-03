@@ -28,13 +28,11 @@ public class InteractableNPCLibro : NPCBase, IInteractable {
     {
         if (interactableData.CheckItemRequirement())
         {
+            if (!teniaObjeto)
             QuitarItem(interactableData.requiredItemID);
-            
-            
-            if (teniaObjeto)
-            {
-                GiveItem();
-            }
+
+
+            else GiveItem();
         }
         if (teniaObjeto) StartCoroutine(Yap(dialogos.frases[1], hablando, normal, spriteRenderer, yapBubble));
         else StartCoroutine(Yap(dialogos.frases[0], hablando, normal, spriteRenderer, yapBubble));

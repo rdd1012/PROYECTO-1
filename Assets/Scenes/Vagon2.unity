@@ -832,7 +832,7 @@ RectTransform:
   - {fileID: 1150533938}
   - {fileID: 464362894}
   - {fileID: 1311550732}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 532427435}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1696,6 +1696,7 @@ Transform:
   - {fileID: 909379305}
   - {fileID: 1646831696}
   - {fileID: 1732311684}
+  - {fileID: 235677859}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &800344324
@@ -2437,7 +2438,7 @@ PrefabInstance:
     - target: {fileID: 2340103429903898484, guid: 5faf6de75f867534b9d377a5238b5d2f,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3658677812485535784, guid: 5faf6de75f867534b9d377a5238b5d2f,
         type: 3}
@@ -5824,4 +5825,3 @@ SceneRoots:
   - {fileID: 8347970975839338076}
   - {fileID: 5578703309063517762}
   - {fileID: 532427435}
-  - {fileID: 235677859}

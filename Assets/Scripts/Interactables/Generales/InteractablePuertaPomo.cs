@@ -25,7 +25,7 @@ public class InteractablePuertaPomo : MonoBehaviour, IInteractable {
                 if (_item.itemID == itemID)
                 {
                     teniaObjeto = true;
-                    InventoryManager.Instance.RemoveItem(itemID);
+                        InventoryManager.Instance.RemoveItem(itemID);
                     break;
                 }
             }
