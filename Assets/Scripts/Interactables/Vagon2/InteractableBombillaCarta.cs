@@ -10,7 +10,6 @@ public class InteractableBombillaCarta : MonoBehaviour, IInteractable
     [SerializeField] private Item itemToGive;
     private bool inventoryHasItem = false;
     private bool lucesBien;
-    public bool LucesBien { get { return lucesBien; }}
     private SpriteRenderer spriteRenderer;
     [SerializeField] Sprite spriteEncendido;
     [SerializeField] Sprite spriteApagado;
@@ -53,7 +52,7 @@ public class InteractableBombillaCarta : MonoBehaviour, IInteractable
 
 
     }
-    bool ComprobarLuces()
+    public bool ComprobarLuces()
     {
         int contadorLuces = 0;
         foreach (InteractableBombilla bombilla in bombillas)
@@ -65,7 +64,7 @@ public class InteractableBombillaCarta : MonoBehaviour, IInteractable
         if (contadorLuces == 3) return true;
         else return false;
     }
-    bool ComprobarCortinas()
+    public bool ComprobarCortinas()
     {
         int contadorCortinas = 0;
         foreach (InteractableCortina cortina in cortinas)
