@@ -25,8 +25,16 @@ public class InteractableNPCLuces : NPCBase, IInteractable
     }
     public void OnClickAction() 
     {
-        if (interactableBombillaCarta.LucesBien) StartCoroutine(Yap(dialogos.frases[1], hablando, normal, spriteRenderer, yapBubble));
-        else StartCoroutine(Yap(dialogos.frases[0], hablando, normal, spriteRenderer, yapBubble));
+      
+        if (interactableBombillaCarta.ComprobarLuces() && interactableBombillaCarta.ComprobarCortinas())
+        {
+            StartCoroutine(Yap(dialogos.frases[1], hablando, normal, spriteRenderer, yapBubble));
+        }
+        else
+        {
+            StartCoroutine(Yap(dialogos.frases[0], hablando, normal, spriteRenderer, yapBubble));
+        }
+    
     }
 
 }
