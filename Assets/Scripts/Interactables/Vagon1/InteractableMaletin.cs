@@ -15,17 +15,23 @@ public class InteractableMaletin : MonoBehaviour, IInteractable {
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        StartCoroutine(ComprobarPuzzle());
     }
     public void OnClickAction()
     {
         if (!puzzleCompleto) puzzleCanvas.gameObject.SetActive(true);
     }
-    private void Update()
+    IEnumerator ComprobarPuzzle() 
     {
-        if (puzzleCompleto)
+        bool estaCompleto=false;
+        while (!estaCompleto)
         {
-            GiveItem();
-            
+            if (puzzleCompleto)
+            {
+                GiveItem();
+                estaCompleto = true;
+            }
+            yield return new WaitForSeconds(0.05f);
         }
     }
 

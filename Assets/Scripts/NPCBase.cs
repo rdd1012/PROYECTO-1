@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class NPCBase :MonoBehaviour {
+
     public virtual IEnumerator Yap(string _text, Sprite _hablando, Sprite _normal, SpriteRenderer _spriteRenderer, YapBubble _yapbubble)
     {
         _spriteRenderer.sprite = _hablando;
@@ -14,11 +15,12 @@ public abstract class NPCBase :MonoBehaviour {
     }
     public IEnumerator Blink(Sprite _pestañeo,SpriteRenderer _spriteRenderer)
     {
-        Sprite _normal; 
+        Sprite _normal;
+        
 
         while (true) 
         {
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(Random.Range(4f,5f));
             _normal = _spriteRenderer.sprite;
             _spriteRenderer.sprite = _pestañeo; 
             yield return new WaitForSeconds(0.1f); 

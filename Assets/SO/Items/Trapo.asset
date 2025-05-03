@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 4
   itemName: Trapo
-  icon: {fileID: 21300000, guid: 4cf6c070760d3a140b22a71c102f4426, type: 3}
+  icon: {fileID: 21300000, guid: 2d654edd1b79e6e4cbe5da087d1157e0, type: 3}
