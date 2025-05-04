@@ -9,7 +9,7 @@ public class InteractableBombillaCarta : MonoBehaviour, IInteractable
     private bool lightIsOn;
     [SerializeField] private Item itemToGive;
     private bool inventoryHasItem = false;
-    private bool lucesBien;
+    private bool todoBien;
     private SpriteRenderer spriteRenderer;
     [SerializeField] Sprite spriteEncendido;
     [SerializeField] Sprite spriteApagado;
@@ -30,26 +30,28 @@ public class InteractableBombillaCarta : MonoBehaviour, IInteractable
         if (luz.enabled) { lightIsOn = true; spriteRenderer.sprite = spriteEncendido; }
         else {lightIsOn = false; spriteRenderer.sprite = spriteApagado;
         }
+        StartCoroutine(ComprobarTodoBien());
     }
-  
+
+    IEnumerator ComprobarTodoBien() 
+    {    
+        while (!inventoryHasItem)
+        {
+            if (ComprobarLuces() & ComprobarCortinas())
+            {
+                todoBien = true;
+                spriteRenderer.sprite = spriteEncendidoCarta;
+            }
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
     public void OnClickAction()
     {     
-        if (lucesBien) 
+        if (todoBien) 
         {
             GiveItem();
         }
         SwitchLight();
-        if (!inventoryHasItem) 
-        {
-            if (ComprobarLuces() & ComprobarCortinas())
-            {
-                lucesBien = true;
-                spriteRenderer.sprite = spriteEncendidoCarta;
-            }
-        }
-        
-
-
 
     }
     public bool ComprobarLuces()
