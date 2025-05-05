@@ -22,4 +22,18 @@ public class InteractableData : MonoBehaviour
 
         }
     }
+    public bool CheckItemRequirement(int _requiredItemID)
+    {
+        if (_requiredItemID == -1) return true;
+
+        if (requireSelectedItem)
+        {
+            return InventoryManager.Instance.SelectedItem?.itemID == _requiredItemID;
+        }
+        else
+        {
+            return InventoryManager.Instance.Items.Exists(i => i.itemID == _requiredItemID);
+
+        }
+    }
 }

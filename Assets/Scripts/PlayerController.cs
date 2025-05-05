@@ -5,10 +5,13 @@ public class PlayerController : MonoBehaviour {
     public static PlayerController Instance;
     bool isMoving = false;
     Animator anim;
+    AudioSource audioSource;
+    [SerializeField] AudioClip seleccionSonido;
 
     private void Start()
     {
         anim = GetComponentInChildren<Animator>();
+        audioSource = GetComponent<AudioSource>();
         anim.Play("Idle");
         anim.SetBool("EstaCaminando", false);
     }
@@ -40,6 +43,8 @@ public class PlayerController : MonoBehaviour {
         if (interactableItem == null) return;
 
         StartCoroutine(itemvisuals.SelectAnimation());
+        audioSource.clip = seleccionSonido;
+        audioSource.Play();
 
         Vector2 targetPoint = new Vector2(item.GoToPoint.position.x, transform.position.y);
 

@@ -29,16 +29,19 @@ public class InteractableNPCZapatos : NPCBase,IInteractable
 
     public void OnClickAction()
     {
-        if (interactableData.CheckItemRequirement())
+        if(InventoryManager.Instance.HasItem(3))
         {
-            if (!teniaObjeto)
+            if (interactableData.CheckItemRequirement())
+            {
+                if (!teniaObjeto)
                 QuitarItem(interactableData.requiredItemID);
 
 
-            GiveItem();
+                GiveItem();
+            }
+            if (teniaObjeto) StartCoroutine(Yap(dialogos.frases[1], hablando, normal, spriteRenderer, yapBubble));
+            else StartCoroutine(Yap(dialogos.frases[0], hablando, normal, spriteRenderer, yapBubble));
         }
-        if (teniaObjeto) StartCoroutine(Yap(dialogos.frases[1], hablando, normal, spriteRenderer, yapBubble));
-        else StartCoroutine(Yap(dialogos.frases[0], hablando, normal, spriteRenderer, yapBubble));
     }
     public override IEnumerator Yap(string _text, Sprite _hablando, Sprite _normal, SpriteRenderer _spriteRenderer, YapBubble _yapbubble)
     {
