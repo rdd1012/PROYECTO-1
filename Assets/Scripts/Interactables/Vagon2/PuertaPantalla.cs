@@ -12,10 +12,10 @@ public class PuertaPantalla : MonoBehaviour
     {
         if (!puerta.ManchaBorrada) 
         {
-            if (puerta.InteractableData.CheckItemRequirement(4))
+            if (puerta.InteractableDataTrapo.CheckItemRequirement(puerta.InteractableDataTrapo.requiredItemID))
             {
                 puerta.ManchaBorrada = true;
-                puerta.QuitarItem(4);
+                puerta.QuitarItem(puerta.InteractableDataTrapo.requiredItemID);
                 image.gameObject.SetActive(false);
                 cerradura.gameObject.SetActive(true);
             }
@@ -27,11 +27,11 @@ public class PuertaPantalla : MonoBehaviour
     {
         if (!puerta.PuertaAbierta)
         {
-            if (puerta.InteractableData.CheckItemRequirement(5))
+            if (puerta.InteractableDataHorquilla.CheckItemRequirement(puerta.InteractableDataHorquilla.requiredItemID))
             {
                 image.gameObject.SetActive(false);
                 puerta.PuertaAbierta = true;
-                puerta.QuitarItem(5);
+                puerta.QuitarItem(puerta.InteractableDataHorquilla.requiredItemID);
             }
         } 
     }

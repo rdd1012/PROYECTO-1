@@ -131,6 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 145457590}
+  - component: {fileID: 145457595}
   - component: {fileID: 145457592}
   - component: {fileID: 145457593}
   - component: {fileID: 145457594}
@@ -175,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goToPoint: {fileID: 1772866103}
-  requiredItemID: -1
+  requiredItemID: 5
   requireSelectedItem: 1
 --- !u!61 &145457593
 BoxCollider2D:
@@ -235,6 +236,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puertaPantalla: {fileID: 332990811}
+  interactableDataTrapo: {fileID: 145457595}
+  interactableDataHorquilla: {fileID: 145457592}
+--- !u!114 &145457595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145457589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 895fdf5be222d8e4cb173477b432ea14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goToPoint: {fileID: 1772866103}
+  requiredItemID: 4
+  requireSelectedItem: 1
 --- !u!1 &169638561
 GameObject:
   m_ObjectHideFlags: 0
@@ -1715,6 +1733,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puerta: {fileID: 145457594}
+  cerradura: {fileID: 1407361914}
 --- !u!1 &376202528
 GameObject:
   m_ObjectHideFlags: 0

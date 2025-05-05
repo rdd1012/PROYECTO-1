@@ -9,12 +9,10 @@ public class InteractablePuertaHorquilla : MonoBehaviour,IInteractable
     bool puertaAbierta = false;
     public bool PuertaAbierta { get { return puertaAbierta; } set { puertaAbierta = value; } }
     [SerializeField]PuertaPantalla puertaPantalla;
-    [SerializeField]InteractableData interactableData;
-    public InteractableData InteractableData { get { return interactableData; } }
-    private void Start()
-    {
-        interactableData = GetComponent<InteractableData>();
-    }
+    [SerializeField]InteractableData interactableDataTrapo;
+    public InteractableData InteractableDataTrapo { get { return interactableDataTrapo; } }
+    [SerializeField] InteractableData interactableDataHorquilla;
+    public InteractableData InteractableDataHorquilla { get { return interactableDataHorquilla; } }
 
     public void OnClickAction()
     {
@@ -32,11 +30,12 @@ public class InteractablePuertaHorquilla : MonoBehaviour,IInteractable
                 if (_item.itemID == itemID)
                 {
                     _item.usos--;
-                    if (_item.usos == 0) 
-                    { InventoryManager.Instance.RemoveItem(itemID); }
+                    if (_item.usos == 0) { InventoryManager.Instance.RemoveItem(itemID); }
+                    InventoryManager.Instance.RemoveItem(itemID);
                     break;
                 }
             }
         }
     }
 }
+
