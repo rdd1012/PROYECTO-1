@@ -196,7 +196,10 @@ public class InventoryManager : MonoBehaviour {
             UpdateUI();
         }
     }
-
+    public bool HasItem(int itemID)
+    {
+        return items.Exists(item => item.itemID == itemID);
+    }
     void UpdateUI()
     {
         for (int i = 0; i < itemSlots.Length; i++)
