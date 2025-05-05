@@ -2,11 +2,15 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using System.Collections;
 
 public class GameManager : MonoBehaviour {
     public static GameManager Instance;
 
-    
+    [SerializeField] private float fadeDuration = 1.0f;
+    private Image fadeImage;
+    private Canvas fadeCanvas;
     [SerializeField] private Texture2D defaultCursorTexture;
   
     [SerializeField] private int targetFrameRate = 60;
@@ -20,13 +24,49 @@ public class GameManager : MonoBehaviour {
             DontDestroyOnLoad(gameObject);
             InitializeCursor();
             InitializeFrameRate();
+            CreateFadeSystem();
+            StartCoroutine(FadeIn());
         }
         else
         {
             Destroy(gameObject);
         }
     }
+    private void CreateFadeSystem()
+    {
+        
+        fadeCanvas = new GameObject("FadeCanvas").AddComponent<Canvas>();
+        fadeCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        fadeCanvas.sortingOrder = 1000;
+        DontDestroyOnLoad(fadeCanvas.gameObject);
 
+        
+        GameObject image = new GameObject("FadeImage");
+        image.transform.SetParent(fadeCanvas.transform);
+
+        fadeImage = image.AddComponent<Image>();
+        fadeImage.color = Color.clear;
+
+        
+        RectTransform rt = image.GetComponent<RectTransform>();
+        rt.anchorMin = Vector2.zero;
+        rt.anchorMax = Vector2.one;
+        rt.offsetMin = Vector2.zero;
+        rt.offsetMax = Vector2.zero;
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        StartCoroutine(FadeIn());
+    }
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
     private void InitializeCursor()
     {
         Cursor.SetCursor(defaultCursorTexture, Vector2.zero, CursorMode.Auto);
@@ -89,6 +129,37 @@ public class GameManager : MonoBehaviour {
 
         return topItem;
     }
+    private IEnumerator FadeOutAndLoad()
+    {
+        yield return StartCoroutine(FadeOut());
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    private IEnumerator FadeOut()
+    {
+        float elapsed = 0f;
+        while (elapsed < fadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            float alpha = Mathf.Clamp01(elapsed / fadeDuration);
+            fadeImage.color = new Color(0, 0, 0, alpha);
+            yield return null;
+        }
+        fadeImage.color = Color.black;
+    }
+
+    private IEnumerator FadeIn()
+    {
+        float elapsed = 0f;
+        fadeImage.color = Color.black;
+        while (elapsed < fadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            float alpha = 1 - Mathf.Clamp01(elapsed / fadeDuration);
+            fadeImage.color = new Color(0, 0, 0, alpha);
+            yield return null;
+        }
+        fadeImage.color = Color.clear;
+    }
 
     private int CalculateRenderPriority(SpriteRenderer renderer)
     {
@@ -108,5 +179,9 @@ public class GameManager : MonoBehaviour {
         Cursor.SetCursor(defaultCursorTexture, Vector2.zero, CursorMode.Auto);
     }
 
-    public void PasarDeNivel() { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);}
+    public void PasarDeNivel()
+    {
+        StartCoroutine(FadeOutAndLoad());
+    }
+
 }
