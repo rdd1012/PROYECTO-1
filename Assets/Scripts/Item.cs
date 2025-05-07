@@ -6,4 +6,5 @@ public class Item : ScriptableObject {
     public string itemName;
     public Sprite icon;
     public int usos = 1;
+    public bool isReadable=false;
 }

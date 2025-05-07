@@ -6,119 +6,154 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour {
+    // Singleton
+    public static InventoryManager Instance;
+
+    // Configuración
     [SerializeField] private Color selectedSlotColor = Color.grey;
-    [SerializeField] private List<Item> items = new List<Item>();
-
-    [SerializeField] private AudioClip sonidoSeleccionar;
-    [SerializeField] private AudioClip sonidoDeseleccionar;
-    private AudioSource audioSource;
-
-
-    public List<Item> Items { get { return items; } set { items = Items; } }
     [SerializeField] private GameObject[] itemSlots;
     [SerializeField] private Image[] slotImages;
-    [SerializeField] private Item selectedItem;
-    public Item SelectedItem { get { return selectedItem; } set { selectedItem = SelectedItem; } }
-
-    [SerializeField] private GameObject tooltipPanel;
-    [SerializeField] private TMP_Text tooltipText;
     [SerializeField] private Vector2 tooltipOffset = new Vector2(30, -30);
     [SerializeField] private float tooltipDelay = 0.1f;
+    [SerializeField] private AudioClip sonidoSeleccionar;
+    [SerializeField] private AudioClip sonidoDeseleccionar;
 
-    public static InventoryManager Instance;
+    // Referencias
+    private AudioSource audioSource;
+    [SerializeField] private GameObject tooltipPanel;
+    [SerializeField] private TMP_Text tooltipText;
+
+    // Estado
+    private List<Item> items = new List<Item>();
+    private Dictionary<int, int> itemUsos = new Dictionary<int, int>();
     private int selectedSlotIndex = -1;
     private bool isMouseOverSlot = false;
     private Coroutine showTooltipCoroutine;
+    private Item selectedItem;
+
+    // Propiedades
+    public List<Item> Items => items;
+    public Item SelectedItem => selectedItem;
 
     void Awake()
     {
         Instance = this;
         InitializeSlots();
         InitializeTooltip();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
     {
-        if (tooltipPanel.activeSelf)
-        {
-            UpdateTooltipPosition();
-        }
+        if (tooltipPanel.activeSelf) UpdateTooltipPosition();
     }
 
-    void InitializeTooltip()
+    #region Gestión de Items
+    public void AddItem(Item newItem)
     {
-        if (tooltipPanel != null)
-        {
-            tooltipPanel.SetActive(false);
-            
-            var tooltipImage = tooltipPanel.GetComponent<Image>();
-            if (tooltipImage != null) tooltipImage.raycastTarget = false;
-            tooltipText.raycastTarget = false;
-        }
+        if (items.Count >= itemSlots.Length) return;
+
+        Item copiedItem = CreateItemCopy(newItem);
+        items.Add(copiedItem);
+        itemUsos[copiedItem.itemID] = copiedItem.usos;
+        UpdateUI();
     }
 
-    void UpdateTooltipPosition()
+    public void RemoveItem(int itemID)
     {
-        RectTransform tooltipRect = tooltipPanel.GetComponent<RectTransform>();
-        Canvas canvas = GetComponent<Canvas>();
+        Item itemToRemove = items.Find(i => i.itemID == itemID);
+        if (itemToRemove == null) return;
 
-        Vector2 localPoint;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            canvas.GetComponent<RectTransform>(),
-            Input.mousePosition,
-            canvas.worldCamera,
-            out localPoint
-        );
-
-        tooltipRect.localPosition = localPoint + tooltipOffset;
+        items.Remove(itemToRemove);
+        itemUsos.Remove(itemID);
+        DeseleccionarItems();
+        UpdateUI();
     }
 
-    public void ShowNombreInventario(int slotIndex)
+    public void DecrementarUsos(int itemID)
     {
-        if (slotIndex < 0 || slotIndex >= items.Count || items[slotIndex] == null) return;
+        if (!itemUsos.ContainsKey(itemID)) return;
 
-        tooltipPanel.transform.SetAsLastSibling();
-        tooltipText.text = items[slotIndex].itemName;
-        tooltipPanel.SetActive(true);
-        UpdateTooltipPosition();
+        itemUsos[itemID]--;
+        if (itemUsos[itemID] <= 0) RemoveItem(itemID);
     }
 
-    private void HideNombreInventario()
-    {
-        tooltipPanel.SetActive(false);
-    }
+    public bool HasItem(int itemID) => items.Exists(item => item.itemID == itemID);
+    public int ObtenerUsos(int itemID) => itemUsos.ContainsKey(itemID) ? itemUsos[itemID] : 0;
+    #endregion
 
-    private void InitializeSlots()
+    #region Interfaz de Usuario
+    private void UpdateUI()
     {
         for (int i = 0; i < itemSlots.Length; i++)
         {
-            int index = i;
+            Image slotImage = itemSlots[i].GetComponent<Image>();
+            bool hasItem = i < items.Count && items[i].icon != null;
 
-            
-            itemSlots[i].GetComponent<Button>().onClick.AddListener(() => SelectItem(index));
-
-            
-            EventTrigger trigger = itemSlots[i].GetComponent<EventTrigger>() ?? itemSlots[i].AddComponent<EventTrigger>();
-            trigger.triggers.Clear();
-
-            
-            EventTrigger.Entry entryEnter = new EventTrigger.Entry();
-            entryEnter.eventID = EventTriggerType.PointerEnter;
-            entryEnter.callback.AddListener((data) => {
-                isMouseOverSlot = true;
-                showTooltipCoroutine = StartCoroutine(ShowNombreInventarioDelayed(index));
-            });
-            trigger.triggers.Add(entryEnter);
-
-            EventTrigger.Entry entryExit = new EventTrigger.Entry();
-            entryExit.eventID = EventTriggerType.PointerExit;
-            entryExit.callback.AddListener((data) => {
-                isMouseOverSlot = false;
-                if (showTooltipCoroutine != null) StopCoroutine(showTooltipCoroutine);
-                HideNombreInventario();
-            });
-            trigger.triggers.Add(entryExit);
+            slotImage.sprite = hasItem ? items[i].icon : null;
+            slotImage.enabled = hasItem;
         }
+    }
+
+    public void SelectItem(int slotIndex)
+    {
+        if (selectedSlotIndex == slotIndex)
+        {
+            DeseleccionarItems();
+            return;
+        }
+
+        selectedSlotIndex = slotIndex;
+        selectedItem = slotIndex < items.Count ? items[slotIndex] : null;
+
+        if (selectedItem != null)
+        {
+            PlaySound(sonidoSeleccionar);
+            UpdateSlotHighlights();
+        }
+        else
+        {
+            DeseleccionarItems();
+        }
+    }
+
+    public void DeseleccionarItems()
+    {
+        if (selectedSlotIndex == -1) return;
+
+        PlaySound(sonidoDeseleccionar);
+        selectedSlotIndex = -1;
+        selectedItem = null;
+        UpdateSlotHighlights();
+    }
+
+    private void UpdateSlotHighlights()
+    {
+        for (int i = 0; i < slotImages.Length; i++)
+            slotImages[i].color = (i == selectedSlotIndex) ? selectedSlotColor : Color.white;
+    }
+    #endregion
+
+    #region Tooltip
+    private void InitializeTooltip()
+    {
+        if (tooltipPanel == null) return;
+
+        tooltipPanel.SetActive(false);
+        tooltipPanel.GetComponent<Image>().raycastTarget = false;
+        tooltipText.raycastTarget = false;
+    }
+
+    private void UpdateTooltipPosition()
+    {
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            GetComponent<Canvas>().GetComponent<RectTransform>(),
+            Input.mousePosition,
+            GetComponent<Canvas>().worldCamera,
+            out Vector2 localPoint
+        );
+
+        tooltipPanel.GetComponent<RectTransform>().localPosition = localPoint + tooltipOffset;
     }
 
     private IEnumerator ShowNombreInventarioDelayed(int slotIndex)
@@ -127,89 +162,74 @@ public class InventoryManager : MonoBehaviour {
         if (isMouseOverSlot) ShowNombreInventario(slotIndex);
     }
 
-
-    public void SelectItem(int slotIndex)
+    public void ShowNombreInventario(int slotIndex)
     {
-        // Si hacemos clic en el slot ya seleccionado
-        if (selectedSlotIndex == slotIndex)
-        {
-            DeseleccionarItems();
-            return;
-        }
-        selectedSlotIndex = slotIndex;
-        selectedItem = items.Count > slotIndex ? items[slotIndex] : null;
+        if (slotIndex >= items.Count || items[slotIndex] == null) return;
 
-        if (selectedItem != null)
-        {
-            audioSource.clip = sonidoSeleccionar;
-            audioSource.Play();
-            UpdateSlotHighlights();
-        }
-        else
-        {
-            DeseleccionarItems();
-        }
-    }
-    public void DeseleccionarItems()
-    {
-        if (selectedSlotIndex == -1) return;
-
-        audioSource.clip = sonidoDeseleccionar;
-        audioSource.Play();
-
-        selectedSlotIndex = -1;
-        selectedItem = null;
-
-        UpdateSlotHighlights();
-    }
-    private void UpdateSlotHighlights()
-    {
-        for (int i = 0; i < slotImages.Length; i++)
-        {
-            slotImages[i].color = (i == selectedSlotIndex) ? selectedSlotColor : Color.white;
-        }
+        tooltipPanel.transform.SetAsLastSibling();
+        tooltipText.text = items[slotIndex].itemName;
+        tooltipPanel.SetActive(true);
+        UpdateTooltipPosition();
     }
 
+    private void HideNombreInventario() => tooltipPanel.SetActive(false);
+    #endregion
 
-    private void Start()
+    #region Helpers
+    private Item CreateItemCopy(Item original)
     {
-        UpdateUI();
-        audioSource = GetComponent<AudioSource>();
+        Item copy = ScriptableObject.CreateInstance<Item>();
+        copy.itemID = original.itemID;
+        copy.itemName = original.itemName;
+        copy.icon = original.icon;
+        copy.usos = original.usos;
+        copy.isReadable = original.isReadable;
+        return copy;
     }
 
-    public void AddItem(Item newItem)
-    {
-        if (items.Count < itemSlots.Length)
-        {
-            items.Add(newItem);
-            UpdateUI();
-        }
-    }
-
-    public void RemoveItem(int itemID)
-    {
-        Item itemToRemove = items.Find(i => i.itemID == itemID);
-        if (itemToRemove != null)
-        {
-            items.Remove(itemToRemove);
-            DeseleccionarItems();
-            UpdateUI();
-        }
-    }
-    public bool HasItem(int itemID)
-    {
-        return items.Exists(item => item.itemID == itemID);
-    }
-    void UpdateUI()
+    private void InitializeSlots()
     {
         for (int i = 0; i < itemSlots.Length; i++)
         {
-            var slotImage = itemSlots[i].GetComponent<Image>();
-            if (slotImage == null) continue;
+            int index = i;
+            Button slotButton = itemSlots[i].GetComponent<Button>();
 
-            bool hasItem = i < items.Count && items[i].icon != null;
-            slotImage.sprite = hasItem ? items[i].icon : null;
-            slotImage.enabled = hasItem;
+            slotButton.onClick.RemoveAllListeners();
+            slotButton.onClick.AddListener(() => SelectItem(index));
+
+            SetupSlotTriggers(itemSlots[i], index);
         }
     }
+
+    private void SetupSlotTriggers(GameObject slot, int index)
+    {
+        EventTrigger trigger = slot.GetComponent<EventTrigger>() ?? slot.AddComponent<EventTrigger>();
+        trigger.triggers.Clear();
+
+        AddTriggerEvent(trigger, EventTriggerType.PointerEnter, () => {
+            isMouseOverSlot = true;
+            showTooltipCoroutine = StartCoroutine(ShowNombreInventarioDelayed(index));
+        });
+
+        AddTriggerEvent(trigger, EventTriggerType.PointerExit, () => {
+            isMouseOverSlot = false;
+            if (showTooltipCoroutine != null) StopCoroutine(showTooltipCoroutine);
+            HideNombreInventario();
+        });
+    }
+
+    private void AddTriggerEvent(EventTrigger trigger, EventTriggerType type, System.Action action)
+    {
+        EventTrigger.Entry entry = new EventTrigger.Entry { eventID = type };
+        entry.callback.AddListener((data) => action());
+        trigger.triggers.Add(entry);
+    }
+
+    private void PlaySound(AudioClip clip)
+    {
+        if (audioSource == null || clip == null) return;
+        audioSource.clip = clip;
+        audioSource.Play();
+    }
+    #endregion
 }

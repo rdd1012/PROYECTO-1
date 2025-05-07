@@ -55,24 +55,14 @@ public class InteractableNPCZapatos : NPCBase,IInteractable
     }
     private void QuitarItem(int itemID)
     {
-
-        if (InventoryManager.Instance != null)
+        if (InventoryManager.Instance != null && InventoryManager.Instance.HasItem(itemID))
         {
-            foreach (Item _item in InventoryManager.Instance.Items)
-            {
-                if (_item.itemID == itemID)
-                {
-                    teniaObjeto = true;
-                    _item.usos--;
-                    if (_item.usos == 0) { InventoryManager.Instance.RemoveItem(itemID); }
-                    
-                    spriteRenderer.sprite = zapatosLimpios;
-                    break;
-
-                }
-            }
+            teniaObjeto = true;
+            InventoryManager.Instance.DecrementarUsos(itemID);
+            spriteRenderer.sprite = zapatosLimpios;
         }
     }
+
     private void GiveItem()
     {
         if (InventoryManager.Instance != null)
