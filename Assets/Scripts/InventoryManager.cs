@@ -47,8 +47,6 @@ public class InventoryManager : MonoBehaviour {
     {
         if (tooltipPanel.activeSelf) UpdateTooltipPosition();
     }
-
-    #region Gestión de Items
     public void AddItem(Item newItem)
     {
         if (items.Count >= itemSlots.Length) return;
@@ -80,9 +78,6 @@ public class InventoryManager : MonoBehaviour {
 
     public bool HasItem(int itemID) => items.Exists(item => item.itemID == itemID);
     public int ObtenerUsos(int itemID) => itemUsos.ContainsKey(itemID) ? itemUsos[itemID] : 0;
-    #endregion
-
-    #region Interfaz de Usuario
     private void UpdateUI()
     {
         for (int i = 0; i < itemSlots.Length; i++)
@@ -132,9 +127,6 @@ public class InventoryManager : MonoBehaviour {
         for (int i = 0; i < slotImages.Length; i++)
             slotImages[i].color = (i == selectedSlotIndex) ? selectedSlotColor : Color.white;
     }
-    #endregion
-
-    #region Tooltip
     private void InitializeTooltip()
     {
         if (tooltipPanel == null) return;
@@ -173,9 +165,7 @@ public class InventoryManager : MonoBehaviour {
     }
 
     private void HideNombreInventario() => tooltipPanel.SetActive(false);
-    #endregion
 
-    #region Helpers
     private Item CreateItemCopy(Item original)
     {
         Item copy = ScriptableObject.CreateInstance<Item>();
@@ -231,5 +221,4 @@ public class InventoryManager : MonoBehaviour {
         audioSource.clip = clip;
         audioSource.Play();
     }
-    #endregion
 }

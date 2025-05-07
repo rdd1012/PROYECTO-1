@@ -5,14 +5,19 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Events;
 
+[System.Serializable]
+public class ButtonSpritePair {
+    public Sprite normalSprite;
+    public Sprite highlightedSprite;
+}
+
 public class PuzzleRadio : MonoBehaviour {
+    [SerializeField] List<ButtonSpritePair> buttonSprites = new List<ButtonSpritePair>();
     [SerializeField] List<Button> buttons = new List<Button>();
     float highlightDuration = 0.5f;
     float timeBetweenHighlights = 0.25f;
-    [SerializeField] Color highlightedColor;
     [SerializeField] Image pantallaVictoria;
     [SerializeField] Image puzzle;
-    [SerializeField] Color normalColor;
     int maxRounds = 3;
     [SerializeField] InteractableRadio interactableRadio;
 
@@ -35,7 +40,7 @@ public class PuzzleRadio : MonoBehaviour {
         {
             int index = i;
             buttons[i].onClick.AddListener(() => OnButtonPressed(index));
-            buttons[i].image.color = normalColor;
+            buttons[i].image.sprite = buttonSprites[index].normalSprite; 
         }
     }
 
@@ -74,9 +79,11 @@ public class PuzzleRadio : MonoBehaviour {
 
     IEnumerator HighlightButton(int index)
     {
-        buttons[index].image.color = highlightedColor;
+        
+        buttons[index].image.sprite = buttonSprites[index].highlightedSprite;
         yield return new WaitForSecondsRealtime(highlightDuration);
-        buttons[index].image.color = normalColor;
+        
+        buttons[index].image.sprite = buttonSprites[index].normalSprite;
     }
 
     void EnablePlayerInput()
@@ -116,7 +123,8 @@ public class PuzzleRadio : MonoBehaviour {
         currentSequenceIndex = 0;
         foreach (Button button in buttons)
         {
-            button.image.color = normalColor;
+            int index = buttons.IndexOf(button);
+            button.image.sprite = buttonSprites[index].normalSprite;
         }
         StartNewRound();
     }
@@ -186,7 +194,8 @@ public class PuzzleRadio : MonoBehaviour {
         currentSequenceIndex = 0;
         foreach (Button button in buttons)
         {
-            button.image.color = normalColor;
+            int index = buttons.IndexOf(button);
+            button.image.sprite = buttonSprites[index].normalSprite;
         }
         this.gameObject.SetActive(false);
 
