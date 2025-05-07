@@ -49,3 +49,6 @@ MonoBehaviour:
   listaMusicaVagonesNormales:
   - {fileID: 8300000, guid: 2abe4ad441c5d0a419dcb40c324e973f, type: 3}
   - {fileID: 8300000, guid: 9ee9bf79817d1f94ebb862363459b72b, type: 3}
+  listaMusicaVagonCarga:
+  - {fileID: 8300000, guid: 2abe4ad441c5d0a419dcb40c324e973f, type: 3}
+  - {fileID: 8300000, guid: e1a0ab56d5dd94544b8a907f8835b465, type: 3}
