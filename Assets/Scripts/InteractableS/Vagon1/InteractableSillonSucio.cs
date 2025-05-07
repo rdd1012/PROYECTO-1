@@ -19,17 +19,6 @@ public class InteractableSillonSucio : MonoBehaviour, IInteractable {
     }
     public void QuitarItem(int itemID)
     {
-
-        if (InventoryManager.Instance != null)
-        {
-            foreach (Item _item in InventoryManager.Instance.Items)
-            {
-                if (_item.itemID == itemID)
-                {
-                    InventoryManager.Instance.RemoveItem(itemID);
-                    break;
-                }
-            }
-        }
+        InventoryManager.Instance?.DecrementarUsos(itemID);
     }
 }

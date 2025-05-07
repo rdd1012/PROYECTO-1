@@ -16,3 +16,4 @@ MonoBehaviour:
   itemName: Trapo
   icon: {fileID: 21300000, guid: 2d654edd1b79e6e4cbe5da087d1157e0, type: 3}
   usos: 2
+  isReadable: 0

@@ -17,18 +17,10 @@ public class InteractablePuertaPomo : MonoBehaviour, IInteractable {
     }
     private void QuitarItem(int itemID)
     {
-
-        if (InventoryManager.Instance != null)
+        if (InventoryManager.Instance != null && InventoryManager.Instance.HasItem(itemID))
         {
-            foreach (Item _item in InventoryManager.Instance.Items)
-            {
-                if (_item.itemID == itemID)
-                {
-                    teniaObjeto = true;
-                        InventoryManager.Instance.RemoveItem(itemID);
-                    break;
-                }
-            }
+            teniaObjeto = true;
+            InventoryManager.Instance.DecrementarUsos(itemID);
         }
     }
 
