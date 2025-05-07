@@ -42,6 +42,10 @@ public class InventoryManager : MonoBehaviour {
         InitializeTooltip();
         audioSource = GetComponent<AudioSource>();
     }
+    private void Start()
+    {
+        UpdateUI();
+    }
 
     void Update()
     {
@@ -82,7 +86,9 @@ public class InventoryManager : MonoBehaviour {
     {
         for (int i = 0; i < itemSlots.Length; i++)
         {
-            Image slotImage = itemSlots[i].GetComponent<Image>();
+            var slotImage = itemSlots[i].GetComponent<Image>();
+            if (slotImage == null) continue;
+
             bool hasItem = i < items.Count && items[i].icon != null;
 
             slotImage.sprite = hasItem ? items[i].icon : null;
