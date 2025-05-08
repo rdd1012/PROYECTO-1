@@ -131,9 +131,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 145457590}
-  - component: {fileID: 145457595}
   - component: {fileID: 145457593}
-  - component: {fileID: 145457596}
+  - component: {fileID: 145457597}
   m_Layer: 0
   m_Name: Puerta
   m_TagString: Untagged
@@ -207,7 +206,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.1515312, y: 8.36787}
   m_EdgeRadius: 0
---- !u!114 &145457595
+--- !u!114 &145457597
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -222,18 +221,6 @@ MonoBehaviour:
   goToPoint: {fileID: 1772866103}
   requiredItemID: -1
   requireSelectedItem: 1
---- !u!114 &145457596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 145457589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ba39029e2047a54b9de0cb1c444bb05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &214444022
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,6 +1105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cfe37c7f572ba4dbcd7e6c68bc7bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puertaCarga: {fileID: 145457589}
   itemToGive: {fileID: 11400000, guid: 1e3f42d612310f6479ba35d85c3fe398, type: 2}
 --- !u!61 &1509021322
 BoxCollider2D:
