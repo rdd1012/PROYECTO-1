@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractablePuertaHorquilla : MonoBehaviour, IInteractable {
-    // Estado
+    
     [SerializeField] private PuertaPantalla puertaPantalla;
     [SerializeField] private InteractableData interactableDataTrapo;
     [SerializeField] private InteractableData interactableDataHorquilla;
@@ -11,18 +11,24 @@ public class InteractablePuertaHorquilla : MonoBehaviour, IInteractable {
     private bool manchaBorrada = false;
     private bool puertaAbierta = false;
 
-    // Propiedades
+    AudioSource audioSource;
     public bool ManchaBorrada { get => manchaBorrada; set => manchaBorrada = value; }
     public bool PuertaAbierta { get => puertaAbierta; set => puertaAbierta = value; }
     public InteractableData InteractableDataTrapo => interactableDataTrapo;
     public InteractableData InteractableDataHorquilla => interactableDataHorquilla;
-
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     public void OnClickAction()
     {
         if (!puertaAbierta || !manchaBorrada)
             puertaPantalla.gameObject.SetActive(true);
         else
+        {
             GameManager.Instance.PasarDeNivel();
+            audioSource.Play();
+        }
     }
 
     public void QuitarItem(int itemID)

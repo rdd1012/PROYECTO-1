@@ -6,7 +6,7 @@ using UnityEngine;
 public class InteractableSetLimpieza : MonoBehaviour, IInteractable {
     [SerializeField] private Item itemToGive;
     private bool inventoryHasItem = false;
-    AudioSource audioSource;
+    //AudioSource audioSource;
     private void Start()
     {
         //audioSource = GetComponent<AudioSource>();

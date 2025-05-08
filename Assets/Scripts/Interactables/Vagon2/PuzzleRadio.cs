@@ -16,6 +16,9 @@ public class PuzzleRadio : MonoBehaviour {
     [SerializeField] List<Button> buttons = new List<Button>();
     float highlightDuration = 0.5f;
     float timeBetweenHighlights = 0.25f;
+    AudioSource audioSource;
+    [SerializeField] AudioClip sonidoLuz;
+    [SerializeField] AudioClip sonidoFALLO;
     [SerializeField] Image pantallaVictoria;
     [SerializeField] Image puzzle;
     int maxRounds = 3;
@@ -31,6 +34,7 @@ public class PuzzleRadio : MonoBehaviour {
     private void Start()
     {
         InitializeButtons();
+        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -71,7 +75,9 @@ public class PuzzleRadio : MonoBehaviour {
         foreach (int index in sequence)
         {
             yield return HighlightButton(index);
+            
             yield return new WaitForSecondsRealtime(timeBetweenHighlights);
+            
         }
 
         EnablePlayerInput();
@@ -81,6 +87,8 @@ public class PuzzleRadio : MonoBehaviour {
     {
         
         buttons[index].image.sprite = buttonSprites[index].highlightedSprite;
+        audioSource.clip = sonidoLuz;
+        audioSource.Play();
         yield return new WaitForSecondsRealtime(highlightDuration);
         
         buttons[index].image.sprite = buttonSprites[index].normalSprite;
@@ -155,10 +163,13 @@ public class PuzzleRadio : MonoBehaviour {
 
     void PuzzleFailed()
     {
+        audioSource.clip = sonidoFALLO;
+        audioSource.Play();
         playerTurn = false;
         currentRound = 0;
         sequence.Clear();
         StartCoroutine(RestartGame());
+        
     }
 
 

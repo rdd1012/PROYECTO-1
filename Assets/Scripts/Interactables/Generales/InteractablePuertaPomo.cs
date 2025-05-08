@@ -1,19 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InteractablePuertaPomo : MonoBehaviour, IInteractable {
     bool teniaObjeto = false;
     private InteractableData interactableData;
+    AudioSource audioSource;
 
     private void Start()
     {
         interactableData = GetComponent<InteractableData>();
+        audioSource = GetComponent<AudioSource>();
     }
     public void OnClickAction()
     {
-        QuitarItem(interactableData.requiredItemID);
-        if (teniaObjeto) { GameManager.Instance.PasarDeNivel(); }
+        if (interactableData.CheckItemRequirement())
+        {
+            if (!teniaObjeto)
+                QuitarItem(interactableData.requiredItemID);
+            return;
+        }
+        if (teniaObjeto) { GameManager.Instance.PasarDeNivel();
+            audioSource.Play();}
     }
     private void QuitarItem(int itemID)
     {
