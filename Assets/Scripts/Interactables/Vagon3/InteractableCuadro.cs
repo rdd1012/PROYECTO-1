@@ -7,34 +7,21 @@ public class InteractableCuadro : MonoBehaviour, IInteractable {
     private bool inventoryHasItem = false;
     AudioSource audioSource;
     bool teniaObjeto = false;
+    public bool TeniaObjeto { get => teniaObjeto; set => teniaObjeto = value; }
     InteractableData interactableData;
     SpriteRenderer spriteRenderer;
-    [SerializeField] Sprite spriteSinCubo;
-    [SerializeField] Sprite spriteConCuboyPalanca;
-    [SerializeField] Sprite spriteSinPalanca;
+    [SerializeField]Canvas cuadropantalla;
+    public InteractableData InteractableData => interactableData;
     private void Start()
     {
         interactableData = GetComponent<InteractableData>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        spriteRenderer.sprite = spriteSinCubo;
     }
     public void OnClickAction()
     {
-        if (interactableData.CheckItemRequirement())
-        {
-            if (!teniaObjeto)
-                QuitarItem(interactableData.requiredItemID);
-            spriteRenderer.sprite = spriteConCuboyPalanca;
-            return;
-            
-        }
-        if (teniaObjeto) 
-        {
-            GiveItem();
-            spriteRenderer.sprite = spriteSinPalanca;
-        }
+        cuadropantalla.gameObject.SetActive(true);
     }
-    private void GiveItem()
+    public void GiveItem()
     {
         if (InventoryManager.Instance != null)
         {
@@ -55,7 +42,7 @@ public class InteractableCuadro : MonoBehaviour, IInteractable {
 
         }
     }
-    private void QuitarItem(int itemID)
+    public void QuitarItem(int itemID)
     {
         if (InventoryManager.Instance != null && InventoryManager.Instance.HasItem(itemID))
         {

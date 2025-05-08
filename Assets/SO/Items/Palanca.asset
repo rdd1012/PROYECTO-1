@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 8
   itemName: Palanca
-  icon: {fileID: 21300000, guid: 62bb80102faa32e4b90e329f42cea29b, type: 3}
+  icon: {fileID: 21300000, guid: 5107c044f0449dd46b5e35a417ed7c51, type: 3}
   usos: 1
   isReadable: 0
+  carta: {fileID: 0}
