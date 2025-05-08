@@ -5602,11 +5602,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1420100636581155957, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420100636581155957, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420100636581155957, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420100636581155957, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420100636581155957, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 1649861395472119353, guid: 521d1d5290c92aa49a76f57707512133,
         type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 330585545}
+    - target: {fileID: 4621177233832269368, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4868314352617485719, guid: 521d1d5290c92aa49a76f57707512133,
         type: 3}
       propertyPath: m_Pivot.x
@@ -5707,12 +5737,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6635481054642283475, guid: 521d1d5290c92aa49a76f57707512133,
-        type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: -2556540523406613550, guid: 5d7f157b44493f24eb34ad29335427d1,
-        type: 2}
     - target: {fileID: 6781942235281610935, guid: 521d1d5290c92aa49a76f57707512133,
         type: 3}
       propertyPath: m_Name
