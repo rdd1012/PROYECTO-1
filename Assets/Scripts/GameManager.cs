@@ -8,11 +8,12 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
     public static GameManager Instance;
 
-    [SerializeField] private float fadeDuration = 1.0f;
+    private float fadeDuration = 2.0f;
     private Image fadeImage;
     private Canvas fadeCanvas;
     [SerializeField] private Texture2D defaultCursorTexture;
-  
+    AudioSource audioSource;
+    [SerializeField] AudioClip sonidoCerrarPuerta;
     [SerializeField] private int targetFrameRate = 60;
 
     
@@ -26,12 +27,16 @@ public class GameManager : MonoBehaviour {
             InitializeFrameRate();
             CreateFadeSystem();
             StartCoroutine(FadeIn());
+            audioSource = GetComponent<AudioSource>();
+            audioSource.clip = sonidoCerrarPuerta;
+            audioSource.Play();
         }
         else
         {
             Destroy(gameObject);
         }
     }
+ 
     private void CreateFadeSystem()
     {
         
@@ -57,6 +62,7 @@ public class GameManager : MonoBehaviour {
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         StartCoroutine(FadeIn());
+
     }
     void OnEnable()
     {

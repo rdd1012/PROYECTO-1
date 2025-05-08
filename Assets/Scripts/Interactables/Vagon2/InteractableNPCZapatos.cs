@@ -24,6 +24,7 @@ public class InteractableNPCZapatos : NPCBase,IInteractable
         yapBubble.gameObject.SetActive(false);
         interactableData = GetComponent<InteractableData>();
         StartCoroutine(Blink(pestañeo, spriteRenderer));
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void OnClickAction()
@@ -33,12 +34,15 @@ public class InteractableNPCZapatos : NPCBase,IInteractable
             if (interactableData.CheckItemRequirement())
             {
                 if (!teniaObjeto)
-                QuitarItem(interactableData.requiredItemID);
-
-
+                { QuitarItem(interactableData.requiredItemID); return; }
+                
+            }
+            if (teniaObjeto)
+            {
+                StartCoroutine(Yap(dialogos.frases[1], hablando, normal, spriteRenderer, yapBubble));
                 GiveItem();
             }
-            if (teniaObjeto) StartCoroutine(Yap(dialogos.frases[1], hablando, normal, spriteRenderer, yapBubble));
+
             else StartCoroutine(Yap(dialogos.frases[0], hablando, normal, spriteRenderer, yapBubble));
         }
     }
@@ -59,6 +63,7 @@ public class InteractableNPCZapatos : NPCBase,IInteractable
             teniaObjeto = true;
             InventoryManager.Instance.DecrementarUsos(itemID);
             spriteRenderer.sprite = zapatosLimpios;
+            audioSource.Play();
         }
     }
 
@@ -78,7 +83,7 @@ public class InteractableNPCZapatos : NPCBase,IInteractable
             {
                 InventoryManager.Instance.AddItem(itemToGive);
                 inventoryHasItem = true;
-                //audioSource.Play();
+                
 
             }
 

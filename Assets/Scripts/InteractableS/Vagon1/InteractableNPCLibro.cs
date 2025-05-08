@@ -73,7 +73,7 @@ public class InteractableNPCLibro : NPCBase, IInteractable {
             {
                 InventoryManager.Instance.AddItem(itemToGive);
                 inventoryHasItem = true;
-                audioSource.Play();
+                //audioSource.Play();
                 
             }
 
