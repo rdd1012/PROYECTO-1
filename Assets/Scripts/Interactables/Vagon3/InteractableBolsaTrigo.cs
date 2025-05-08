@@ -1,15 +1,14 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractableSetLimpieza : MonoBehaviour, IInteractable {
+public class InteractableBolsaTrigo : MonoBehaviour, IInteractable 
+    {
     [SerializeField] private Item itemToGive;
     private bool inventoryHasItem = false;
     AudioSource audioSource;
     private void Start()
     {
-        //audioSource = GetComponent<AudioSource>();
     }
     public void OnClickAction()
     {

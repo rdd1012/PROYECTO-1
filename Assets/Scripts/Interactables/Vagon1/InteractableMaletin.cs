@@ -14,7 +14,7 @@ public class InteractableMaletin : MonoBehaviour, IInteractable {
     public void SetPuzzleCompleto(bool _puzzleCompleto) { puzzleCompleto = _puzzleCompleto; }
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
         StartCoroutine(ComprobarPuzzle());
     }
     public void OnClickAction()
@@ -52,7 +52,7 @@ public class InteractableMaletin : MonoBehaviour, IInteractable {
             {
                 InventoryManager.Instance.AddItem(itemToGive);
                 inventoryHasItem = true;
-                audioSource.Play();
+                //audioSource.Play();
             }
 
         }

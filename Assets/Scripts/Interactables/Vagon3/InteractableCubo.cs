@@ -1,19 +1,29 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractableSetLimpieza : MonoBehaviour, IInteractable {
+public class InteractableCubo : MonoBehaviour,IInteractable
+{
     [SerializeField] private Item itemToGive;
     private bool inventoryHasItem = false;
     AudioSource audioSource;
+    bool teniaObjeto = false;
+    InteractableData interactableData;
     private void Start()
     {
-        //audioSource = GetComponent<AudioSource>();
+        interactableData = GetComponent<InteractableData>();
     }
     public void OnClickAction()
     {
-        GiveItem();
+        if (interactableData.CheckItemRequirement())
+        {
+            if (!teniaObjeto)
+                QuitarItem(interactableData.requiredItemID);
+
+
+            GiveItem();
+            Destroy(this.gameObject);
+        }
     }
     private void GiveItem()
     {
@@ -34,6 +44,14 @@ public class InteractableSetLimpieza : MonoBehaviour, IInteractable {
                // audioSource.Play();
             }
 
+        }
+    }
+    private void QuitarItem(int itemID)
+    {
+        if (InventoryManager.Instance != null && InventoryManager.Instance.HasItem(itemID))
+        {
+            teniaObjeto = true;
+            InventoryManager.Instance.DecrementarUsos(itemID);
         }
     }
 }
