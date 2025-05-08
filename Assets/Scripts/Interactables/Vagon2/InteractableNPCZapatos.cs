@@ -23,7 +23,6 @@ public class InteractableNPCZapatos : NPCBase,IInteractable
         yapBubble = GetComponentInChildren<YapBubble>();
         yapBubble.gameObject.SetActive(false);
         interactableData = GetComponent<InteractableData>();
-        audioSource = GetComponent<AudioSource>();
         StartCoroutine(Blink(pestañeo, spriteRenderer));
     }
 
@@ -79,7 +78,7 @@ public class InteractableNPCZapatos : NPCBase,IInteractable
             {
                 InventoryManager.Instance.AddItem(itemToGive);
                 inventoryHasItem = true;
-                audioSource.Play();
+                //audioSource.Play();
 
             }
 

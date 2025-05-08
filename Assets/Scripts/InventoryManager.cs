@@ -17,6 +17,7 @@ public class InventoryManager : MonoBehaviour {
     [SerializeField] private float tooltipDelay = 0.1f;
     [SerializeField] private AudioClip sonidoSeleccionar;
     [SerializeField] private AudioClip sonidoDeseleccionar;
+    [SerializeField] private AudioClip sonidoDarItem;
 
     // Referencias
     private AudioSource audioSource;
@@ -58,6 +59,8 @@ public class InventoryManager : MonoBehaviour {
         Item copiedItem = CreateItemCopy(newItem);
         items.Add(copiedItem);
         itemUsos[copiedItem.itemID] = copiedItem.usos;
+        audioSource.clip = sonidoDarItem;
+        audioSource.Play();
         UpdateUI();
     }
 

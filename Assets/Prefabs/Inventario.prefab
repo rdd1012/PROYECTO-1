@@ -842,9 +842,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedSlotColor: {r: 1, g: 0.68605447, b: 0, a: 1}
-  items: []
-  sonidoSeleccionar: {fileID: 8300000, guid: a7d2f7e97175533418f8a68ebdb99f54, type: 3}
-  sonidoDeseleccionar: {fileID: 8300000, guid: fe3fb9efacce53e47a3ca1055bd68e52, type: 3}
   itemSlots:
   - {fileID: 4078372532822172048}
   - {fileID: 693775016621998691}
@@ -853,11 +850,13 @@ MonoBehaviour:
   - {fileID: 284237258071184883}
   - {fileID: 6875138855999240560}
   - {fileID: 2255973937498970536}
-  selectedItem: {fileID: 0}
-  tooltipPanel: {fileID: 857490942636214716}
-  tooltipText: {fileID: 9054798303557171565}
   tooltipOffset: {x: 30, y: -30}
   tooltipDelay: 0.1
+  sonidoSeleccionar: {fileID: 8300000, guid: a7d2f7e97175533418f8a68ebdb99f54, type: 3}
+  sonidoDeseleccionar: {fileID: 8300000, guid: fe3fb9efacce53e47a3ca1055bd68e52, type: 3}
+  sonidoDarItem: {fileID: 8300000, guid: e7ddbca48ff279d4bbb32f3720041156, type: 3}
+  tooltipPanel: {fileID: 857490942636214716}
+  tooltipText: {fileID: 9054798303557171565}
 --- !u!82 &6635481054642283475
 AudioSource:
   m_ObjectHideFlags: 0
