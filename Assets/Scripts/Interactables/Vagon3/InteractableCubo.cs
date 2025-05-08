@@ -7,23 +7,11 @@ public class InteractableCubo : MonoBehaviour,IInteractable
     [SerializeField] private Item itemToGive;
     private bool inventoryHasItem = false;
     AudioSource audioSource;
-    bool teniaObjeto = false;
-    InteractableData interactableData;
-    private void Start()
-    {
-        interactableData = GetComponent<InteractableData>();
-    }
+
     public void OnClickAction()
     {
-        if (interactableData.CheckItemRequirement())
-        {
-            if (!teniaObjeto)
-                QuitarItem(interactableData.requiredItemID);
-
-
-            GiveItem();
-            Destroy(this.gameObject);
-        }
+        GiveItem();
+        Destroy(this.gameObject);
     }
     private void GiveItem()
     {
@@ -46,12 +34,5 @@ public class InteractableCubo : MonoBehaviour,IInteractable
 
         }
     }
-    private void QuitarItem(int itemID)
-    {
-        if (InventoryManager.Instance != null && InventoryManager.Instance.HasItem(itemID))
-        {
-            teniaObjeto = true;
-            InventoryManager.Instance.DecrementarUsos(itemID);
-        }
-    }
+   
 }
