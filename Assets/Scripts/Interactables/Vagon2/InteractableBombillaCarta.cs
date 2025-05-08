@@ -32,7 +32,7 @@ public class InteractableBombillaCarta : MonoBehaviour, IInteractable
         }
         StartCoroutine(ComprobarTodoBien());
     }
-
+    public bool IsInteractable() { return true; }
     IEnumerator ComprobarTodoBien() 
     {    
         while (!inventoryHasItem)

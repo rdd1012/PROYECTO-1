@@ -65,4 +65,5 @@ public class InteractableRadio : MonoBehaviour, IInteractable {
 
         }
     }
+    public bool IsInteractable() { return true; }
 }

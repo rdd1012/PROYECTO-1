@@ -7,7 +7,7 @@ public class InteractablePuertaPomo : MonoBehaviour, IInteractable {
     bool teniaObjeto = false;
     private InteractableData interactableData;
     AudioSource audioSource;
-
+    public bool IsInteractable() { return true; }
     private void Start()
     {
         interactableData = GetComponent<InteractableData>();

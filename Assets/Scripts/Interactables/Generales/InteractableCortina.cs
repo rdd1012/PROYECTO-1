@@ -22,6 +22,7 @@ public class InteractableCortina : MonoBehaviour,IInteractable
         audioSource = GetComponent<AudioSource>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
+    public bool IsInteractable() { return true; }
     public void OnClickAction()
     {
         UtilizarPersiana();

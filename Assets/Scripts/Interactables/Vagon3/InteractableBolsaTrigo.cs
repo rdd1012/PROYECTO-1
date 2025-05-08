@@ -25,6 +25,7 @@ public class InteractableBolsaTrigo : MonoBehaviour, IInteractable
             GiveItem();
         }
     }
+    public bool IsInteractable() { return true; }
     private void GiveItem()
     {
         if (InventoryManager.Instance != null)

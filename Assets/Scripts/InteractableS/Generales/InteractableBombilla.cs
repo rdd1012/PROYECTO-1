@@ -24,7 +24,7 @@ public class InteractableBombilla : MonoBehaviour, IInteractable
         else {lightIsOn = false; spriteRenderer.sprite = spriteApagado;
         }
     }
-  
+    public bool IsInteractable() { return true; }
     public  void OnClickAction()
     {
         SwitchLight();

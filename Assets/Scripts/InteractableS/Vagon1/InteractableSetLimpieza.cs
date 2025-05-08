@@ -11,6 +11,7 @@ public class InteractableSetLimpieza : MonoBehaviour, IInteractable {
     {
         //audioSource = GetComponent<AudioSource>();
     }
+    public bool IsInteractable() { return true; }
     public void OnClickAction()
     {
         GiveItem();

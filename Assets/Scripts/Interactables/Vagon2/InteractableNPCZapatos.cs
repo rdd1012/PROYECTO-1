@@ -46,6 +46,7 @@ public class InteractableNPCZapatos : NPCBase,IInteractable
             else StartCoroutine(Yap(dialogos.frases[0], hablando, normal, spriteRenderer, yapBubble));
         }
     }
+    public bool IsInteractable() { return true; }
     public override IEnumerator Yap(string _text, Sprite _hablando, Sprite _normal, SpriteRenderer _spriteRenderer, YapBubble _yapbubble)
     {
         _spriteRenderer.sprite = _hablando;

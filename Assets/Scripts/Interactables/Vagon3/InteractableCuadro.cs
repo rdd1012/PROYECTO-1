@@ -17,6 +17,7 @@ public class InteractableCuadro : MonoBehaviour, IInteractable {
         interactableData = GetComponent<InteractableData>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
+    public bool IsInteractable() { return true; }
     public void OnClickAction()
     {
         cuadropantalla.gameObject.SetActive(true);

@@ -30,6 +30,7 @@ public class InteractablePuertaHorquilla : MonoBehaviour, IInteractable {
             audioSource.Play();
         }
     }
+    public bool IsInteractable() { return true; }
 
     public void QuitarItem(int itemID)
     {

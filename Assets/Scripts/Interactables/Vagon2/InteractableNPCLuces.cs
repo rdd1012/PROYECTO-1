@@ -12,7 +12,7 @@ public class InteractableNPCLuces : NPCBase, IInteractable
     Sprite normal;
     [SerializeField] InteractableBombillaCarta interactableBombillaCarta;
     [SerializeField] private NPCdialogoSO dialogos;
-
+    public bool IsInteractable() { return true; }
     void Start()
     {
 
