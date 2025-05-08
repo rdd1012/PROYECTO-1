@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 6
   itemName: Cubo
-  icon: {fileID: 21300000, guid: dabe3bb611a52374ba13b2f4b8cada10, type: 3}
+  icon: {fileID: 21300000, guid: d9de7aa229e600046a1ba8f9bfae98b7, type: 3}
   usos: 1
   isReadable: 0
+  carta: {fileID: 0}
