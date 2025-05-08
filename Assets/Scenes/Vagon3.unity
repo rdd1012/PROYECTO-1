@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 145457593}
   - component: {fileID: 145457597}
   - component: {fileID: 145457598}
+  - component: {fileID: 145457599}
   m_Layer: 0
   m_Name: Puerta
   m_TagString: Untagged
@@ -319,6 +320,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &145457599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145457589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5d65c9b6ad3d794ca406ee9c02c7e9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLocked: 1
 --- !u!1 &207473569
 GameObject:
   m_ObjectHideFlags: 0
@@ -1790,7 +1804,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 19.4, y: -4.44}
+  m_AnchoredPosition: {x: 28.97, y: -4.44}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1509021321
@@ -1805,7 +1819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cfe37c7f572ba4dbcd7e6c68bc7bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puertaCarga: {fileID: 145457589}
+  puertaCarga: {fileID: 145457599}
   itemToGive: {fileID: 11400000, guid: 1e3f42d612310f6479ba35d85c3fe398, type: 2}
 --- !u!61 &1509021322
 BoxCollider2D:

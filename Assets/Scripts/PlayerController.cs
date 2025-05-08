@@ -35,14 +35,12 @@ public class PlayerController : MonoBehaviour {
     public void GoToItem(InteractableData item)
     {
         if (item == null || item.GoToPoint == null) return;
-
+        IInteractable interactableItem = item.GetComponent<IInteractable>();
         InteractableVisuals itemvisuals = item.GetComponentInChildren<InteractableVisuals>();
         if (itemvisuals == null) return;
-
-        IInteractable interactableItem = item.GetComponent<IInteractable>();
-        if (interactableItem == null) return;
-
-        StartCoroutine(itemvisuals.SelectAnimation());
+        else StartCoroutine(itemvisuals.SelectAnimation());
+        if (interactableItem == null || !interactableItem.IsInteractable()) { return; }
+        
         audioSource.clip = seleccionSonido;
         audioSource.Play();
 
@@ -112,6 +110,7 @@ public class PlayerController : MonoBehaviour {
         {
             Interact(interactable);
         }
+
     }
 
     public void Interact(IInteractable item)

@@ -1,3 +1,4 @@
 public interface IInteractable {
-    void OnClickAction(); 
+    void OnClickAction();
+    bool IsInteractable();
 }

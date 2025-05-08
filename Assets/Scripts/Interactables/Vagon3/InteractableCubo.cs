@@ -7,7 +7,7 @@ public class InteractableCubo : MonoBehaviour,IInteractable
     [SerializeField] private Item itemToGive;
     private bool inventoryHasItem = false;
     AudioSource audioSource;
-
+    public bool IsInteractable() { return true; }
     public void OnClickAction()
     {
         GiveItem();

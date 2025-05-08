@@ -57,6 +57,7 @@ public class InteractableNPCLibro : NPCBase, IInteractable {
             spriteRenderer.sprite = libro;
         }
     }
+    public bool IsInteractable() { return true; }
     private void GiveItem()
     {
         if (InventoryManager.Instance != null)

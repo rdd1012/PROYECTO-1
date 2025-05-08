@@ -35,7 +35,7 @@ public class InteractableMaletin : MonoBehaviour, IInteractable {
         }
 
     }
-
+    public bool IsInteractable() { return true; }
     private void GiveItem()
     {
         if (InventoryManager.Instance != null)
