@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class InteractableCaja : MonoBehaviour,IInteractable
 {
+    [SerializeField]GameObject puertaCarga;
+
     [SerializeField] private Item itemToGive;
-    private bool inventoryHasItem = false;
     AudioSource audioSource;
     bool teniaObjeto = false;
     InteractableData interactableData;
     private void Start()
     {
         interactableData = GetComponent<InteractableData>();
+        
     }
     public void OnClickAction()
     {
@@ -21,30 +23,13 @@ public class InteractableCaja : MonoBehaviour,IInteractable
                 QuitarItem(interactableData.requiredItemID);
 
 
-            GiveItem();
+            ActivarPuerta();
             Destroy(this.gameObject);
         }
     }
-    private void GiveItem()
+    private void ActivarPuerta()
     {
-        if (InventoryManager.Instance != null)
-        {
-            foreach (Item _item in InventoryManager.Instance.Items)
-            {
-                if (_item.itemID == itemToGive.itemID)
-                {
-                    inventoryHasItem = true;
-                    break;
-                }
-            }
-            if (!inventoryHasItem)
-            {
-                InventoryManager.Instance.AddItem(itemToGive);
-                inventoryHasItem = true;
-                // audioSource.Play();
-            }
-
-        }
+        puertaCarga.AddComponent<InteractablePuertaCarga>();
     }
     private void QuitarItem(int itemID)
     {
