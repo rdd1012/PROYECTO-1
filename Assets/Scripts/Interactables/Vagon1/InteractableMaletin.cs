@@ -21,6 +21,7 @@ public class InteractableMaletin : MonoBehaviour, IInteractable {
     {
         if (!puzzleCompleto) puzzleCanvas.gameObject.SetActive(true);
     }
+    public bool TieneItem() { return true; }
     IEnumerator ComprobarPuzzle()
     {
         bool estaCompleto = false;

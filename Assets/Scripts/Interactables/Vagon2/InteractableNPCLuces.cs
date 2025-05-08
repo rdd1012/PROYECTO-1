@@ -23,6 +23,7 @@ public class InteractableNPCLuces : NPCBase, IInteractable
         interactableData = GetComponent<InteractableData>();
         StartCoroutine(Blink(pestañeo, spriteRenderer));
     }
+    public bool TieneItem() { return true; }
     public void OnClickAction() 
     {
       

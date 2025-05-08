@@ -16,6 +16,7 @@ public class InteractableCortina : MonoBehaviour,IInteractable
     {
         isOpen = true;
     }
+    public bool TieneItem() { return true; }
     private void Start()
     {
         //sol = GetComponentInChildren<Light>();

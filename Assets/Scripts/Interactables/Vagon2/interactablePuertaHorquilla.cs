@@ -20,6 +20,7 @@ public class InteractablePuertaHorquilla : MonoBehaviour, IInteractable {
     {
         audioSource = GetComponent<AudioSource>();
     }
+    public bool TieneItem() { return true; }
     public void OnClickAction()
     {
         if (!puertaAbierta || !manchaBorrada)

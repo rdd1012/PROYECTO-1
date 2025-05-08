@@ -13,7 +13,7 @@ public class InteractableBolsaTrigo : MonoBehaviour, IInteractable
     {
         interactableData = GetComponent<InteractableData>();
     }
-    
+    public bool TieneItem() { return true; }
     public void OnClickAction()
     {
         if (interactableData.CheckItemRequirement())

@@ -13,9 +13,10 @@ public class InteractablePuertaPomo : MonoBehaviour, IInteractable {
         interactableData = GetComponent<InteractableData>();
         audioSource = GetComponent<AudioSource>();
     }
+    public bool TieneItem() { return interactableData.CheckItemRequirement(); }
     public void OnClickAction()
     {
-        if (interactableData.CheckItemRequirement())
+        if (TieneItem())
         {
             if (!teniaObjeto)
                 QuitarItem(interactableData.requiredItemID);

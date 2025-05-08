@@ -26,12 +26,12 @@ public class InteractableNPCZapatos : NPCBase,IInteractable
         StartCoroutine(Blink(pestañeo, spriteRenderer));
         audioSource = GetComponent<AudioSource>();
     }
-
+    public bool TieneItem() { return interactableData.CheckItemRequirement(); }
     public void OnClickAction()
     {
         if(InventoryManager.Instance.HasItem(3))
         {
-            if (interactableData.CheckItemRequirement())
+            if (TieneItem())
             {
                 if (!teniaObjeto)
                 { QuitarItem(interactableData.requiredItemID); return; }

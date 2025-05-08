@@ -19,6 +19,7 @@ public class InteractableRadio : MonoBehaviour, IInteractable {
         //audioSource = GetComponent<AudioSource>();
         StartCoroutine(ComprobarPuzzle());
     }
+    public bool TieneItem() { return true; }
     public void OnClickAction()
     {
         if (!radioFuera) 

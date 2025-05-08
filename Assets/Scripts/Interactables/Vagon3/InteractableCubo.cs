@@ -13,6 +13,7 @@ public class InteractableCubo : MonoBehaviour,IInteractable
         GiveItem();
         Destroy(this.gameObject);
     }
+    public bool TieneItem() { return true; }
     private void GiveItem()
     {
         if (InventoryManager.Instance != null)
