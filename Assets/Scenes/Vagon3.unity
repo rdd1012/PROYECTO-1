@@ -1374,7 +1374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goToPoint: {fileID: 1948315166}
-  requiredItemID: 6
+  requiredItemID: -1
   requireSelectedItem: 1
 --- !u!114 &1641107024
 MonoBehaviour:
@@ -1388,7 +1388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c0ea0769af68cf4ea98d9f31639e159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemToGive: {fileID: 11400000, guid: a2a635c47ee94e649a6b03501a7e632a, type: 2}
+  itemToGive: {fileID: 11400000, guid: 5a27e1ce1f3078644955eb75c8fe5305, type: 2}
 --- !u!1 &1740787102
 GameObject:
   m_ObjectHideFlags: 0
@@ -2019,7 +2019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goToPoint: {fileID: 1148232643}
-  requiredItemID: -1
+  requiredItemID: 6
   requireSelectedItem: 1
 --- !u!114 &2112253749
 MonoBehaviour:
@@ -2033,7 +2033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def576a92d567a540a30180182e5d66a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemToGive: {fileID: 11400000, guid: 5a27e1ce1f3078644955eb75c8fe5305, type: 2}
+  itemToGive: {fileID: 11400000, guid: a2a635c47ee94e649a6b03501a7e632a, type: 2}
 --- !u!61 &2112253750
 BoxCollider2D:
   m_ObjectHideFlags: 0

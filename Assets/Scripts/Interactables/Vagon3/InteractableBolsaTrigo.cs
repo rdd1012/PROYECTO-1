@@ -7,12 +7,23 @@ public class InteractableBolsaTrigo : MonoBehaviour, IInteractable
     [SerializeField] private Item itemToGive;
     private bool inventoryHasItem = false;
     AudioSource audioSource;
+    bool teniaObjeto= false;
+    InteractableData interactableData;
     private void Start()
     {
+        interactableData = GetComponent<InteractableData>();
     }
+    
     public void OnClickAction()
     {
-        GiveItem();
+        if (interactableData.CheckItemRequirement())
+        {
+            if (!teniaObjeto)
+                QuitarItem(interactableData.requiredItemID);
+
+
+            GiveItem();
+        }
     }
     private void GiveItem()
     {
@@ -33,6 +44,14 @@ public class InteractableBolsaTrigo : MonoBehaviour, IInteractable
                // audioSource.Play();
             }
 
+        }
+    }
+    private void QuitarItem(int itemID)
+    {
+        if (InventoryManager.Instance != null && InventoryManager.Instance.HasItem(itemID))
+        {
+            teniaObjeto = true;
+            InventoryManager.Instance.DecrementarUsos(itemID);
         }
     }
 }

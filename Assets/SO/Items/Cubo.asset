@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86149b2035fb2754580670188e1e8430, type: 3}
-  m_Name: Trigo
+  m_Name: Cubo
   m_EditorClassIdentifier: 
   itemID: 6
-  itemName: Trigo
+  itemName: Cubo
   icon: {fileID: 21300000, guid: dabe3bb611a52374ba13b2f4b8cada10, type: 3}
   usos: 1
   isReadable: 0
