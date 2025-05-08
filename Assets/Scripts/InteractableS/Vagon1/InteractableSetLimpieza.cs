@@ -16,6 +16,7 @@ public class InteractableSetLimpieza : MonoBehaviour, IInteractable {
     {
         GiveItem();
     }
+    public bool TieneItem() { return true; }
     private void GiveItem()
     {
         if (InventoryManager.Instance != null)

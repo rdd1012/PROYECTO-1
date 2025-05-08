@@ -15,6 +15,7 @@ public class InteractableBombilla : MonoBehaviour, IInteractable
     AudioSource audioSource;
     [SerializeField] AudioClip sonidoEncender;
     [SerializeField] AudioClip sonidoApagar;
+    public bool TieneItem() { return true; }
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();

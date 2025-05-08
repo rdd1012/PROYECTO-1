@@ -32,6 +32,7 @@ public class InteractableBombillaCarta : MonoBehaviour, IInteractable
         }
         StartCoroutine(ComprobarTodoBien());
     }
+    public bool TieneItem() { return true; }
     public bool IsInteractable() { return true; }
     IEnumerator ComprobarTodoBien() 
     {    

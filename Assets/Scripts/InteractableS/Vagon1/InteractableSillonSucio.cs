@@ -17,6 +17,7 @@ public class InteractableSillonSucio : MonoBehaviour, IInteractable {
         sillonSucioPantalla.gameObject.SetActive(true);
         
     }
+    public bool TieneItem() { return true; }
     public bool IsInteractable() { return true; }
     public void QuitarItem(int itemID)
     {
