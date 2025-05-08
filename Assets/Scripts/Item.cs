@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")] 
 public class Item : ScriptableObject {
@@ -7,4 +8,5 @@ public class Item : ScriptableObject {
     public Sprite icon;
     public int usos = 1;
     public bool isReadable=false;
+    public Sprite carta=null;
 }

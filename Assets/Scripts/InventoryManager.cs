@@ -6,10 +6,10 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour {
-    // Singleton
+
     public static InventoryManager Instance;
 
-    // Configuración
+
     [SerializeField] private Color selectedSlotColor = Color.grey;
     [SerializeField] private GameObject[] itemSlots;
     [SerializeField] private Image[] slotImages;
@@ -19,12 +19,13 @@ public class InventoryManager : MonoBehaviour {
     [SerializeField] private AudioClip sonidoDeseleccionar;
     [SerializeField] private AudioClip sonidoDarItem;
 
-    // Referencias
+
+    [SerializeField] private Image cartaImagen;
     private AudioSource audioSource;
     [SerializeField] private GameObject tooltipPanel;
     [SerializeField] private TMP_Text tooltipText;
 
-    // Estado
+
     private List<Item> items = new List<Item>();
     private Dictionary<int, int> itemUsos = new Dictionary<int, int>();
     private int selectedSlotIndex = -1;
@@ -32,7 +33,7 @@ public class InventoryManager : MonoBehaviour {
     private Coroutine showTooltipCoroutine;
     private Item selectedItem;
 
-    // Propiedades
+
     public List<Item> Items => items;
     public Item SelectedItem => selectedItem;
 
@@ -113,6 +114,10 @@ public class InventoryManager : MonoBehaviour {
         if (selectedItem != null)
         {
             PlaySound(sonidoSeleccionar);
+            if (selectedItem.isReadable)
+            {
+                AbrirCarta(selectedItem.carta);
+            }
             UpdateSlotHighlights();
         }
         else
@@ -120,12 +125,25 @@ public class InventoryManager : MonoBehaviour {
             DeseleccionarItems();
         }
     }
-
+    void AbrirCarta(Sprite carta)
+    {
+        cartaImagen.sprite = carta;
+        cartaImagen.transform.SetAsFirstSibling(); 
+        cartaImagen.gameObject.SetActive(true);
+    }
+    void CerrarCarta()
+    {
+        cartaImagen.gameObject.SetActive(false);
+    }
     public void DeseleccionarItems()
     {
         if (selectedSlotIndex == -1) return;
 
         PlaySound(sonidoDeseleccionar);
+        if (selectedItem.isReadable)
+        {
+            CerrarCarta();
+        }
         selectedSlotIndex = -1;
         selectedItem = null;
         UpdateSlotHighlights();
@@ -183,6 +201,7 @@ public class InventoryManager : MonoBehaviour {
         copy.icon = original.icon;
         copy.usos = original.usos;
         copy.isReadable = original.isReadable;
+        copy.carta = original.carta;
         return copy;
     }
 
