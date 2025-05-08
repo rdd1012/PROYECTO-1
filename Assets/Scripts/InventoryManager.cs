@@ -21,7 +21,8 @@ public class InventoryManager : MonoBehaviour {
 
 
     [SerializeField] private Image cartaImagen;
-    private AudioSource audioSource;
+    [SerializeField]private AudioSource audioSourceSeleccionar;
+    [SerializeField] private AudioSource audioSourceDarItem;
     [SerializeField] private GameObject tooltipPanel;
     [SerializeField] private TMP_Text tooltipText;
 
@@ -42,7 +43,6 @@ public class InventoryManager : MonoBehaviour {
         Instance = this;
         InitializeSlots();
         InitializeTooltip();
-        audioSource = GetComponent<AudioSource>();
     }
     private void Start()
     {
@@ -60,8 +60,7 @@ public class InventoryManager : MonoBehaviour {
         Item copiedItem = CreateItemCopy(newItem);
         items.Add(copiedItem);
         itemUsos[copiedItem.itemID] = copiedItem.usos;
-        audioSource.clip = sonidoDarItem;
-        audioSource.Play();
+        audioSourceDarItem.Play();
         UpdateUI();
     }
 
@@ -245,8 +244,8 @@ public class InventoryManager : MonoBehaviour {
 
     private void PlaySound(AudioClip clip)
     {
-        if (audioSource == null || clip == null) return;
-        audioSource.clip = clip;
-        audioSource.Play();
+        if (audioSourceSeleccionar == null || clip == null) return;
+        audioSourceSeleccionar.clip = clip;
+        audioSourceSeleccionar.Play();
     }
 }
