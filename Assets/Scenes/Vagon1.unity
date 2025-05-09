@@ -4761,7 +4761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8828d1b40a5f80b43895baba06bf2f26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normal: {fileID: 21300000, guid: e66917bf46022c940ba5675b15ace96b, type: 3}
+  normal: {fileID: 21300000, guid: 34e3cfad3e187494ca9155ca095d454a, type: 3}
   "pesta\xF1eo": {fileID: 21300000, guid: e66917bf46022c940ba5675b15ace96b, type: 3}
 --- !u!1001 &1169415148
 PrefabInstance:
@@ -5598,7 +5598,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e66917bf46022c940ba5675b15ace96b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 34e3cfad3e187494ca9155ca095d454a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
