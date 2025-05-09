@@ -11,15 +11,19 @@ public class CuadroPantalla : MonoBehaviour
     [SerializeField] Sprite spriteFeliz;
     [SerializeField] Button botonTrigo;
     //AudioSource audioSource;
-    private void Update()
+    private void OnEnable()
     {
-        if (isActiveAndEnabled) { Time.timeScale = 0f; }
-        else { Time.timeScale = 1f; }
+        Time.timeScale = 0f; 
+    }
+
+    private void OnDisable()
+    {
+        Time.timeScale = 1f; 
     }
     private void Start()
     {
-      //  audioSource = GetComponent<AudioSource>();
-        palanca.enabled = false;
+        //  audioSource = GetComponent<AudioSource>();
+        palanca.interactable   =  false;
     }
     public void LlenarTrigo()
     {
@@ -30,9 +34,10 @@ public class CuadroPantalla : MonoBehaviour
                 cuadro.TeniaObjeto = true;
                 cuadro.QuitarItem(cuadro.InteractableData.requiredItemID);
                 fondoCuadroImagen.sprite = spriteFeliz;
-                palanca.enabled = true ;
-                Destroy(botonTrigo);
-                
+                fondoCuadroImagen.raycastTarget = false;
+                palanca.interactable = true;
+                Destroy(botonTrigo.gameObject);
+                Debug.Log("¡Palanca activada!");
             }
         }
 
