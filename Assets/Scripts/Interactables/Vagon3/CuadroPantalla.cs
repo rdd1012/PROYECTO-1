@@ -11,7 +11,11 @@ public class CuadroPantalla : MonoBehaviour
     [SerializeField] Sprite spriteFeliz;
     [SerializeField] Button botonTrigo;
     //AudioSource audioSource;
-
+    private void Update()
+    {
+        if (isActiveAndEnabled) { Time.timeScale = 0f; }
+        else { Time.timeScale = 1f; }
+    }
     private void Start()
     {
       //  audioSource = GetComponent<AudioSource>();
