@@ -32,6 +32,14 @@ public class PuertaPantalla : MonoBehaviour
         
 
     }
+    private void OnDisable()
+    {
+        PlayerController.Instance.RemoveMovementLock();
+    }
+    private void OnEnable()
+    {
+        PlayerController.Instance.AddMovementLock();
+    }
     public void AbrirPuerta(Image image)
     {
         if (!puerta.PuertaAbierta)
