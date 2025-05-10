@@ -117,6 +117,19 @@ public class InventoryManager : MonoBehaviour {
             {
                 AbrirCarta(selectedItem.carta);
             }
+            if (selectedItem.givesItem)
+            {
+                List<Item> itemsqueañadir = new List<Item>(selectedItem.itemsQueDa.Count);
+                foreach (Item _item in selectedItem.itemsQueDa) 
+                {
+                    itemsqueañadir.Add(_item);
+                }
+                RemoveItem(selectedItem.itemID);
+                foreach (Item _item in itemsqueañadir) 
+                { AddItem(_item); }
+
+
+            }
             UpdateSlotHighlights();
         }
         else
@@ -201,6 +214,8 @@ public class InventoryManager : MonoBehaviour {
         copy.usos = original.usos;
         copy.isReadable = original.isReadable;
         copy.carta = original.carta;
+        copy.givesItem = original.givesItem; // Asegúrate de copiar este campo
+        copy.itemsQueDa = new List<Item>(original.itemsQueDa); // Clona la lista
         return copy;
     }
 

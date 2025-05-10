@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,4 +10,6 @@ public class Item : ScriptableObject {
     public int usos = 1;
     public bool isReadable=false;
     public Sprite carta=null;
+    public bool givesItem = false;
+    public List<Item> itemsQueDa;
 }
