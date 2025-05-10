@@ -41,7 +41,6 @@ public class PuzzleMaletin : MonoBehaviour {
     void OnDisable()
     {
         Time.timeScale = 1f;
-        PlayerController.Instance.RemoveMovementLock();
     }
 
     IEnumerator VerificacionRetrasada()
@@ -87,7 +86,6 @@ public class PuzzleMaletin : MonoBehaviour {
     private void OnEnable()
     {
         Time.timeScale = 0f;
-        PlayerController.Instance.AddMovementLock();
     }
 
     public void SalirPuzzle()

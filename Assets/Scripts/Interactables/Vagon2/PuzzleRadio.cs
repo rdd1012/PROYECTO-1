@@ -124,7 +124,6 @@ public class PuzzleRadio : MonoBehaviour {
     }
     void OnEnable()
     {
-        PlayerController.Instance.AddMovementLock();
         playerTurn = false;
         if (cameraController != null)
             cameraController.ToggleCameraControl(false);
@@ -141,7 +140,6 @@ public class PuzzleRadio : MonoBehaviour {
     }
     private void OnDisable()
     {
-        PlayerController.Instance.RemoveMovementLock();
         if (cameraController != null)
             cameraController.ToggleCameraControl(true);
     }
