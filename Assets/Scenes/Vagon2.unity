@@ -463,6 +463,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1732311684}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &197615019 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5979673443315535708, guid: 53f59540cbc1501459d022ad2fd12ae2,
+    type: 3}
+  m_PrefabInstance: {fileID: 8172605490887020071}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91fb059de3999c44e87ba5d29642fcf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &204443693
 GameObject:
   m_ObjectHideFlags: 0
@@ -1914,6 +1926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84897bc72b192b84d9331421237b5433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraController: {fileID: 197615019}
   buttonSprites:
   - normalSprite: {fileID: 21300000, guid: 107749b75416ee34b8494b952a66b639, type: 3}
     highlightedSprite: {fileID: 21300000, guid: df163a6dc47805a4e9ddb256798edadf,
