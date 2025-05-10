@@ -8,13 +8,21 @@ public class CameraController : MonoBehaviour {
     private float maxX = 18.7f;
     [SerializeField] GameObject flechaDerecha;
     [SerializeField] GameObject flechaIzquierda;
+    private bool controlsEnabled = true;
     private void Start()
     {
         flechaIzquierda.SetActive(false);
         flechaDerecha.SetActive(false);
     }
+    public void ToggleCameraControl(bool state)
+    {
+        controlsEnabled = state;
+        flechaIzquierda.SetActive(false);
+        flechaDerecha.SetActive(false);
+    }
     private void Update()
     {
+        if (!controlsEnabled) return;
         Vector3 inputDir = Vector3.zero;
 
 
@@ -35,6 +43,7 @@ public class CameraController : MonoBehaviour {
             flechaIzquierda.SetActive(false);
             flechaDerecha.SetActive(false);
         }
+
 
 
             Vector3 moveDir = transform.right * inputDir.x;

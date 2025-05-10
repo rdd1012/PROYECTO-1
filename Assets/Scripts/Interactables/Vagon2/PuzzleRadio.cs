@@ -12,6 +12,7 @@ public class ButtonSpritePair {
 }
 
 public class PuzzleRadio : MonoBehaviour {
+    [SerializeField] CameraController cameraController;
     [SerializeField] List<ButtonSpritePair> buttonSprites = new List<ButtonSpritePair>();
     [SerializeField] List<Button> buttons = new List<Button>();
     float highlightDuration = 0.5f;
@@ -70,13 +71,13 @@ public class PuzzleRadio : MonoBehaviour {
 
     IEnumerator PlaySequence()
     {
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSeconds(1f);
 
         foreach (int index in sequence)
         {
             yield return HighlightButton(index);
             
-            yield return new WaitForSecondsRealtime(timeBetweenHighlights);
+            yield return new WaitForSeconds(timeBetweenHighlights);
             
         }
 
@@ -89,7 +90,7 @@ public class PuzzleRadio : MonoBehaviour {
         buttons[index].image.sprite = buttonSprites[index].highlightedSprite;
         audioSource.clip = sonidoLuz;
         audioSource.Play();
-        yield return new WaitForSecondsRealtime(highlightDuration);
+        yield return new WaitForSeconds(highlightDuration);
         
         buttons[index].image.sprite = buttonSprites[index].normalSprite;
     }
@@ -123,8 +124,9 @@ public class PuzzleRadio : MonoBehaviour {
     }
     void OnEnable()
     {
-        Time.timeScale = 0f;
         playerTurn = false;
+        if (cameraController != null)
+            cameraController.ToggleCameraControl(false);
         currentRound = 0;
         sequence.Clear();
         playerInput.Clear();
@@ -136,10 +138,12 @@ public class PuzzleRadio : MonoBehaviour {
         }
         StartNewRound();
     }
-    void OnDisable()
+    private void OnDisable()
     {
-        Time.timeScale = 1f;
+        if (cameraController != null)
+            cameraController.ToggleCameraControl(true);
     }
+
 
     void PuzzleCompleted()
     {
@@ -157,7 +161,7 @@ public class PuzzleRadio : MonoBehaviour {
 
     IEnumerator NextRound()
     {
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSeconds(1f);
         StartNewRound();
     }
 
@@ -175,7 +179,7 @@ public class PuzzleRadio : MonoBehaviour {
 
     IEnumerator RestartGame()
     {
-        yield return new WaitForSecondsRealtime(2f);
+        yield return new WaitForSeconds(2f);
         StartNewRound();
     }
 
@@ -191,7 +195,7 @@ public class PuzzleRadio : MonoBehaviour {
     IEnumerator TrapoPantallaVictoriaCR()
     {
         interactableRadio.SetPuzzleCompleto(true);
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSeconds(1f);
         SalirPuzzle();
     }
     public void SalirPuzzle()
