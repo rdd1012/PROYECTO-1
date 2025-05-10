@@ -13,10 +13,13 @@ EditorBuildSettings:
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/Scenes/Vagon2.unity
-    guid: de61361e217a19a4faf086e2fd1695c9
+    guid: 704e853e8f462dc4b9455a8ede63c717
   - enabled: 1
     path: Assets/Scenes/Vagon3.unity
     guid: c5cefd18b079ca8468c7fa543100f870
+  - enabled: 1
+    path: Assets/Scenes/Vagon4.unity
+    guid: de61361e217a19a4faf086e2fd1695c9
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: f04675b7cd3a17e428eb871b28640d66,
       type: 3}
