@@ -9,6 +9,10 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] AudioSource audioSourceError;
     [SerializeField] AudioClip seleccionSonido;
 
+    
+    private int movementLocks = 0;
+    private Coroutine currentMovement;
+
     private void Start()
     {
         anim = GetComponentInChildren<Animator>();
@@ -33,35 +37,53 @@ public class PlayerController : MonoBehaviour {
     private bool isMovingLeft = false;
     public bool IsMovingLeft { get { return isMovingLeft; } }
 
+    
+    public void AddMovementLock()
+    {
+        movementLocks++;
+        if (movementLocks > 0 && currentMovement != null)
+        {
+            StopCoroutine(currentMovement);
+            ResetMovementState();
+        }
+    }
+
+    public void RemoveMovementLock()
+    {
+        movementLocks = Mathf.Max(0, movementLocks - 1);
+    }
+
+    private bool CanMove()
+    {
+        return movementLocks <= 0 && !isMoving;
+    }
+
     public void GoToItem(InteractableData item)
     {
-        if (item == null || item.GoToPoint == null) return;
+        if (!CanMove() || item == null || item.GoToPoint == null) return;
+
         IInteractable interactableItem = item.GetComponent<IInteractable>();
         InteractableVisuals itemvisuals = item.GetComponentInChildren<InteractableVisuals>();
         if (itemvisuals == null) return;
         else StartCoroutine(itemvisuals.SelectAnimation());
         if (interactableItem == null || !interactableItem.IsInteractable()) { return; }
-        
+
         audioSourceSeleccion.clip = seleccionSonido;
         audioSourceSeleccion.Play();
 
         Vector2 targetPoint = new Vector2(item.GoToPoint.position.x, transform.position.y);
 
-       
         if (Vector2.Distance(transform.position, targetPoint) <= 0.01f)
         {
             Interact(interactableItem);
             return;
         }
 
-        if (!isMoving)
-        {
-            StartCoroutine(MoveToPoint(
-                item.GoToPoint.position,
-                item.GetComponentInChildren<InteractableVisuals>().gameObject.transform.position,
-                interactableItem
-            ));
-        }
+        currentMovement = StartCoroutine(MoveToPoint(
+            item.GoToPoint.position,
+            item.GetComponentInChildren<InteractableVisuals>().gameObject.transform.position,
+            interactableItem
+        ));
     }
 
     public IEnumerator MoveToPoint(Vector2 point, Vector2 pointVisuals, IInteractable interactable)
@@ -74,7 +96,6 @@ public class PlayerController : MonoBehaviour {
         Vector2 targetPointVisuals = new Vector2(pointVisuals.x, transform.position.y);
         float direction = Mathf.Sign(targetPointVisuals.x - transform.position.x);
 
-        
         if (direction != Mathf.Sign(transform.localScale.x))
         {
             Vector3 newScale = transform.localScale;
@@ -82,14 +103,18 @@ public class PlayerController : MonoBehaviour {
             transform.localScale = newScale;
         }
 
-        
-        while (Vector2.Distance(transform.position, targetPoint) > 0f)
+        while (Vector2.Distance(transform.position, targetPoint) > 0f && CanMove())
         {
             transform.position = Vector2.MoveTowards(transform.position, targetPoint, speed * Time.deltaTime);
             yield return null;
         }
 
-        
+        if (!CanMove())
+        {
+            ResetMovementState();
+            yield break;
+        }
+
         if (!Mathf.Approximately(targetPointVisuals.x, targetPoint.x))
         {
             float lookDirection = Mathf.Sign(targetPointVisuals.x - transform.position.x);
@@ -101,17 +126,21 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        
-        isMoving = false;
-        anim.Play("Idle");
-        anim.SetBool("EstaCaminando", false);
+        ResetMovementState();
         transform.position = targetPoint;
 
         if (interactable != null)
         {
             Interact(interactable);
         }
+    }
 
+    private void ResetMovementState()
+    {
+        isMoving = false;
+        currentMovement = null;
+        anim.Play("Idle");
+        anim.SetBool("EstaCaminando", false);
     }
 
     public void Interact(IInteractable item)

@@ -13,12 +13,14 @@ public class CuadroPantalla : MonoBehaviour
     //AudioSource audioSource;
     private void OnEnable()
     {
-        Time.timeScale = 0f; 
+        Time.timeScale = 0f;
+        PlayerController.Instance.AddMovementLock();
     }
 
     private void OnDisable()
     {
-        Time.timeScale = 1f; 
+        Time.timeScale = 1f;
+        PlayerController.Instance.RemoveMovementLock();
     }
     private void Start()
     {
