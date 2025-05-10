@@ -152,7 +152,7 @@ public class InventoryManager : MonoBehaviour {
         if (selectedSlotIndex == -1) return;
 
         PlaySound(sonidoDeseleccionar);
-        if (selectedItem.isReadable)
+        if (selectedItem != null && selectedItem.isReadable)
         {
             CerrarCarta();
         }
