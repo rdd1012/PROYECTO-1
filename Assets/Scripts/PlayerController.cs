@@ -94,7 +94,6 @@ public class PlayerController : MonoBehaviour {
         }
         else
         {
-            Debug.Log("No IInteractable component found");
             GameManager.Instance.SetCursorDefault();
         }
     }
