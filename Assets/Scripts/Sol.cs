@@ -21,7 +21,7 @@ public class Sol : MonoBehaviour
             {
                 if (cortina.IsOpen) contadorCortinas++;
             }
-            Debug.Log(contadorCortinas);
+            //Debug.Log(contadorCortinas);
             luz.intensity = 0.1f * contadorCortinas;
             yield return new WaitForSeconds(0.1f);
         }
