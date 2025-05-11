@@ -75,11 +75,10 @@ public class PlayerController : MonoBehaviour {
         if (hit.collider != null)
         {
             Debug.Log("Hit: " + hit.collider.name);
-            DetectInteractable(hit.collider.gameObject);
+            DetectInteractable(hit.collider.gameObject); // Pass the exact hit object
         }
         else
         {
-            Debug.Log("No hit detected");
             GameManager.Instance.SetCursorDefault();
         }
     }
