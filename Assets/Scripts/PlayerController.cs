@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour {
         if (hit.collider != null)
         {
             Debug.Log("Hit: " + hit.collider.name);
-            DetectInteractable(hit.collider.gameObject); // Pass the exact hit object
+            DetectInteractable(hit.collider.gameObject);
         }
         else
         {
