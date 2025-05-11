@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f5803c6f56a67a4d91fe791d1b179b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDuration: 2
   defaultCursorTexture: {fileID: 0}
+  interactableCursorTexture: {fileID: 2800000, guid: 0e4bf0601ba9ee04882630a8af2bc915,
+    type: 3}
   sonidoCerrarPuerta: {fileID: 8300000, guid: 4bd6f55374bc64143b3df65f9b3e68ad, type: 3}
   targetFrameRate: 60
 --- !u!82 &4788255717721910289

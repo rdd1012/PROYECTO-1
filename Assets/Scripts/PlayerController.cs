@@ -63,6 +63,42 @@ public class PlayerController : MonoBehaviour {
             ));
         }
     }
+    private void Update()
+    {
+        
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+
+        
+        RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
+
+        if (hit.collider != null)
+        {
+            Debug.Log("Hit: " + hit.collider.name);
+            DetectInteractable(hit.collider.gameObject);
+        }
+        else
+        {
+            Debug.Log("No hit detected");
+            GameManager.Instance.SetCursorDefault();
+        }
+    }
+
+    public void DetectInteractable(GameObject hitObject)
+    {
+        IInteractable iInteractable = hitObject.GetComponent<IInteractable>();
+
+        if (iInteractable != null)
+        {
+            Debug.Log("Interactable found: " + hitObject.gameObject.name);
+            GameManager.Instance.SetCursorInteractable();
+        }
+        else
+        {
+            Debug.Log("No IInteractable component found");
+            GameManager.Instance.SetCursorDefault();
+        }
+    }
 
     public IEnumerator MoveToPoint(Vector2 point, Vector2 pointVisuals, IInteractable interactable)
     {

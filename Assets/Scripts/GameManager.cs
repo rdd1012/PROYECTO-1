@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
     private Image fadeImage;
     private Canvas fadeCanvas;
     [SerializeField] private Texture2D defaultCursorTexture;
+    [SerializeField] private Texture2D interactableCursorTexture;
     AudioSource audioSource;
     [SerializeField] AudioClip sonidoCerrarPuerta;
     [SerializeField] private int targetFrameRate = 60;
@@ -181,6 +182,11 @@ public class GameManager : MonoBehaviour {
 
     
     public void SetCursorDefault()
+    {
+        Cursor.SetCursor(defaultCursorTexture, Vector2.zero, CursorMode.Auto);
+    }
+
+    public void SetCursorInteractable()
     {
         Cursor.SetCursor(defaultCursorTexture, Vector2.zero, CursorMode.Auto);
     }
