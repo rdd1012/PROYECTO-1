@@ -188,7 +188,7 @@ public class GameManager : MonoBehaviour {
 
     public void SetCursorInteractable()
     {
-        Cursor.SetCursor(defaultCursorTexture, Vector2.zero, CursorMode.Auto);
+        Cursor.SetCursor(interactableCursorTexture, Vector2.zero, CursorMode.Auto);
     }
 
     public void PasarDeNivel()
