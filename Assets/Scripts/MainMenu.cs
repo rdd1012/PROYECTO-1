@@ -1,13 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class MainMenu : MonoBehaviour
-{
+using UnityEngine.UI;
+using UnityEngine.Video;
+
+public class MainMenu : MonoBehaviour {
+    [SerializeField]private VideoPlayer videoPlayer;
+    [SerializeField] private RawImage rawImage;
+    private AsyncOperation asyncLoad;
+    private void Start()
+    {
+        videoPlayer.Prepare();
+    }
+
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        PlayVideoAndLoadScene();
     }
+
+    void PlayVideoAndLoadScene()
+    {
+        rawImage.gameObject.SetActive(true);
+        this.gameObject.SetActive(false);
+        videoPlayer.loopPointReached += OnVideoEnd;
+
+        if (videoPlayer != null)
+        {
+            videoPlayer.Play();
+        }
+
+        asyncLoad = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        asyncLoad.allowSceneActivation = false;
+
+    }
+    void OnVideoEnd(VideoPlayer vp)
+    {
+        asyncLoad.allowSceneActivation = true;
+    }
+
+
     public void QuitGame()
     {
         Debug.Log("Quit");
