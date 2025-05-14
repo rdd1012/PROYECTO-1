@@ -95,6 +95,14 @@ public class BackGroundMusic : MonoBehaviour
                 CreateAudioSources(listaMusicaVagonCarga);
                 PlayAllTracks();
                 break;
+            case 4:
+                CreateAudioSources(listaMusicaVagonesNormales);
+                PlayAllTracks();
+                break;
+            case 5:
+                CreateAudioSources(listaMusicaVagonesNormales);
+                PlayAllTracks();
+                break;
         }
     }
     void PlayAllTracks()
