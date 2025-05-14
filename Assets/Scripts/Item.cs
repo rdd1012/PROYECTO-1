@@ -9,7 +9,7 @@ public class Item : ScriptableObject {
     public Sprite icon;
     public int usos = 1;
     public bool isReadable=false;
-    public Sprite carta=null;
+    public string carta=null;
     public bool givesItem = false;
     public List<Item> itemsQueDa;
 }

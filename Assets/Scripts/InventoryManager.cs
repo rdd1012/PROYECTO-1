@@ -20,6 +20,7 @@ public class InventoryManager : MonoBehaviour {
     [SerializeField] private AudioClip sonidoDarItem;
 
 
+    [SerializeField] private TMP_Text cartaTexto;
     [SerializeField] private Image cartaImagen;
     [SerializeField]private AudioSource audioSourceSeleccionar;
     [SerializeField] private AudioSource audioSourceDarItem;
@@ -137,10 +138,10 @@ public class InventoryManager : MonoBehaviour {
             DeseleccionarItems();
         }
     }
-    void AbrirCarta(Sprite carta)
+    void AbrirCarta(string carta)
     {
-        cartaImagen.sprite = carta;
-        cartaImagen.transform.SetAsFirstSibling(); 
+        cartaTexto.text = carta;
+        cartaImagen.transform.SetAsFirstSibling();
         cartaImagen.gameObject.SetActive(true);
     }
     void CerrarCarta()

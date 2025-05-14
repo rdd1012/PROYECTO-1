@@ -2220,10 +2220,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 330585545}
-    - target: {fileID: 4833854007097164284, guid: 521d1d5290c92aa49a76f57707512133,
+    - target: {fileID: 2945258367986963375, guid: 521d1d5290c92aa49a76f57707512133,
         type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 400
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4868314352617485719, guid: 521d1d5290c92aa49a76f57707512133,
         type: 3}
