@@ -1711,7 +1711,7 @@ MonoBehaviour:
   puerta: {fileID: 145457594}
   cerradura: {fileID: 1407361914}
   hawktua: {fileID: 8300000, guid: a4f037f9888c7c54d9a9bb2cc67ae2b6, type: 3}
-  trapo: {fileID: 8300000, guid: f131bdee8e490b0448aad1ef9e965463, type: 3}
+  trapo: {fileID: 8300000, guid: 8dea1d7e5130fbd4494989567f48e5a9, type: 3}
 --- !u!82 &332990812
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2684,7 +2684,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2556540523406613550, guid: 5d7f157b44493f24eb34ad29335427d1,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: f131bdee8e490b0448aad1ef9e965463, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8dea1d7e5130fbd4494989567f48e5a9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
