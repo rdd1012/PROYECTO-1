@@ -66,11 +66,14 @@ public class PlayerController : MonoBehaviour {
     }
     private void Update()
     {
-        if (EventSystem.current.IsPointerOverGameObject())
+        if (!EventSystem.current.IsPointerOverGameObject())
         {
-            return; 
+            HandleGameInteractions();
         }
+    }
 
+    private void HandleGameInteractions()
+    {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
 
@@ -78,7 +81,6 @@ public class PlayerController : MonoBehaviour {
 
         if (hit.collider != null)
         {
-            Debug.Log("Hit: " + hit.collider.name);
             DetectInteractable(hit.collider.gameObject);
         }
         else
