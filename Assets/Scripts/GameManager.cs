@@ -138,8 +138,17 @@ public class GameManager : MonoBehaviour {
     }
     private IEnumerator FadeOutAndLoad()
     {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        asyncLoad.allowSceneActivation = false;
+
         yield return StartCoroutine(FadeOut());
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        asyncLoad.allowSceneActivation = true;
+
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
     }
     private IEnumerator FadeOut()
     {

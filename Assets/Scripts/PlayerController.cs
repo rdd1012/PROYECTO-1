@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour {
     public static PlayerController Instance;
@@ -65,16 +66,21 @@ public class PlayerController : MonoBehaviour {
     }
     private void Update()
     {
-        
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            HandleGameInteractions();
+        }
+    }
+
+    private void HandleGameInteractions()
+    {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
 
-        
         RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
 
         if (hit.collider != null)
         {
-            Debug.Log("Hit: " + hit.collider.name);
             DetectInteractable(hit.collider.gameObject);
         }
         else
