@@ -13,7 +13,7 @@ public abstract class NPCBase :MonoBehaviour {
         _yapbubble.gameObject.SetActive(false);
         _spriteRenderer.sprite = _normal;
     }
-    public IEnumerator Blink(Sprite _pestañeo,SpriteRenderer _spriteRenderer)
+    public virtual IEnumerator Blink(Sprite _pestañeo,SpriteRenderer _spriteRenderer)
     {
         Sprite _normal;
         

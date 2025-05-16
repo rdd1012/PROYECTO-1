@@ -12,7 +12,9 @@ public class InteractableNPCZapatos : NPCBase,IInteractable
     SpriteRenderer spriteRenderer;
     Sprite normal;
     [SerializeField] Sprite pestañeo;
+    [SerializeField] Sprite pestañeozapatosLimpios;
     [SerializeField] Sprite hablando;
+    [SerializeField] Sprite hablandozapatosLimpios;
     [SerializeField] Sprite zapatosLimpios;
     [SerializeField] private NPCdialogoSO dialogos;
     YapBubble yapBubble;
@@ -23,7 +25,8 @@ public class InteractableNPCZapatos : NPCBase,IInteractable
         yapBubble = GetComponentInChildren<YapBubble>();
         yapBubble.gameObject.SetActive(false);
         interactableData = GetComponent<InteractableData>();
-        StartCoroutine(Blink(pestañeo, spriteRenderer));
+        if (!TieneItem()) StartCoroutine(Blink(pestañeo, spriteRenderer));
+        else StartCoroutine(BlinkLimpio(pestañeozapatosLimpios, spriteRenderer));
         audioSource = GetComponent<AudioSource>();
     }
     public bool TieneItem() { return interactableData.CheckItemRequirement(); }
@@ -39,12 +42,27 @@ public class InteractableNPCZapatos : NPCBase,IInteractable
             }
             if (teniaObjeto)
             {
-                StartCoroutine(Yap(dialogos.frases[1], hablando, normal, spriteRenderer, yapBubble));
+                StartCoroutine(Yap(dialogos.frases[1], hablando, hablandozapatosLimpios, spriteRenderer, yapBubble));
                 GiveItem();
             }
 
             else StartCoroutine(Yap(dialogos.frases[0], hablando, normal, spriteRenderer, yapBubble));
         }
+    }
+    public IEnumerator BlinkLimpio(Sprite _pestañeo, SpriteRenderer _spriteRenderer)
+    {
+        Sprite _normal;
+
+
+        while (true)
+        {
+            yield return new WaitForSeconds(Random.Range(4f, 5f));
+            _normal = _spriteRenderer.sprite;
+            _spriteRenderer.sprite = _pestañeo;
+            yield return new WaitForSeconds(0.1f);
+            _spriteRenderer.sprite = _normal;
+        }
+
     }
     public bool IsInteractable() { return true; }
     public override IEnumerator Yap(string _text, Sprite _hablando, Sprite _normal, SpriteRenderer _spriteRenderer, YapBubble _yapbubble)
