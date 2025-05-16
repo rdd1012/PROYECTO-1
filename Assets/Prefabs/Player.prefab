@@ -51,6 +51,7 @@ MonoBehaviour:
   audioSourceSeleccion: {fileID: 2566761332638923730}
   audioSourceError: {fileID: 8908436356320349628}
   seleccionSonido: {fileID: 8300000, guid: 50f52999c25f6144da752392958b5faa, type: 3}
+  playerSpriteRenderer: {fileID: 7894057356141305742}
 --- !u!50 &7721445194459443668
 Rigidbody2D:
   serializedVersion: 4

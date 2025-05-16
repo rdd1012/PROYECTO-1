@@ -23,6 +23,7 @@ Shader "URP/SpriteShader"
         Pass
         {
             Tags { "LightMode" = "UniversalForward" }
+            Cull Off
 
             HLSLPROGRAM
             #pragma vertex vert
@@ -39,6 +40,7 @@ Shader "URP/SpriteShader"
                 float4 positionOS : POSITION;
                 float2 uv : TEXCOORD0;
                 float3 normalOS : NORMAL;
+                float4 color : COLOR; 
             };
 
             struct Varyings
@@ -47,6 +49,7 @@ Shader "URP/SpriteShader"
                 float2 uv : TEXCOORD0;
                 float3 positionWS : TEXCOORD1;
                 float3 normalWS : TEXCOORD2;
+                float4 color : COLOR;
             };
 
             sampler2D _MainTex;
@@ -65,13 +68,14 @@ Shader "URP/SpriteShader"
                 OUT.uv = TRANSFORM_TEX(IN.uv, _MainTex);
                 OUT.positionWS = TransformObjectToWorld(IN.positionOS.xyz);
                 OUT.normalWS = TransformObjectToWorldNormal(IN.normalOS);
+                OUT.color = IN.color;
                 return OUT;
             }
 
             half4 frag(Varyings IN) : SV_Target
             {
                 // Muestra la textura y color base
-                half4 texColor = tex2D(_MainTex, IN.uv) * _Color;
+                half4 texColor = tex2D(_MainTex, IN.uv) * _Color * IN.color;
                 
                 // Calcular iluminación ambiental
                 float3 ambient = SampleSH(IN.normalWS) * _AmbientIntensity;
