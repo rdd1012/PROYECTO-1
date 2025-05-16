@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] AudioSource audioSourceSeleccion;
     [SerializeField] AudioSource audioSourceError;
     [SerializeField] AudioClip seleccionSonido;
-
+    [SerializeField] SpriteRenderer playerSpriteRenderer;
     private void Start()
     {
         anim = GetComponentInChildren<Animator>();
@@ -114,6 +114,8 @@ public class PlayerController : MonoBehaviour {
         Vector2 targetPointVisuals = new Vector2(pointVisuals.x, transform.position.y);
         float direction = Mathf.Sign(targetPointVisuals.x - transform.position.x);
 
+        //playerSpriteRenderer.flipX = (direction < 0);
+        //playerSpriteRenderer.UpdateGITexture();
         
         if (direction != Mathf.Sign(transform.localScale.x))
         {
@@ -121,14 +123,15 @@ public class PlayerController : MonoBehaviour {
             newScale.x = Mathf.Abs(newScale.x) * direction;
             transform.localScale = newScale;
         }
-
         
+
+
         while (Vector2.Distance(transform.position, targetPoint) > 0f)
         {
             transform.position = Vector2.MoveTowards(transform.position, targetPoint, speed * Time.deltaTime);
             yield return null;
         }
-
+        
         
         if (!Mathf.Approximately(targetPointVisuals.x, targetPoint.x))
         {
@@ -140,7 +143,7 @@ public class PlayerController : MonoBehaviour {
                 transform.localScale = newScale;
             }
         }
-
+        
         
         isMoving = false;
         anim.Play("Idle");

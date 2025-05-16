@@ -41,6 +41,9 @@ TagManager:
   - name: Fondo
     uniqueID: 1558106955
     locked: 0
+  - name: Vaho
+    uniqueID: 830887827
+    locked: 0
   - name: Cortinas
     uniqueID: 1203398363
     locked: 0

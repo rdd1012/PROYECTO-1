@@ -7,7 +7,6 @@ public class AudioManager : MonoBehaviour {
     [Header("Audio Mixer")]
     [SerializeField] private AudioMixer audioMixer;
 
-    // Nombres exactos de los parámetros expuestos en el AudioMixer
     private const string MASTER_VOL = "MasterVolume";
     private const string MUSIC_VOL = "MusicVolume";
     private const string SFX_VOL = "SFXVolume";
@@ -39,13 +38,11 @@ public class AudioManager : MonoBehaviour {
 
     private void SetVolume(string parameter, float volume)
     {
-        // Conversión correcta a decibelios
         float dB = volume > 0.01f ? Mathf.Log10(volume) * 20f : -80f;
         audioMixer.SetFloat(parameter, dB);
         PlayerPrefs.SetFloat(parameter, volume);
     }
 
-    // Para obtener valores en escala lineal (0-1)
     public float GetLinearVolume(string parameter)
     {
         audioMixer.GetFloat(parameter, out float dB);
