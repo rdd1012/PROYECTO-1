@@ -11,11 +11,12 @@ public class InteractableTermostato : MonoBehaviour, IInteractable {
         set { interactableData = value; }
     }
 
-    [SerializeField] private float temperatura;
+
+    private float temperatura = 0f;
     public float Temperatura
     {
         get { return temperatura; }
-        private set { temperatura = value; }
+        set { temperatura = value; }
     }
 
     [SerializeField] private List<SpriteRenderer> vahoLista;
@@ -47,17 +48,26 @@ public class InteractableTermostato : MonoBehaviour, IInteractable {
     public bool TieneItem() { return true; }
     public bool IsInteractable() { return true; }
 
+    private bool isVahoVisible = false;
+    public bool IsvahoVisible{get {return isVahoVisible;}  set{ isVahoVisible = value; } }
+
     private void Update()
     {
+        bool shouldShow = temperatura >= 0.75f;
 
-        if (temperatura >= 0.75f && currentVahoCoroutine == null)
+        // Only restart coroutine if the target state changes
+        if (shouldShow != isVahoVisible)
         {
-            currentVahoCoroutine = StartCoroutine(MostrarVaho());
-        }
-        else if (temperatura < 0.75f && currentVahoCoroutine != null)
-        {
-            StopCoroutine(currentVahoCoroutine);
-            currentVahoCoroutine = StartCoroutine(OcultarVaho());
+            isVahoVisible = shouldShow;
+
+            if (currentVahoCoroutine != null)
+            {
+                StopCoroutine(currentVahoCoroutine);
+            }
+
+            currentVahoCoroutine = StartCoroutine(
+                shouldShow ? MostrarVaho() : OcultarVaho()
+            );
         }
     }
 
@@ -66,17 +76,33 @@ public class InteractableTermostato : MonoBehaviour, IInteractable {
         float duration = 1f;
         float elapsed = 0f;
 
+        
+        List<float> startAlphas = new List<float>();
+        foreach (SpriteRenderer sp in vahoLista)
+        {
+            startAlphas.Add(sp.color.a);
+        }
+
         while (elapsed < duration)
         {
             foreach (SpriteRenderer sp in vahoLista)
             {
+                int index = vahoLista.IndexOf(sp);
+                float alpha = Mathf.Lerp(startAlphas[index], 1f, elapsed / duration);
                 Color tmp = sp.color;
-                float alpha= Mathf.Lerp(0f, 1f, elapsed / duration); ;
-                tmp = new Color(tmp.r, tmp.g, tmp.b, alpha);
+                tmp.a = alpha;
                 sp.color = tmp;
             }
             elapsed += Time.deltaTime;
             yield return null;
+        }
+
+        
+        foreach (SpriteRenderer sp in vahoLista)
+        {
+            Color tmp = sp.color;
+            tmp.a = 1f;
+            sp.color = tmp;
         }
     }
 
@@ -85,17 +111,33 @@ public class InteractableTermostato : MonoBehaviour, IInteractable {
         float duration = 1f;
         float elapsed = 0f;
 
+        
+        List<float> startAlphas = new List<float>();
+        foreach (SpriteRenderer sp in vahoLista)
+        {
+            startAlphas.Add(sp.color.a);
+        }
+
         while (elapsed < duration)
         {
             foreach (SpriteRenderer sp in vahoLista)
             {
+                int index = vahoLista.IndexOf(sp);
+                float alpha = Mathf.Lerp(startAlphas[index], 0f, elapsed / duration);
                 Color tmp = sp.color;
-                float alpha = Mathf.Lerp(0f, 1f, elapsed / duration); ;
-                tmp = new Color(tmp.r, tmp.g, tmp.b, alpha);
+                tmp.a = alpha;
                 sp.color = tmp;
             }
             elapsed += Time.deltaTime;
             yield return null;
+        }
+
+        
+        foreach (SpriteRenderer sp in vahoLista)
+        {
+            Color tmp = sp.color;
+            tmp.a = 0f;
+            sp.color = tmp;
         }
     }
 
