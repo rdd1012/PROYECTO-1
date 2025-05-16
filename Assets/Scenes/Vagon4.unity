@@ -2748,9 +2748,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1074829731}
   - component: {fileID: 1074829734}
-  - component: {fileID: 1074829733}
   - component: {fileID: 1074829732}
   - component: {fileID: 1074829735}
+  - component: {fileID: 1074829736}
   m_Layer: 0
   m_Name: NPCZapatos
   m_TagString: Untagged
@@ -2766,7 +2766,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1074829730}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 4.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2777,7 +2777,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 16.62, y: -3.66}
+  m_AnchoredPosition: {x: 19.95, y: -2.6}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1074829732
@@ -2793,55 +2793,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemToGive: {fileID: 11400000, guid: 7fe741441b98f8345902f29779d92840, type: 2}
-  "pesta\xF1eo": {fileID: 21300000, guid: d68ae1e3f228d4d4cbc1f244566170a1, type: 3}
-  hablando: {fileID: 21300000, guid: d325340d3e99b2c409133c9608d8a926, type: 3}
-  zapatosLimpios: {fileID: 21300000, guid: 651cbd3051f147848ba2036ef1d0cb52, type: 3}
+  "pesta\xF1eo": {fileID: 21300000, guid: 24d2056510fef004b8e26f45d1322241, type: 3}
+  "pesta\xF1eozapatosLimpios": {fileID: 21300000, guid: ac2bdcd98416fb1488c271569db9c084,
+    type: 3}
+  hablando: {fileID: 21300000, guid: bae55f9eff515314892864face0533a4, type: 3}
+  hablandozapatosLimpios: {fileID: 21300000, guid: cc98fd18f16059a43a91e1997cb3240e,
+    type: 3}
+  zapatosLimpios: {fileID: 21300000, guid: 1cc77ab0a96beee48ac0099b2513e9fa, type: 3}
   dialogos: {fileID: 11400000, guid: 5cce789c00058934789aacc5e4524dfd, type: 2}
---- !u!61 &1074829733
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1074829730}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.07564235, y: -0.20327866}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.396162, y: 5.5833025}
-  m_EdgeRadius: 0
 --- !u!114 &1074829734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2954,6 +2913,64 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!60 &1074829736
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074829730}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.52422523, y: 2.6054347}
+      - {x: -0.75905424, y: 0.6503546}
+      - {x: -1.7678442, y: 0.5248554}
+      - {x: -1.7159872, y: -0.72195506}
+      - {x: -1.2360697, y: -0.9721296}
+      - {x: -1.6095247, y: -2.1361506}
+      - {x: -1.4411292, y: -4.2223945}
+      - {x: 0.24644816, y: -3.9450579}
+      - {x: 0.450346, y: -2.5894325}
+      - {x: 1.84968, y: -1.7874658}
+      - {x: 1.4951363, y: 0.6013658}
+      - {x: 0.5853329, y: 0.8661506}
+      - {x: 0.70532703, y: 2.569732}
+  m_UseDelaunayMesh: 0
 --- !u!1 &1102108139
 GameObject:
   m_ObjectHideFlags: 0
@@ -4822,7 +4839,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.5}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.28, y: -2.25}
+  m_AnchoredPosition: {x: -10.28, y: -3.05}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1732311685
@@ -4872,7 +4889,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.24991417}
+  m_Offset: {x: 0.027475238, y: 0.051217824}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4883,7 +4900,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.6100986, y: 2.6861553}
+  m_Size: {x: 1.7425869, y: 1.7450342}
   m_EdgeRadius: 0
 --- !u!1 &1740787102
 GameObject:
@@ -5615,7 +5632,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d68ae1e3f228d4d4cbc1f244566170a1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5b19038a7b2dbda4d9f688eb0b3b53ca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5833,7 +5850,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1732311684}
