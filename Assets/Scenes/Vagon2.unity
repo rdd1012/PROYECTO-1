@@ -2402,7 +2402,7 @@ MonoBehaviour:
   itemToGive: {fileID: 11400000, guid: 1e3f42d612310f6479ba35d85c3fe398, type: 2}
   "pesta\xF1eo": {fileID: 21300000, guid: ee00d5d9ba053d543b1176e559a8f623, type: 3}
   hablando: {fileID: 21300000, guid: 949df2ea9cf2dec4ea16723df8bbc31a, type: 3}
-  dialogos: {fileID: 11400000, guid: 68d7b83730bcdd444b6404fcba7f9b31, type: 2}
+  dialogos: {fileID: 11400000, guid: 560efd4e169b7dd41a9564cd765587b1, type: 2}
 --- !u!61 &1571392234
 BoxCollider2D:
   m_ObjectHideFlags: 0

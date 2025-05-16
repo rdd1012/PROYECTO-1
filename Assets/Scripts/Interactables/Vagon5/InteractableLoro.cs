@@ -22,8 +22,8 @@ public class InteractableLoro : MonoBehaviour, IInteractable {
     bool inventoryHasPluma = false;
     public bool InventoryHasPluma
     {
-        get { return inventoryHasCarta; }
-        set { inventoryHasCarta = value; }
+        get { return inventoryHasPluma; }
+        set { inventoryHasPluma = value; }
     }
     public InteractableData InteractableData
     {
@@ -53,30 +53,20 @@ public class InteractableLoro : MonoBehaviour, IInteractable {
         loroPantalla.gameObject.SetActive(true);
     }
 
-    public bool TieneItem() { return true; }
+    public bool TieneItem()
+    {
+        return interactableData.CheckItemRequirement();
+    }
     public bool IsInteractable() { return true; }
 
 
-   
+
     public void GiveCarta()
     {
-        if (InventoryManager.Instance != null)
-        {
-            foreach (Item _item in InventoryManager.Instance.Items)
-            {
-                if (_item.itemID == cartaDar.itemID)
-                {
-                    inventoryHasCarta = true;
-                    break;
-                }
-            }
-            if (!inventoryHasCarta)
-            {
-                InventoryManager.Instance.AddItem(cartaDar);
-                inventoryHasCarta = true;
-                // audioSource.Play();
-            }
-
+        if (InventoryManager.Instance != null && !InventoryHasCarta)
+        { 
+            InventoryManager.Instance.AddItem(cartaDar);
+            inventoryHasCarta = true;
         }
     }
     public void GivePluma()

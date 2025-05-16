@@ -32,49 +32,35 @@ public class LoroPantalla : MonoBehaviour {
 
         try
         {
-            //pluma
-            if (!interactableLoro.InventoryHasPluma && interactableLoro.InteractableData.CheckItemRequirement())
+            // COMIDA
+            if (interactableLoro.TieneItem() && !interactableLoro.InventoryHasPluma)
             {
-                if (!interactableLoro.TeniaObjeto)
-                {
-                    interactableLoro.QuitarItem(interactableLoro.InteractableData.requiredItemID);
-                }
-
                 loroImage.sprite = darPlumaSprite;
                 interactableLoro.GivePluma();
+                interactableLoro.QuitarItem(interactableLoro.InteractableData.requiredItemID);
                 yield return new WaitForSeconds(plumaAnimationDuration);
                 loroImage.sprite = originalSprite;
-                yield break;
             }
 
-            // acariciar
+            //ACARICIAR 
             loroImage.sprite = cariciaSprite;
-            interactableLoro.NumeroCaricias++;
+            interactableLoro.NumeroCaricias++; 
 
-            
-            if (resetCariciasCoroutine != null)
-            {
-                StopCoroutine(resetCariciasCoroutine);
-            }
+            // Reiniciar temporizador de caricias
+            if (resetCariciasCoroutine != null) StopCoroutine(resetCariciasCoroutine);
             resetCariciasCoroutine = StartCoroutine(ResetCariciasTimer());
 
             yield return new WaitForSeconds(cariciaAnimationDuration);
             loroImage.sprite = originalSprite;
 
-            // carta
+            //  CARTA 
             if (!interactableLoro.InventoryHasCarta && interactableLoro.NumeroCaricias >= 3)
             {
                 loroImage.sprite = darCartaSprite;
                 interactableLoro.GiveCarta();
                 yield return new WaitForSeconds(cartaAnimationDuration);
                 loroImage.sprite = originalSprite;
-                interactableLoro.NumeroCaricias = 0;
-
-                
-                if (resetCariciasCoroutine != null)
-                {
-                    StopCoroutine(resetCariciasCoroutine);
-                }
+               
             }
         }
         finally

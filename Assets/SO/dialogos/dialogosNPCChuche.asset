@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf12be9401cf9a547875e5836e08f4d7, type: 3}
-  m_Name: dialogosNPCLuces
+  m_Name: dialogosNPCChuche
   m_EditorClassIdentifier: 
-  npcName: NPCLuces
+  npcName: NpCchcuhe
   frases:
-  - "Mamma mia\u2026 \xBFLuz y cortinas abiertas? Porca miseria, no hay quien descanse
-    aqu\xED\u2026"
+  - "Ay, per favore\u2026\xA1muero por una caramella!"
+  - Grazie, bambino! Toma, esto es para ti.

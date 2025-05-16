@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: 
   frases:
-  - que Guarros tengo los zapatos
-  - como brillan.... :O
+  - "Esc\xFAchame, signore postino \u2026 \xA1Mira qu\xE9 desastre! Limpia los zapatos
+    de esta abuelita y recibir\xE1s un peque\xF1o regalo, \xBFeh?"
+  - "Oh, grazie, lindura\u2026 toma esta horquilla para tu pelito bonito."
