@@ -281,8 +281,8 @@ GameObject:
   m_Component:
   - component: {fileID: 87228602}
   - component: {fileID: 87228605}
-  - component: {fileID: 87228604}
   - component: {fileID: 87228603}
+  - component: {fileID: 87228606}
   m_Layer: 0
   m_Name: NPCExtravagante
   m_TagString: Untagged
@@ -309,7 +309,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -17.19, y: -2.06}
+  m_AnchoredPosition: {x: -17.19, y: -1.22}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &87228603
@@ -331,8 +331,23 @@ MonoBehaviour:
   hablandobrillando: {fileID: 21300000, guid: 4a5530a366145a544a2fce381dea456a, type: 3}
   brillando: {fileID: 21300000, guid: ea23a67ea85a3f9468fb2814039b5aa4, type: 3}
   dialogos: {fileID: 11400000, guid: a6cdb44d589a92540b946ef3a7908451, type: 2}
---- !u!61 &87228604
-BoxCollider2D:
+--- !u!114 &87228605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87228601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 895fdf5be222d8e4cb173477b432ea14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goToPoint: {fileID: 2080440368}
+  requiredItemID: 16
+  requireSelectedItem: 1
+--- !u!60 &87228606
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -363,7 +378,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.33153355, y: 0.16042852}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -373,24 +388,22 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.2105138, y: 9.421735}
-  m_EdgeRadius: 0
---- !u!114 &87228605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 87228601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 895fdf5be222d8e4cb173477b432ea14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goToPoint: {fileID: 2080440368}
-  requiredItemID: 16
-  requireSelectedItem: 1
+  m_Points:
+    m_Paths:
+    - - {x: -1.5292969, y: 5.532283}
+      - {x: -2.0932293, y: 2.0193527}
+      - {x: -1.6575089, y: -0.7240633}
+      - {x: -2.6089811, y: -4.830545}
+      - {x: -0.5214667, y: -5.484362}
+      - {x: 1.1183192, y: -5.3848867}
+      - {x: 1.4172707, y: -3.809214}
+      - {x: 0.53353214, y: -0.99118376}
+      - {x: 1.854682, y: -0.4460379}
+      - {x: 1.8122177, y: 1.2725679}
+      - {x: 2.1337433, y: 2.733014}
+      - {x: 1.0682049, y: 2.9583986}
+      - {x: 0.83983517, y: 5.6754613}
+  m_UseDelaunayMesh: 0
 --- !u!1 &100964363
 GameObject:
   m_ObjectHideFlags: 0
@@ -2452,7 +2465,7 @@ PrefabInstance:
     - target: {fileID: 8269984017475107805, guid: a90fdfe3a5510934eb4aff952335018b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 8269984017475107805, guid: a90fdfe3a5510934eb4aff952335018b,
         type: 3}
@@ -2477,12 +2490,12 @@ PrefabInstance:
     - target: {fileID: 8269984017475107805, guid: a90fdfe3a5510934eb4aff952335018b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1.6
+      value: -2.1
       objectReference: {fileID: 0}
     - target: {fileID: 8269984017475107805, guid: a90fdfe3a5510934eb4aff952335018b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 5.11
+      value: 6.68
       objectReference: {fileID: 0}
     - target: {fileID: 8269984017475107805, guid: a90fdfe3a5510934eb4aff952335018b,
         type: 3}
@@ -4485,7 +4498,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 87228602}
