@@ -18,6 +18,7 @@ public class InventoryManager : MonoBehaviour {
     [SerializeField] private AudioClip sonidoSeleccionar;
     [SerializeField] private AudioClip sonidoDeseleccionar;
     [SerializeField] private AudioClip sonidoDarItem;
+    [SerializeField] private AudioClip sonidoCarta;
 
 
     [SerializeField] private TMP_Text cartaTexto;
@@ -113,9 +114,11 @@ public class InventoryManager : MonoBehaviour {
 
         if (selectedItem != null)
         {
-            PlaySound(sonidoSeleccionar);
-            if (selectedItem.isReadable)
+            if (!selectedItem.isReadable)
+                PlaySound(sonidoSeleccionar);
+            else 
             {
+                PlaySound(sonidoCarta);
                 AbrirCarta(selectedItem.carta);
             }
             if (selectedItem.givesItem)

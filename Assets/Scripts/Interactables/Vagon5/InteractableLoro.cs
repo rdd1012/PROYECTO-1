@@ -6,6 +6,7 @@ public class InteractableLoro : MonoBehaviour, IInteractable {
     private InteractableData interactableData;
     [SerializeField] Item cartaDar;
     [SerializeField] Item plumaDar;
+    AudioSource audioSource;
     bool teniaObjeto = false;
     public bool TeniaObjeto
     {
@@ -44,6 +45,7 @@ public class InteractableLoro : MonoBehaviour, IInteractable {
     private void Start()
     {
         interactableData = GetComponent<InteractableData>();
+        audioSource = GetComponent<AudioSource>();
     }
 
    
@@ -67,6 +69,7 @@ public class InteractableLoro : MonoBehaviour, IInteractable {
         { 
             InventoryManager.Instance.AddItem(cartaDar);
             inventoryHasCarta = true;
+            audioSource.Play();
         }
     }
     public void GivePluma()
@@ -85,7 +88,7 @@ public class InteractableLoro : MonoBehaviour, IInteractable {
             {
                 InventoryManager.Instance.AddItem(plumaDar);
                 inventoryHasPluma = true;
-                // audioSource.Play();
+                audioSource.Play();
             }
 
         }

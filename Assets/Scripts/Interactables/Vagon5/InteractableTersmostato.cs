@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class InteractableTermostato : MonoBehaviour, IInteractable {
     private InteractableData interactableData;
+    AudioSource audioSource;
     public InteractableData InteractableData
     {
         get { return interactableData; }
@@ -26,6 +27,7 @@ public class InteractableTermostato : MonoBehaviour, IInteractable {
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         interactableData = GetComponent<InteractableData>();
         InitializeVahoAlpha();
     }
@@ -69,6 +71,11 @@ public class InteractableTermostato : MonoBehaviour, IInteractable {
                 shouldShow ? MostrarVaho() : OcultarVaho()
             );
         }
+    }
+    public void Sonar() 
+    {
+        if (!audioSource.isPlaying) audioSource.Play();
+
     }
 
     IEnumerator MostrarVaho()

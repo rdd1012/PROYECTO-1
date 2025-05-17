@@ -11,6 +11,7 @@ public class InteractableCaja : MonoBehaviour,IInteractable
     InteractableData interactableData;
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         interactableData = GetComponent<InteractableData>();
         
     }
@@ -20,8 +21,9 @@ public class InteractableCaja : MonoBehaviour,IInteractable
         if (TieneItem())
         {
             QuitarItem(interactableData.requiredItemID);
-            puertaCarga.Unlock(); 
-            Destroy(gameObject);
+            puertaCarga.Unlock();
+            audioSource.Play();
+            //Destroy(gameObject);
         }
     }
     public bool IsInteractable() { return true; }

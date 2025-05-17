@@ -14,6 +14,7 @@ public class InteractableCuadro : MonoBehaviour, IInteractable {
     public InteractableData InteractableData => interactableData;
     private void Start()
     {
+        audioSource.GetComponent<AudioSource>();
         interactableData = GetComponent<InteractableData>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
@@ -39,7 +40,7 @@ public class InteractableCuadro : MonoBehaviour, IInteractable {
             {
                 InventoryManager.Instance.AddItem(itemToGive);
                 inventoryHasItem = true;
-                // audioSource.Play();
+                
             }
 
         }
@@ -50,6 +51,7 @@ public class InteractableCuadro : MonoBehaviour, IInteractable {
         {
             teniaObjeto = true;
             InventoryManager.Instance.DecrementarUsos(itemID);
+            audioSource.Play();
         }
     }
 }
