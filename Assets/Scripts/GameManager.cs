@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour {
     AudioSource audioSource;
     [SerializeField] AudioClip sonidoCerrarPuerta;
     [SerializeField] private int targetFrameRate = 60;
+    [SerializeField] Item cartaInicial;
 
     
     void Awake()
@@ -31,6 +32,8 @@ public class GameManager : MonoBehaviour {
             audioSource = GetComponent<AudioSource>();
             audioSource.clip = sonidoCerrarPuerta;
             audioSource.Play();
+            if (SceneManager.GetActiveScene().buildIndex==1)
+                InventoryManager.Instance.AddItem(cartaInicial);
         }
         else
         {

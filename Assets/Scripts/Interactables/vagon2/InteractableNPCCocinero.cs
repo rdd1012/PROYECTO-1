@@ -14,6 +14,7 @@ public class InteractableNPCCocinero : MonoBehaviour, IInteractable {
     {
         interactableData = GetComponent<InteractableData>();
         spriteRender = GetComponentInChildren<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
     public bool TieneItem() { return true; }
     public void OnClickAction()
@@ -44,7 +45,7 @@ public class InteractableNPCCocinero : MonoBehaviour, IInteractable {
             {
                 InventoryManager.Instance.AddItem(itemToGive);
                 inventoryHasItem = true;
-                // audioSource.Play();
+                audioSource.Play();
             }
 
         }

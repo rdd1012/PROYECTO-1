@@ -12,6 +12,7 @@ public class InteractableBolsaTrigo : MonoBehaviour, IInteractable
     private void Start()
     {
         interactableData = GetComponent<InteractableData>();
+        audioSource = GetComponent<AudioSource>();
     }
     public bool TieneItem() { return true; }
     public void OnClickAction()
@@ -42,7 +43,7 @@ public class InteractableBolsaTrigo : MonoBehaviour, IInteractable
             {
                 InventoryManager.Instance.AddItem(itemToGive);
                 inventoryHasItem = true;
-               // audioSource.Play();
+                audioSource.Play();
             }
 
         }

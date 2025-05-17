@@ -51,6 +51,7 @@ MonoBehaviour:
     type: 3}
   sonidoCerrarPuerta: {fileID: 8300000, guid: 4bd6f55374bc64143b3df65f9b3e68ad, type: 3}
   targetFrameRate: 60
+  cartaInicial: {fileID: 11400000, guid: c803718cced45a840aa0af3e3471d93b, type: 2}
 --- !u!82 &4788255717721910289
 AudioSource:
   m_ObjectHideFlags: 0
