@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f5803c6f56a67a4d91fe791d1b179b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultCursorTexture: {fileID: 0}
-  interactableCursorTexture: {fileID: 2800000, guid: 0e4bf0601ba9ee04882630a8af2bc915,
+  defaultCursorTexture: {fileID: 2800000, guid: 8575350a27e679349b11a95f98d982a2,
+    type: 3}
+  interactableCursorTexture: {fileID: 2800000, guid: 2363ce7b80a36bb4b9efd109892a8fb4,
     type: 3}
   sonidoCerrarPuerta: {fileID: 8300000, guid: 4bd6f55374bc64143b3df65f9b3e68ad, type: 3}
   targetFrameRate: 60
