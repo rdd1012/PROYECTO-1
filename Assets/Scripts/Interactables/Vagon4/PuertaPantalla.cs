@@ -17,7 +17,7 @@ public class PuertaPantalla : MonoBehaviour
     }
     public void BorrarMancha(Image image)
     {
-        if (!puerta.ManchaBorrada) 
+        if (!puerta.ManchaBorrada)
         {
             if (puerta.InteractableDataTrapo.CheckItemRequirement(puerta.InteractableDataTrapo.requiredItemID))
             {
@@ -29,22 +29,20 @@ public class PuertaPantalla : MonoBehaviour
                 audioSource.Play();
             }
         }
-        
-
     }
     public void AbrirPuerta(Image image)
     {
-        if (!puerta.PuertaAbierta)
+        if (!puerta.PuertaAbierta && puerta.ManchaBorrada) 
         {
             if (puerta.InteractableDataHorquilla.CheckItemRequirement(puerta.InteractableDataHorquilla.requiredItemID))
             {
-                image.gameObject.SetActive(false);
+                image.gameObject.SetActive(false); 
                 puerta.PuertaAbierta = true;
                 puerta.QuitarItem(puerta.InteractableDataHorquilla.requiredItemID);
                 audioSource.clip = hawktua;
                 audioSource.Play();
             }
-        } 
+        }
     }
 
 }
