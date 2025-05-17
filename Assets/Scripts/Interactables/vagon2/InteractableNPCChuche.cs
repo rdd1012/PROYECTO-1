@@ -9,20 +9,20 @@ public class InteractableNPCChuche : NPCBase, IInteractable {
     private bool inventoryHasItem = false;
     AudioSource audioSource;
     SpriteRenderer spriteRenderer;
-    Sprite normal;
+    [SerializeField]Sprite normal;
     [SerializeField] Sprite pestañeo;
     [SerializeField] Sprite hablando;
+    [SerializeField] Sprite feliz;
     [SerializeField] private NPCdialogoSO dialogos;
     YapBubble yapBubble;
     private void Start()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        normal = spriteRenderer.sprite;
         yapBubble = GetComponentInChildren<YapBubble>();
         yapBubble.gameObject.SetActive(false);
         interactableData = GetComponent<InteractableData>();
         audioSource = GetComponent<AudioSource>();
-        StartCoroutine(Blink(pestañeo, spriteRenderer));
+        
     }
     public bool TieneItem() { return interactableData.CheckItemRequirement(); }
     public void OnClickAction()
@@ -30,21 +30,15 @@ public class InteractableNPCChuche : NPCBase, IInteractable {
         if (TieneItem())
         {
             if (!teniaObjeto)
+            {
                 QuitarItem(interactableData.requiredItemID);
-
+                StartCoroutine(Yap(dialogos.frases[1], hablando, feliz, spriteRenderer, yapBubble));
+                StartCoroutine(Blink(pestañeo, spriteRenderer));
+            }
 
             GiveItem();
         }
-        if (teniaObjeto) StartCoroutine(Yap(dialogos.frases[1], hablando, normal, spriteRenderer, yapBubble));
-        else StartCoroutine(Yap(dialogos.frases[0], hablando, normal, spriteRenderer, yapBubble));
-    }
-    public override IEnumerator Yap(string _text, Sprite _hablando, Sprite _normal, SpriteRenderer _spriteRenderer, YapBubble _yapbubble)
-    {
-        _spriteRenderer.sprite = _hablando;
-        _yapbubble.gameObject.SetActive(true);
-        _yapbubble.SetupText(_text);
-        yield return new WaitForSeconds(3f);
-        _yapbubble.gameObject.SetActive(false);
+        if(!teniaObjeto) StartCoroutine(Yap(dialogos.frases[0], hablando, normal, spriteRenderer, yapBubble));
     }
 
     private void QuitarItem(int itemID)

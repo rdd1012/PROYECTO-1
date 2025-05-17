@@ -10,6 +10,7 @@ public class InteractableNPCLibro : NPCBase, IInteractable {
     SpriteRenderer spriteRenderer;
     Sprite normal;
     [SerializeField] Sprite pestañeo;
+    [SerializeField] Sprite pestañeoLibro;
     [SerializeField] Sprite hablando;
     [SerializeField] Sprite libro;
     [SerializeField] private NPCdialogoSO dialogos; 
@@ -31,7 +32,8 @@ public class InteractableNPCLibro : NPCBase, IInteractable {
         {
             if (!teniaObjeto)
             QuitarItem(interactableData.requiredItemID);
-
+            StopCoroutine(Blink(pestañeo, spriteRenderer));
+            StartCoroutine(Blink(pestañeoLibro, spriteRenderer));
 
             GiveItem();
         }

@@ -2314,6 +2314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemToGive: {fileID: 11400000, guid: 1e3f42d612310f6479ba35d85c3fe398, type: 2}
   "pesta\xF1eo": {fileID: 21300000, guid: ee00d5d9ba053d543b1176e559a8f623, type: 3}
+  "pesta\xF1eoLibro": {fileID: 21300000, guid: 1d5a0f6371369d4408fa24735d6067a1, type: 3}
   hablando: {fileID: 21300000, guid: 949df2ea9cf2dec4ea16723df8bbc31a, type: 3}
   libro: {fileID: 21300000, guid: 85d447ac5a70a1048b1f2b2e09827081, type: 3}
   dialogos: {fileID: 11400000, guid: 68d7b83730bcdd444b6404fcba7f9b31, type: 2}
