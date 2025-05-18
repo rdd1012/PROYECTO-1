@@ -28,7 +28,8 @@ public class GameManager : MonoBehaviour {
             CreateFadeSystem();
             StartCoroutine(FadeIn());
             audioSource = GetComponent<AudioSource>();
-            audioSource.clip = sonidoCerrarPuerta;
+            if (SceneManager.GetActiveScene().buildIndex != 0)
+                audioSource.clip = sonidoCerrarPuerta;
             audioSource.Play();
             if (SceneManager.GetActiveScene().buildIndex==1)
                 InventoryManager.Instance.AddItem(cartaInicial);

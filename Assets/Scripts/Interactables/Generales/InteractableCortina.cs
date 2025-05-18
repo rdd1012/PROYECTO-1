@@ -26,6 +26,7 @@ public class InteractableCortina : MonoBehaviour,IInteractable
     public bool IsInteractable() { return true; }
     public void OnClickAction()
     {
+        Debug.Log("Interactable OnClickAction triggered");
         UtilizarPersiana();
     }
     private void AbrirPersiana()

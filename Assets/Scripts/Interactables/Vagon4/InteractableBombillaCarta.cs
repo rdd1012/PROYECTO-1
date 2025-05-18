@@ -63,7 +63,7 @@ public class InteractableBombillaCarta : MonoBehaviour, IInteractable
             if (bombilla.LightIsOn) contadorLuces++;
         }
         if (lightIsOn) contadorLuces++;
-        Debug.Log(contadorLuces);
+        //Debug.Log(contadorLuces);
         if (contadorLuces == 3) return true;
         else return false;
     }
@@ -74,7 +74,7 @@ public class InteractableBombillaCarta : MonoBehaviour, IInteractable
         {
             if (!cortina.IsOpen) contadorCortinas++;
         }
-        Debug.Log(contadorCortinas);
+        //Debug.Log(contadorCortinas);
         if (contadorCortinas == 3) return true;
         else return false;
     }
