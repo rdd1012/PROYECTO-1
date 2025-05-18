@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Vagon4.unity
     guid: de61361e217a19a4faf086e2fd1695c9
+  - enabled: 1
+    path: Assets/Scenes/Vagon5.unity
+    guid: 65f732418d19dc146ae729134fe983b3
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: f04675b7cd3a17e428eb871b28640d66,
       type: 3}
