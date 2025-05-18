@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private Texture2D interactableCursorTexture;
     AudioSource audioSource;
     [SerializeField] AudioClip sonidoCerrarPuerta;
-    [SerializeField] private int targetFrameRate = 60;
     [SerializeField] Item cartaInicial;
 
     
@@ -26,7 +25,6 @@ public class GameManager : MonoBehaviour {
             Instance = this;
             DontDestroyOnLoad(gameObject);
             InitializeCursor();
-            InitializeFrameRate();
             CreateFadeSystem();
             StartCoroutine(FadeIn());
             audioSource = GetComponent<AudioSource>();
@@ -82,11 +80,6 @@ public class GameManager : MonoBehaviour {
         Cursor.SetCursor(defaultCursorTexture, Vector2.zero, CursorMode.Auto);
     }
 
-    private void InitializeFrameRate()
-    {
-        QualitySettings.vSyncCount = 0;
-        Application.targetFrameRate = targetFrameRate;
-    }
    
     void Update()
     {
@@ -141,18 +134,33 @@ public class GameManager : MonoBehaviour {
     }
     private IEnumerator FadeOutAndLoad()
     {
+        
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
         asyncLoad.allowSceneActivation = false;
 
+       
         yield return StartCoroutine(FadeOut());
 
+        
+        while (asyncLoad.progress < 0.9f)
+        {
+            yield return null;
+        }
+
+        
         asyncLoad.allowSceneActivation = true;
 
+        
         while (!asyncLoad.isDone)
         {
             yield return null;
         }
+
+        
+        StopAllCoroutines();
+        fadeImage.color = Color.clear;
     }
+
     private IEnumerator FadeOut()
     {
         float elapsed = 0f;
@@ -168,8 +176,10 @@ public class GameManager : MonoBehaviour {
 
     private IEnumerator FadeIn()
     {
-        float elapsed = 0f;
+       
         fadeImage.color = Color.black;
+
+        float elapsed = 0f;
         while (elapsed < fadeDuration)
         {
             elapsed += Time.deltaTime;

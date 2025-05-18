@@ -14,7 +14,7 @@ public class InteractableCuadro : MonoBehaviour, IInteractable {
     public InteractableData InteractableData => interactableData;
     private void Start()
     {
-        audioSource.GetComponent<AudioSource>();
+        audioSource=GetComponent<AudioSource>();
         interactableData = GetComponent<InteractableData>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }

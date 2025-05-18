@@ -24,7 +24,9 @@ public class InteractablePuertaHorquilla : MonoBehaviour, IInteractable {
     public void OnClickAction()
     {
         if (!puertaAbierta || !manchaBorrada)
-            puertaPantalla.gameObject.SetActive(true);
+        {
+            puertaPantalla.gameObject.SetActive(true); 
+        }
         else
         {
             GameManager.Instance.PasarDeNivel();
