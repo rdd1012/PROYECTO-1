@@ -33,16 +33,22 @@ public class PlayerController : MonoBehaviour {
     private float speed = 10f;
     private bool isMovingLeft = false;
     public bool IsMovingLeft { get { return isMovingLeft; } }
-
+    private bool canReceiveGoTo = true;
     public void GoToItem(InteractableData item)
     {
+        Debug.Log("GoToItem CALLED with: " + item.name);
+        if (!canReceiveGoTo) return;
+
+        canReceiveGoTo = false;
+        StartCoroutine(ResetGoToCooldown());
         if (item == null || item.GoToPoint == null) return;
         IInteractable interactableItem = item.GetComponent<IInteractable>();
         InteractableVisuals itemvisuals = item.GetComponentInChildren<InteractableVisuals>();
         if (itemvisuals == null) return;
         else StartCoroutine(itemvisuals.SelectAnimation());
         if (interactableItem == null || !interactableItem.IsInteractable()) { return; }
-        
+        Debug.Log("IsInteractable? " + interactableItem.IsInteractable());
+
         audioSourceSeleccion.clip = seleccionSonido;
         audioSourceSeleccion.Play();
 
@@ -64,15 +70,21 @@ public class PlayerController : MonoBehaviour {
             ));
         }
     }
+    IEnumerator ResetGoToCooldown()
+    {
+        yield return new WaitForSeconds(0.1f); // Small delay to avoid double clicks
+        canReceiveGoTo = true;
+    }
     private void Update()
     {
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            HandleGameInteractions();
+            HandleHoveringInteraction();
+            HandleClickInteraction();
         }
     }
 
-    private void HandleGameInteractions()
+    private void HandleHoveringInteraction()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
@@ -88,6 +100,25 @@ public class PlayerController : MonoBehaviour {
             GameManager.Instance.SetCursorDefault();
         }
     }
+    private void HandleClickInteraction()
+    {
+        if (Input.GetMouseButtonDown(0)) 
+        {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+
+            RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
+
+            if (hit.collider != null)
+            {
+                IInteractable iInteractable = hit.collider.GetComponent<IInteractable>();
+                if (iInteractable != null && iInteractable.IsInteractable())
+                {
+                    GoToItem(hit.collider.GetComponent<InteractableData>());
+                }
+            }
+        }
+    }
 
     public void DetectInteractable(GameObject hitObject)
     {
@@ -95,7 +126,7 @@ public class PlayerController : MonoBehaviour {
 
         if (iInteractable != null)
         {
-            Debug.Log("Interactable found: " + hitObject.gameObject.name);
+           // Debug.Log("Interactable found: " + hitObject.gameObject.name);
             GameManager.Instance.SetCursorInteractable();
         }
         else

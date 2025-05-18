@@ -28,6 +28,7 @@ public class InteractableBombilla : MonoBehaviour, IInteractable
     public bool IsInteractable() { return true; }
     public  void OnClickAction()
     {
+        Debug.Log("Interactable OnClickAction triggered");
         SwitchLight();
         
     }

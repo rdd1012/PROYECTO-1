@@ -32,13 +32,19 @@ public class PuertaPantalla : MonoBehaviour
     }
     public void AbrirPuerta(Image image)
     {
-        if (!puerta.PuertaAbierta && puerta.ManchaBorrada) 
+        if (!puerta.PuertaAbierta && puerta.ManchaBorrada)
         {
             if (puerta.InteractableDataHorquilla.CheckItemRequirement(puerta.InteractableDataHorquilla.requiredItemID))
             {
-                image.gameObject.SetActive(false); 
+                
+                cerradura.gameObject.SetActive(false); 
+                image?.gameObject.SetActive(false); 
+
+                gameObject.SetActive(false);
+
                 puerta.PuertaAbierta = true;
                 puerta.QuitarItem(puerta.InteractableDataHorquilla.requiredItemID);
+
                 audioSource.clip = hawktua;
                 audioSource.Play();
             }
