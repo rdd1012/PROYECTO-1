@@ -36,11 +36,6 @@ public class PlayerController : MonoBehaviour {
     private bool canReceiveGoTo = true;
     public void GoToItem(InteractableData item)
     {
-        Debug.Log("GoToItem CALLED with: " + item.name);
-        if (!canReceiveGoTo) return;
-
-        canReceiveGoTo = false;
-        StartCoroutine(ResetGoToCooldown());
         if (item == null || item.GoToPoint == null) return;
         IInteractable interactableItem = item.GetComponent<IInteractable>();
         InteractableVisuals itemvisuals = item.GetComponentInChildren<InteractableVisuals>();
@@ -69,11 +64,6 @@ public class PlayerController : MonoBehaviour {
                 interactableItem
             ));
         }
-    }
-    IEnumerator ResetGoToCooldown()
-    {
-        yield return new WaitForSeconds(0.1f); // Small delay to avoid double clicks
-        canReceiveGoTo = true;
     }
     private void Update()
     {

@@ -84,10 +84,10 @@ public class GameManager : MonoBehaviour {
    
     void Update()
     {
-        HandleClickInteraction();
+        //HandleClickInteraction();
     }
     
-
+    /*
     private void HandleClickInteraction()
     {
         if (!Input.GetMouseButtonDown(0)) return;
@@ -108,6 +108,7 @@ public class GameManager : MonoBehaviour {
             PlayerController.Instance.GoToItem(topInteractable);
         }
     }
+    */
 
     private InteractableData GetTopPriorityInteractable(RaycastHit2D[] hits)
     {
