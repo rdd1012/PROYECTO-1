@@ -39,7 +39,36 @@ public class GameManager : MonoBehaviour {
             Destroy(gameObject);
         }
     }
- 
+    private void HandleHoveringInteraction()
+    {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+
+        RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
+
+        if (hit.collider != null)
+        {
+            DetectInteractable(hit.collider.gameObject);
+        }
+        else
+        {
+            SetCursorDefault();
+        }
+    }
+    public void DetectInteractable(GameObject hitObject)
+    {
+        IInteractable iInteractable = hitObject.GetComponent<IInteractable>();
+
+        if (iInteractable != null)
+        {
+            // Debug.Log("Interactable found: " + hitObject.gameObject.name);
+            SetCursorInteractable();
+        }
+        else
+        {
+            SetCursorDefault();
+        }
+    }
     private void CreateFadeSystem()
     {
         
@@ -81,59 +110,6 @@ public class GameManager : MonoBehaviour {
         Cursor.SetCursor(defaultCursorTexture, Vector2.zero, CursorMode.Auto);
     }
 
-   
-    void Update()
-    {
-        //HandleClickInteraction();
-    }
-    
-    /*
-    private void HandleClickInteraction()
-    {
-        if (!Input.GetMouseButtonDown(0)) return;
-
-        if (IsPointerOverUI()) return;
-
-        ProcessWorldInteraction();
-    }
-    
-    private void ProcessWorldInteraction()
-    {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        RaycastHit2D[] hits = Physics2D.RaycastAll(mousePosition, Vector2.zero);
-
-        InteractableData topInteractable = GetTopPriorityInteractable(hits);
-        if (topInteractable != null)
-        {
-            PlayerController.Instance.GoToItem(topInteractable);
-        }
-    }
-    */
-
-    private InteractableData GetTopPriorityInteractable(RaycastHit2D[] hits)
-    {
-        InteractableData topItem = null;
-        int highestPriority = int.MinValue;
-
-        foreach (var hit in hits)
-        {
-            InteractableData data = hit.collider.GetComponent<InteractableData>();
-            if (data == null) continue;
-
-            SpriteRenderer renderer = hit.collider.GetComponentInChildren<SpriteRenderer>();
-            if (renderer == null) continue;
-
-            int currentPriority = CalculateRenderPriority(renderer);
-
-            if (currentPriority > highestPriority)
-            {
-                highestPriority = currentPriority;
-                topItem = data;
-            }
-        }
-
-        return topItem;
-    }
     private IEnumerator FadeOutAndLoad()
     {
         

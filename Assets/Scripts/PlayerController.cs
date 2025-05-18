@@ -33,7 +33,6 @@ public class PlayerController : MonoBehaviour {
     private float speed = 10f;
     private bool isMovingLeft = false;
     public bool IsMovingLeft { get { return isMovingLeft; } }
-    private bool canReceiveGoTo = true;
     public void GoToItem(InteractableData item)
     {
         if (item == null || item.GoToPoint == null) return;
@@ -69,27 +68,11 @@ public class PlayerController : MonoBehaviour {
     {
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            HandleHoveringInteraction();
             HandleClickInteraction();
         }
     }
 
-    private void HandleHoveringInteraction()
-    {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-
-        RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
-
-        if (hit.collider != null)
-        {
-            DetectInteractable(hit.collider.gameObject);
-        }
-        else
-        {
-            GameManager.Instance.SetCursorDefault();
-        }
-    }
+   
     private void HandleClickInteraction()
     {
         if (Input.GetMouseButtonDown(0)) 
@@ -110,20 +93,7 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    public void DetectInteractable(GameObject hitObject)
-    {
-        IInteractable iInteractable = hitObject.GetComponent<IInteractable>();
-
-        if (iInteractable != null)
-        {
-           // Debug.Log("Interactable found: " + hitObject.gameObject.name);
-            GameManager.Instance.SetCursorInteractable();
-        }
-        else
-        {
-            GameManager.Instance.SetCursorDefault();
-        }
-    }
+    
 
     public IEnumerator MoveToPoint(Vector2 point, Vector2 pointVisuals, IInteractable interactable)
     {
