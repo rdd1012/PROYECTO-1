@@ -595,6 +595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2f7f93a3ba829744b635fa1118d5685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraController: {fileID: 477341358}
   interactableLoro: {fileID: 247714058}
   loroImage: {fileID: 1579907951}
   cariciaSprite: {fileID: 21300000, guid: fa62b5edab4a3844f9738aa29998022b, type: 3}
@@ -2253,6 +2254,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470592154}
   m_CullTransparentMesh: 1
+--- !u!114 &477341358 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5979673443315535708, guid: 53f59540cbc1501459d022ad2fd12ae2,
+    type: 3}
+  m_PrefabInstance: {fileID: 8172605490887020071}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91fb059de3999c44e87ba5d29642fcf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &523131343
 GameObject:
   m_ObjectHideFlags: 0
@@ -5553,6 +5566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afccd714f9523774d84b4d44ffcc3b5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraController: {fileID: 477341358}
   objects:
   - {fileID: 523131347}
   - {fileID: 232855612}
@@ -7175,7 +7189,7 @@ RectTransform:
   m_GameObject: {fileID: 2101769579}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 428462910}

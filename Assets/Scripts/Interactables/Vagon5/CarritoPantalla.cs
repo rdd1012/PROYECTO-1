@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class CarritoPantalla : MonoBehaviour {
+    [SerializeField] CameraController cameraController;
     [SerializeField] ObjetosCarrito[] objects;
     [SerializeField] SlotsCarrito[] slots;
     [SerializeField] Image sp;
@@ -37,6 +38,18 @@ public class CarritoPantalla : MonoBehaviour {
     public void CompletarPuzzle()
     {
         StartCoroutine(PuzzleCompleto());
+    }
+    void OnDisable()
+    {
+        if (cameraController != null)
+            cameraController.ToggleCameraControl(true);
+        PlayerController.Instance.TogglePlayerControl(true);
+    }
+    void OnEnable()
+    {
+        if (cameraController != null)
+            cameraController.ToggleCameraControl(false);
+        PlayerController.Instance.TogglePlayerControl(false);
     }
     public IEnumerator PuzzleCompleto() 
     {

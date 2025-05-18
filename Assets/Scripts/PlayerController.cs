@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
     public static PlayerController Instance;
     bool isMoving = false;
     Animator anim;
+    private bool controlsEnabled = true;
     [SerializeField] AudioSource audioSourceSeleccion;
     [SerializeField] AudioSource audioSourceError;
     [SerializeField] AudioClip seleccionSonido;
@@ -17,8 +18,11 @@ public class PlayerController : MonoBehaviour {
         anim.Play("Idle");
         anim.SetBool("EstaCaminando", false);
     }
-
-    void Awake()
+    public void TogglePlayerControl(bool state)
+    {
+        controlsEnabled = state;
+    }
+        void Awake()
     {
         if (Instance == null)
         {
@@ -33,9 +37,9 @@ public class PlayerController : MonoBehaviour {
     private float speed = 10f;
     private bool isMovingLeft = false;
     public bool IsMovingLeft { get { return isMovingLeft; } }
-    private bool canReceiveGoTo = true;
     public void GoToItem(InteractableData item)
     {
+
         if (item == null || item.GoToPoint == null) return;
         IInteractable interactableItem = item.GetComponent<IInteractable>();
         InteractableVisuals itemvisuals = item.GetComponentInChildren<InteractableVisuals>();
@@ -67,29 +71,14 @@ public class PlayerController : MonoBehaviour {
     }
     private void Update()
     {
+        if (!controlsEnabled) return;
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            HandleHoveringInteraction();
             HandleClickInteraction();
         }
     }
 
-    private void HandleHoveringInteraction()
-    {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-
-        RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
-
-        if (hit.collider != null)
-        {
-            DetectInteractable(hit.collider.gameObject);
-        }
-        else
-        {
-            GameManager.Instance.SetCursorDefault();
-        }
-    }
+   
     private void HandleClickInteraction()
     {
         if (Input.GetMouseButtonDown(0)) 
@@ -110,20 +99,7 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    public void DetectInteractable(GameObject hitObject)
-    {
-        IInteractable iInteractable = hitObject.GetComponent<IInteractable>();
-
-        if (iInteractable != null)
-        {
-           // Debug.Log("Interactable found: " + hitObject.gameObject.name);
-            GameManager.Instance.SetCursorInteractable();
-        }
-        else
-        {
-            GameManager.Instance.SetCursorDefault();
-        }
-    }
+    
 
     public IEnumerator MoveToPoint(Vector2 point, Vector2 pointVisuals, IInteractable interactable)
     {
