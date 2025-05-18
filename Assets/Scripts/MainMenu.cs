@@ -22,6 +22,8 @@ public class MainMenu : MonoBehaviour {
 
     void PlayVideoAndLoadScene()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         rawImage.gameObject.SetActive(true);
         this.gameObject.SetActive(false);
         videoPlayer.loopPointReached += OnVideoEnd;
@@ -37,6 +39,8 @@ public class MainMenu : MonoBehaviour {
     }
     void OnVideoEnd(VideoPlayer vp)
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         asyncLoad.allowSceneActivation = true;
     }
 
