@@ -23,8 +23,30 @@ public class InteractableCaja : MonoBehaviour,IInteractable
             QuitarItem(interactableData.requiredItemID);
             puertaCarga.Unlock();
             audioSource.Play();
-            //Destroy(gameObject);
+            Vector3 posicion = gameObject.transform.localPosition;
+
+            Vector3 targetPosition = transform.localPosition + new Vector3(-10, 0, 0);
+            StartCoroutine(MoveToPosition(targetPosition, 2));
         }
+    }
+    IEnumerator MoveToPosition(Vector3 target, float duration)
+    {
+        Vector3 startPosition = transform.localPosition;
+        float elapsedTime = 0;
+
+        while (elapsedTime < duration)
+        {
+            
+            transform.localPosition = Vector3.Lerp(
+                startPosition,
+                target,
+                elapsedTime / duration
+            );
+            elapsedTime += Time.deltaTime;
+            yield return null; 
+        }
+
+        transform.localPosition = target; 
     }
     public bool IsInteractable() { return true; }
     private void QuitarItem(int itemID)

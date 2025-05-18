@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 public class BackGroundMusic : MonoBehaviour
 {
     [SerializeField]float volumen=1f;
     AudioSource audioSource;
+    [SerializeField] AudioMixerGroup musicGroup;
     [SerializeField] List<AudioClip> listaMusicaMenu = new();
     [SerializeField] List<AudioClip> listaMusicaVagonesNormales = new();
     [SerializeField] List<AudioClip> listaMusicaVagonCarga = new();
@@ -40,6 +42,7 @@ public class BackGroundMusic : MonoBehaviour
         source.playOnAwake = false;
         source.spatialBlend = 0;
         source.volume = volumen;
+        source.outputAudioMixerGroup = musicGroup;
     }
     void CreateAudioSources(List<AudioClip> clips)
     {

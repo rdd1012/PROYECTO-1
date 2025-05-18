@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumen: 0.2
+  musicGroup: {fileID: -3690381190940102342, guid: 5d7f157b44493f24eb34ad29335427d1,
+    type: 2}
   listaMusicaMenu: []
   listaMusicaVagonesNormales:
   - {fileID: 8300000, guid: 2abe4ad441c5d0a419dcb40c324e973f, type: 3}
