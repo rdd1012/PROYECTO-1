@@ -127,6 +127,7 @@ public class PuzzleRadio : MonoBehaviour {
         playerTurn = false;
         if (cameraController != null)
             cameraController.ToggleCameraControl(false);
+        PlayerController.Instance.TogglePlayerControl(false);
         currentRound = 0;
         sequence.Clear();
         playerInput.Clear();
@@ -142,6 +143,7 @@ public class PuzzleRadio : MonoBehaviour {
     {
         if (cameraController != null)
             cameraController.ToggleCameraControl(true);
+        PlayerController.Instance.TogglePlayerControl(true);
     }
 
 

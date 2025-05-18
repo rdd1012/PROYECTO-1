@@ -39,6 +39,11 @@ public class GameManager : MonoBehaviour {
             Destroy(gameObject);
         }
     }
+    private void Update()
+    {
+        HandleHoveringInteraction();
+    }
+
     private void HandleHoveringInteraction()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);

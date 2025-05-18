@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
     public static PlayerController Instance;
     bool isMoving = false;
     Animator anim;
+    private bool controlsEnabled = true;
     [SerializeField] AudioSource audioSourceSeleccion;
     [SerializeField] AudioSource audioSourceError;
     [SerializeField] AudioClip seleccionSonido;
@@ -17,8 +18,11 @@ public class PlayerController : MonoBehaviour {
         anim.Play("Idle");
         anim.SetBool("EstaCaminando", false);
     }
-
-    void Awake()
+    public void TogglePlayerControl(bool state)
+    {
+        controlsEnabled = state;
+    }
+        void Awake()
     {
         if (Instance == null)
         {
@@ -35,6 +39,7 @@ public class PlayerController : MonoBehaviour {
     public bool IsMovingLeft { get { return isMovingLeft; } }
     public void GoToItem(InteractableData item)
     {
+
         if (item == null || item.GoToPoint == null) return;
         IInteractable interactableItem = item.GetComponent<IInteractable>();
         InteractableVisuals itemvisuals = item.GetComponentInChildren<InteractableVisuals>();
@@ -66,6 +71,7 @@ public class PlayerController : MonoBehaviour {
     }
     private void Update()
     {
+        if (!controlsEnabled) return;
         if (!EventSystem.current.IsPointerOverGameObject())
         {
             HandleClickInteraction();

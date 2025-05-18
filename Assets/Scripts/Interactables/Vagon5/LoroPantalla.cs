@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class LoroPantalla : MonoBehaviour {
+    [SerializeField] CameraController cameraController;
     [SerializeField] InteractableLoro interactableLoro;
     [SerializeField] Image loroImage;
     [SerializeField] Sprite cariciaSprite;
@@ -24,7 +25,18 @@ public class LoroPantalla : MonoBehaviour {
             StartCoroutine(AcariciarCR());
         }
     }
-
+    void OnDisable()
+    {
+        if (cameraController != null)
+            cameraController.ToggleCameraControl(true);
+        PlayerController.Instance.TogglePlayerControl(true);
+    }
+    void OnEnable()
+    {
+        if (cameraController != null)
+            cameraController.ToggleCameraControl(false);
+        PlayerController.Instance.TogglePlayerControl(false);
+    }
     IEnumerator AcariciarCR()
     {
         isInteracting = true;
