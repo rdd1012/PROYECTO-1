@@ -910,7 +910,6 @@ GameObject:
   - component: {fileID: 232855610}
   - component: {fileID: 232855613}
   - component: {fileID: 232855612}
-  - component: {fileID: 232855614}
   m_Layer: 0
   m_Name: lata
   m_TagString: Untagged
@@ -999,29 +998,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!223 &232855614
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 232855608}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -973650315
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
 --- !u!1 &247714054
 GameObject:
   m_ObjectHideFlags: 0
@@ -2303,7 +2279,6 @@ GameObject:
   - component: {fileID: 523131345}
   - component: {fileID: 523131348}
   - component: {fileID: 523131347}
-  - component: {fileID: 523131349}
   m_Layer: 0
   m_Name: leche
   m_TagString: Untagged
@@ -2392,29 +2367,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!223 &523131349
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 523131343}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -973650315
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
 --- !u!1 &532427431
 GameObject:
   m_ObjectHideFlags: 0
@@ -4634,7 +4586,6 @@ GameObject:
   - component: {fileID: 1331117671}
   - component: {fileID: 1331117674}
   - component: {fileID: 1331117673}
-  - component: {fileID: 1331117675}
   m_Layer: 0
   m_Name: cafe
   m_TagString: Untagged
@@ -4723,29 +4674,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!223 &1331117675
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1331117669}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -973650315
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
 --- !u!1 &1435949519
 GameObject:
   m_ObjectHideFlags: 0
