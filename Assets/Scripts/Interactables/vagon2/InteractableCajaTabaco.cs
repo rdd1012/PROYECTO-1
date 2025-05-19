@@ -20,18 +20,11 @@ public class InteractableCajaTabaco : MonoBehaviour, IInteractable {
     {
         if (InventoryManager.Instance != null)
         {
-            foreach (Item _item in InventoryManager.Instance.Items)
-            {
-                if (_item.itemID == itemToGive.itemID)
-                {
-                    inventoryHasItem = true;
-                    break;
-                }
-            }
             if (!inventoryHasItem)
             {
                 InventoryManager.Instance.AddItem(itemToGive);
                 inventoryHasItem = true;
+                Destroy(this.gameObject);
                 // audioSource.Play();
             }
 
