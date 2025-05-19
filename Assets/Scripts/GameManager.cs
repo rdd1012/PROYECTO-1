@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour {
             audioSource.Play();
             if (SceneManager.GetActiveScene().buildIndex==1)
                 InventoryManager.Instance.AddItem(cartaInicial);
+            if (PlayerController.Instance.ControlsEnabled) 
+                PlayerController.Instance.TogglePlayerControl(true);
         }
         else
         {
@@ -198,6 +200,7 @@ public class GameManager : MonoBehaviour {
 
     public void PasarDeNivel()
     {
+        PlayerController.Instance.TogglePlayerControl(false);
         StartCoroutine(FadeOutAndLoad());
     }
 

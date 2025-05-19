@@ -22,7 +22,8 @@ public class InteractablePuertaPomo : MonoBehaviour, IInteractable {
                 QuitarItem(interactableData.requiredItemID);
             return;
         }
-        if (teniaObjeto) { GameManager.Instance.PasarDeNivel();
+        if (teniaObjeto) { 
+            GameManager.Instance.PasarDeNivel();
             audioSource.Play();}
     }
     private void QuitarItem(int itemID)

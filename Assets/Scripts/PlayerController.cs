@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
     bool isMoving = false;
     Animator anim;
     private bool controlsEnabled = true;
+    public bool ControlsEnabled { get { return controlsEnabled;  } }
     [SerializeField] AudioSource audioSourceSeleccion;
     [SerializeField] AudioSource audioSourceError;
     [SerializeField] AudioClip seleccionSonido;
