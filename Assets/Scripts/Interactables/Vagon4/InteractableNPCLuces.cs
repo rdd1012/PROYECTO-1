@@ -8,11 +8,14 @@ public class InteractableNPCLuces : NPCBase, IInteractable
     SpriteRenderer spriteRenderer;
     [SerializeField]Sprite pestañeo;
     [SerializeField] Sprite hablando;
+    [SerializeField] Sprite dormida;
+    [SerializeField] Sprite dormidaHablando;
     YapBubble yapBubble;
     Sprite normal;
     [SerializeField] InteractableBombillaCarta interactableBombillaCarta;
     [SerializeField] private NPCdialogoSO dialogos;
     public bool IsInteractable() { return true; }
+    bool isDormida = false;
     void Start()
     {
 
@@ -29,9 +32,20 @@ public class InteractableNPCLuces : NPCBase, IInteractable
       
         if (!interactableBombillaCarta.ComprobarLuces() && !interactableBombillaCarta.ComprobarCortinas())
         {
-            StartCoroutine(Yap(dialogos.frases[0], hablando, normal, spriteRenderer, yapBubble));
+            if (!isDormida)
+                StartCoroutine(Yap(dialogos.frases[0], hablando, normal, spriteRenderer, yapBubble));
         }
     
+    }
+    private void Update()
+    {
+        if (interactableBombillaCarta.ComprobarLuces() && interactableBombillaCarta.ComprobarCortinas() &&!isDormida)
+        {
+           isDormida = true;
+           StopAllCoroutines();
+           spriteRenderer.sprite = dormida;
+           StartCoroutine(Blink(dormidaHablando, spriteRenderer));
+        }
     }
 
 }
