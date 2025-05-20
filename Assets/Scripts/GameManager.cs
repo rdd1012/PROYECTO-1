@@ -33,8 +33,12 @@ public class GameManager : MonoBehaviour {
             audioSource.Play();
             if (SceneManager.GetActiveScene().buildIndex==1)
                 InventoryManager.Instance.AddItem(cartaInicial);
-            if (PlayerController.Instance.ControlsEnabled) 
-                PlayerController.Instance.TogglePlayerControl(true);
+            if (PlayerController.Instance != null)
+            {
+                if (PlayerController.Instance.ControlsEnabled)
+                    PlayerController.Instance.TogglePlayerControl(true);
+            }
+            
         }
         else
         {
