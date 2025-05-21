@@ -16,7 +16,7 @@ public class InteractableRadio : MonoBehaviour, IInteractable {
     void Start()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        //audioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
         StartCoroutine(ComprobarPuzzle());
     }
     public bool TieneItem() { return true; }
@@ -26,6 +26,7 @@ public class InteractableRadio : MonoBehaviour, IInteractable {
         {
             radioFuera = true;
             spriteRenderer.sprite = spriteFuera;
+            audioSource.Play();
             return;
             
         }
@@ -61,7 +62,7 @@ public class InteractableRadio : MonoBehaviour, IInteractable {
             {
                 InventoryManager.Instance.AddItem(itemToGive);
                 inventoryHasItem = true;
-               // audioSource.Play();
+
             }
 
         }

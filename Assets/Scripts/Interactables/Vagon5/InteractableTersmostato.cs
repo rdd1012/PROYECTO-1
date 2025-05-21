@@ -55,9 +55,8 @@ public class InteractableTermostato : MonoBehaviour, IInteractable {
 
     private void Update()
     {
-        bool shouldShow = temperatura >= 0.75f;
+        bool shouldShow = temperatura >= 0.75f;  
 
-        // Only restart coroutine if the target state changes
         if (shouldShow != isVahoVisible)
         {
             isVahoVisible = shouldShow;
