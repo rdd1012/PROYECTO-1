@@ -14,6 +14,7 @@ public class InteractableBombillaCarta : MonoBehaviour, IInteractable
     [SerializeField] Sprite spriteEncendido;
     [SerializeField] Sprite spriteApagado;
     [SerializeField] Sprite spriteEncendidoCarta;
+    [SerializeField] GameObject exclamacion;
 
     [SerializeField]InteractableBombilla[] bombillas;
 
@@ -24,6 +25,7 @@ public class InteractableBombillaCarta : MonoBehaviour, IInteractable
     [SerializeField] AudioClip sonidoApagar;
     private void Start()
     {
+        exclamacion.SetActive(false);
         audioSource = GetComponent<AudioSource>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         luz = GetComponentInChildren<Light>();
@@ -42,6 +44,7 @@ public class InteractableBombillaCarta : MonoBehaviour, IInteractable
             {
                 todoBien = true;
                 spriteRenderer.sprite = spriteEncendidoCarta;
+                exclamacion.SetActive(true);
             }
             yield return new WaitForSeconds(0.2f);
         }
@@ -114,6 +117,7 @@ public class InteractableBombillaCarta : MonoBehaviour, IInteractable
             {
                 InventoryManager.Instance.AddItem(itemToGive);
                 inventoryHasItem = true;
+                exclamacion.SetActive(false);
                 audioSource.Play();
             }
 
