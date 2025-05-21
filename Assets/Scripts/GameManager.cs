@@ -26,13 +26,14 @@ public class GameManager : MonoBehaviour {
             DontDestroyOnLoad(gameObject);
             InitializeCursor();
             CreateFadeSystem();
-            StartCoroutine(FadeIn());
-            audioSource = GetComponent<AudioSource>();
             if (SceneManager.GetActiveScene().buildIndex != 0)
-                audioSource.clip = sonidoCerrarPuerta;
-            audioSource.Play();
-            if (SceneManager.GetActiveScene().buildIndex==1)
-                InventoryManager.Instance.AddItem(cartaInicial);
+                StartCoroutine(FadeIn());
+            audioSource = GetComponent<AudioSource>();
+            
+            audioSource.clip = sonidoCerrarPuerta;
+            if (SceneManager.GetActiveScene().buildIndex != 0)
+                audioSource.Play();
+
             if (PlayerController.Instance != null)
             {
                 if (PlayerController.Instance.ControlsEnabled)
@@ -104,7 +105,10 @@ public class GameManager : MonoBehaviour {
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        StartCoroutine(FadeIn());
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+            InventoryManager.Instance.AddItem(cartaInicial);
+        if (SceneManager.GetActiveScene().buildIndex != 0)
+            StartCoroutine(FadeIn());
 
     }
     void OnEnable()
@@ -118,6 +122,8 @@ public class GameManager : MonoBehaviour {
     }
     private void InitializeCursor()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None; ;
         Cursor.SetCursor(defaultCursorTexture, Vector2.zero, CursorMode.Auto);
     }
 
