@@ -7868,10 +7868,59 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6452487528136857387, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: m_text
+      value: "Vaya cartero eres, Enzo...\r\nA\xFAn te queda entregar esta carta\r\n
+        para acabar tu turno e irte a casa a descansar.\r\nSin fecha, sin destinatario,\r\n
+        pero ya sabes a qui\xE9n entregar,\r\n vecchio amico.\r\nSigue paseando por
+        el tren,\r\nquiz\xE1 encuentres m\xE1s cartas escondidas.\r\n ti aspetto."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452487528136857387, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452487528136857387, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d00a005a27e5084d8a29d6fa4fba493,
+        type: 2}
+    - target: {fileID: 6452487528136857387, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452487528136857387, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452487528136857387, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: m_isRightToLeft
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452487528136857387, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452487528136857387, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6781942235281610935, guid: 521d1d5290c92aa49a76f57707512133,
         type: 3}
       propertyPath: m_Name
       value: Inventario
+      objectReference: {fileID: 0}
+    - target: {fileID: 9054798303557171565, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: m_text
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

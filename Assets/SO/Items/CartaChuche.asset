@@ -17,6 +17,9 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 5f57319601e67fd4a9cf0d02174ed9cb, type: 3}
   usos: 1
   isReadable: 1
-  carta: aujuhauiti`pi32U 8589B W56AIEBRIAJIIJ jpoiaP``t
+  carta: "\xA1Encontraste otra carta! Ah, postino...     Parece que se te da mejor
+    encontrarlas que entregarlas, \xBFeh?  No me creo que sigas llevando esa vieja
+    cartera de cuero. No cambias nunca. Te est\xE1 gustando este jueguito, \xBFverdad?   
+    Sigue busc\xE1ndome, caro mio.    Despu\xE9s de tantos a\xF1os\u2026"
   givesItem: 0
   itemsQueDa: []
