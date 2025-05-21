@@ -62,6 +62,8 @@ MonoBehaviour:
   masterPercent: {fileID: 8242930848761090551}
   musicPercent: {fileID: 2010301801250244595}
   sfxPercent: {fileID: 2817167975211143086}
+  resolutionDropdown: {fileID: 7943338387358465037}
+  fullscreenToggle: {fileID: 2847465079317462435}
 --- !u!1 &190338156683686546
 GameObject:
   m_ObjectHideFlags: 0

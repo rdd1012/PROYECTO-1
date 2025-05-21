@@ -14,6 +14,8 @@ public class EndScene : MonoBehaviour
     {
         if (videoPlayer == null)
             videoPlayer = GetComponent<VideoPlayer>();
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
 
         videoPlayer.isLooping = false;
 
