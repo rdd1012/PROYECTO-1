@@ -17,6 +17,9 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 4cf6c070760d3a140b22a71c102f4426, type: 3}
   usos: 1
   isReadable: 1
-  carta: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+  carta: "Vas bien, Enzo. Sigues siendo el chico listo que conoc\xEDa. Si sigues
+    resolviendo puzzles r\xE1pido,  quiz\xE1 me alcances antes de que el tren llegue
+    al pueblo. Te he echado de menos. Aqu\xED tienes un recuerdo que he atesorado
+    desde que me mud\xE9 a Francia: "
   givesItem: 0
   itemsQueDa: []

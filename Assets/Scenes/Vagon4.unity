@@ -3343,8 +3343,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 305527380500004338, guid: a90fdfe3a5510934eb4aff952335018b,
         type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d00a005a27e5084d8a29d6fa4fba493,
+        type: 2}
+    - target: {fileID: 305527380500004338, guid: a90fdfe3a5510934eb4aff952335018b,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 305527380500004338, guid: a90fdfe3a5510934eb4aff952335018b,
+        type: 3}
       propertyPath: m_fontSizeBase
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 305527380500004338, guid: a90fdfe3a5510934eb4aff952335018b,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2854575242453168398, guid: 5d00a005a27e5084d8a29d6fa4fba493,
+        type: 2}
+    - target: {fileID: 305527380500004338, guid: a90fdfe3a5510934eb4aff952335018b,
+        type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 305527380500004338, guid: a90fdfe3a5510934eb4aff952335018b,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 305527380500004338, guid: a90fdfe3a5510934eb4aff952335018b,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 554421799024999286, guid: a90fdfe3a5510934eb4aff952335018b,
         type: 3}
@@ -3371,6 +3403,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: YapBubble
       objectReference: {fileID: 0}
+    - target: {fileID: 8262373836911771096, guid: a90fdfe3a5510934eb4aff952335018b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2854575242453168398, guid: 5d00a005a27e5084d8a29d6fa4fba493,
+        type: 2}
     - target: {fileID: 8269984017475107805, guid: a90fdfe3a5510934eb4aff952335018b,
         type: 3}
       propertyPath: m_Pivot.x
@@ -3655,7 +3693,7 @@ PrefabInstance:
     - target: {fileID: 305527380500004338, guid: a90fdfe3a5510934eb4aff952335018b,
         type: 3}
       propertyPath: m_fontSize
-      value: 5
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 305527380500004338, guid: a90fdfe3a5510934eb4aff952335018b,
         type: 3}
@@ -3669,8 +3707,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 305527380500004338, guid: a90fdfe3a5510934eb4aff952335018b,
         type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d00a005a27e5084d8a29d6fa4fba493,
+        type: 2}
+    - target: {fileID: 305527380500004338, guid: a90fdfe3a5510934eb4aff952335018b,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 305527380500004338, guid: a90fdfe3a5510934eb4aff952335018b,
+        type: 3}
       propertyPath: m_fontSizeBase
-      value: 5
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 305527380500004338, guid: a90fdfe3a5510934eb4aff952335018b,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2854575242453168398, guid: 5d00a005a27e5084d8a29d6fa4fba493,
+        type: 2}
+    - target: {fileID: 305527380500004338, guid: a90fdfe3a5510934eb4aff952335018b,
+        type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 305527380500004338, guid: a90fdfe3a5510934eb4aff952335018b,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 305527380500004338, guid: a90fdfe3a5510934eb4aff952335018b,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 554421799024999286, guid: a90fdfe3a5510934eb4aff952335018b,
         type: 3}
@@ -3697,6 +3767,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: YapBubble
       objectReference: {fileID: 0}
+    - target: {fileID: 8262373836911771096, guid: a90fdfe3a5510934eb4aff952335018b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2854575242453168398, guid: 5d00a005a27e5084d8a29d6fa4fba493,
+        type: 2}
     - target: {fileID: 8269984017475107805, guid: a90fdfe3a5510934eb4aff952335018b,
         type: 3}
       propertyPath: m_Pivot.x
