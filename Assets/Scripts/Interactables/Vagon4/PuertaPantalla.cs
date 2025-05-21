@@ -13,12 +13,14 @@ public class PuertaPantalla : MonoBehaviour
     [SerializeField] AudioClip hawktua;
     [SerializeField] AudioClip trapo;
     AudioSource audioSource;
-    private void Start()
+  private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        gameObject.SetActive(false);
     }
     public void BorrarMancha()
     {
+        Debug.Log("Se hizo clic en BorrarMancha");
         if (!puerta.ManchaBorrada)
         {
             if (puerta.InteractableDataTrapo.CheckItemRequirement(puerta.InteractableDataTrapo.requiredItemID))
@@ -33,8 +35,13 @@ public class PuertaPantalla : MonoBehaviour
     }
     public void AbrirPuerta()
     {
-        StartCoroutine(CRAbrirPuerta());
+        Debug.Log("Se hizo clic en AbrirPuerta");
+        if (!puerta.PuertaAbierta && puerta.ManchaBorrada)
+        {
+            StartCoroutine(CRAbrirPuerta());
+        }
     }
+
     IEnumerator CRAbrirPuerta ()
     {
         if (!puerta.PuertaAbierta && puerta.ManchaBorrada)
@@ -42,13 +49,14 @@ public class PuertaPantalla : MonoBehaviour
             if (puerta.InteractableDataHorquilla.CheckItemRequirement(puerta.InteractableDataHorquilla.requiredItemID))
             {
                 puertaImagen.sprite = abierto;
-                yield return new WaitForSeconds(1);
                 audioSource.clip = hawktua;
                 audioSource.Play();
-                gameObject.SetActive(false);
-
+                yield return new WaitForSecondsRealtime(1f);
                 puerta.PuertaAbierta = true;
                 puerta.QuitarItem(puerta.InteractableDataHorquilla.requiredItemID);
+                gameObject.SetActive(false);
+
+
 
                 
 
