@@ -22,7 +22,7 @@ public class PuzzleRadio : MonoBehaviour {
     [SerializeField] AudioClip sonidoFALLO;
     [SerializeField] Image pantallaVictoria;
     [SerializeField] Image puzzle;
-    int maxRounds = 3;
+    int maxRounds = 2;
     [SerializeField] InteractableRadio interactableRadio;
 
     List<int> sequence = new List<int>();
@@ -54,14 +54,14 @@ public class PuzzleRadio : MonoBehaviour {
         if (currentRound >= maxRounds) return;
 
         playerTurn = false;
-        GenerateNewSequence(currentRound + 1); 
+        GenerateNewSequence(); 
         currentRound++;
         StartCoroutine(PlaySequence());
     }
-    void GenerateNewSequence(int roundNumber)
+    void GenerateNewSequence()
     {
         sequence.Clear();
-        int sequenceLength = roundNumber * 2; 
+        int sequenceLength = 4; 
 
         for (int i = 0; i < sequenceLength; i++)
         {
