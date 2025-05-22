@@ -6470,6 +6470,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1420100636581155957, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1298
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420100636581155957, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -297
+      objectReference: {fileID: 0}
     - target: {fileID: 1649861395472119353, guid: 521d1d5290c92aa49a76f57707512133,
         type: 3}
       propertyPath: m_Camera
@@ -6485,6 +6495,17 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4179789230362554413}
+    - target: {fileID: 2945258367986963375, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4621177233832269368, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fb260c2c804d8614ba32df36f5901f3c,
+        type: 3}
     - target: {fileID: 4868314352617485719, guid: 521d1d5290c92aa49a76f57707512133,
         type: 3}
       propertyPath: m_Pivot.x
@@ -6589,6 +6610,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Inventario
+      objectReference: {fileID: 0}
+    - target: {fileID: 8274435171992651039, guid: 521d1d5290c92aa49a76f57707512133,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 245
       objectReference: {fileID: 0}
     - target: {fileID: 8311956348626282541, guid: 521d1d5290c92aa49a76f57707512133,
         type: 3}
