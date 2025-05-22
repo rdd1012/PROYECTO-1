@@ -12,6 +12,8 @@ public class PuertaPantalla : MonoBehaviour
     [SerializeField] Sprite abierto;
     [SerializeField] AudioClip hawktua;
     [SerializeField] AudioClip trapo;
+    [SerializeField] Button cerradura;
+    [SerializeField] Button mancha;
     AudioSource audioSource;
   private void Start()
     {
@@ -27,6 +29,8 @@ public class PuertaPantalla : MonoBehaviour
             {
                 puerta.ManchaBorrada = true;
                 puerta.QuitarItem(puerta.InteractableDataTrapo.requiredItemID);
+                mancha.gameObject.SetActive(false);
+                cerradura.gameObject.SetActive(true);
                 puertaImagen.sprite = limpio;
                 audioSource.clip = trapo;
                 audioSource.Play();
@@ -40,6 +44,19 @@ public class PuertaPantalla : MonoBehaviour
         {
             StartCoroutine(CRAbrirPuerta());
         }
+    }
+    [SerializeField] CameraController cameraController;
+    void OnEnable()
+    {
+        if (cameraController != null)
+            cameraController.ToggleCameraControl(false);
+        PlayerController.Instance.TogglePlayerControl(false);
+    }
+    private void OnDisable()
+    {
+        if (cameraController != null)
+            cameraController.ToggleCameraControl(true);
+        PlayerController.Instance.TogglePlayerControl(true);
     }
 
     IEnumerator CRAbrirPuerta ()

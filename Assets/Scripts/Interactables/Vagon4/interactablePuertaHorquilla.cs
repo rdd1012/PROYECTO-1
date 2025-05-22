@@ -23,18 +23,20 @@ public class InteractablePuertaHorquilla : MonoBehaviour, IInteractable {
     public bool TieneItem() { return true; }
     public void OnClickAction()
     {
-        if (!puertaAbierta || !manchaBorrada)
-        {
-            puertaPantalla.gameObject.SetActive(true); 
-        }
-        else
+        if (puertaAbierta && manchaBorrada)
         {
             GameManager.Instance.PasarDeNivel();
             audioSource.Play();
+            return; 
+        }
+
+        if (!puertaAbierta || !manchaBorrada)
+        {
+            puertaPantalla.gameObject.SetActive(true);
         }
     }
     public bool IsInteractable() { return true; }
-
+    
     public void QuitarItem(int itemID)
     {
         InventoryManager.Instance?.DecrementarUsos(itemID);

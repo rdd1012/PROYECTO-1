@@ -11,14 +11,18 @@ public class CuadroPantalla : MonoBehaviour
     [SerializeField] Sprite spriteFeliz;
     [SerializeField] Button botonTrigo;
     //AudioSource audioSource;
-    private void OnEnable()
+    [SerializeField] CameraController cameraController;
+    void OnEnable()
     {
-        Time.timeScale = 0f; 
+        if (cameraController != null)
+            cameraController.ToggleCameraControl(false);
+        PlayerController.Instance.TogglePlayerControl(false);
     }
-
     private void OnDisable()
     {
-        Time.timeScale = 1f; 
+        if (cameraController != null)
+            cameraController.ToggleCameraControl(true);
+        PlayerController.Instance.TogglePlayerControl(true);
     }
     private void Start()
     {

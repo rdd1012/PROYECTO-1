@@ -12,26 +12,25 @@ public class ObjetosCarrito : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     }
     private CanvasGroup canvasGroup;
     private RectTransform rectTransform;
-    private Canvas parentCanvas; // Canvas padre principal (ej: el del UI)
+    private Canvas parentCanvas; 
 
     void Start()
     {
         canvasGroup = GetComponent<CanvasGroup>();
         rectTransform = GetComponent<RectTransform>();
-        parentCanvas = GetComponentInParent<Canvas>(); // Obtiene el Canvas padre
+        parentCanvas = GetComponentInParent<Canvas>(); 
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        // Mueve el objeto al Canvas padre principal para evitar problemas de renderizado
+
         transform.SetParent(parentCanvas.transform, true);
         canvasGroup.blocksRaycasts = false;
-        transform.SetAsLastSibling(); // Asegura que esté encima de todo
+        transform.SetAsLastSibling(); 
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        // Convierte la posición del cursor al espacio del Canvas padre
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             parentCanvas.GetComponent<RectTransform>(),
             eventData.position,

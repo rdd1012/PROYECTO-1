@@ -2383,6 +2383,7 @@ MonoBehaviour:
   puzzle: {fileID: 1070829645}
   interactableMaletin: {fileID: 299751440}
   numerosSolucion: 020000000400000003000000
+  cameraController: {fileID: 8172605490887020072}
 --- !u!82 &634303477
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3251,6 +3252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sillon: {fileID: 2119473901}
+  cameraController: {fileID: 8172605490887020072}
 --- !u!114 &866289905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8480,6 +8482,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53f59540cbc1501459d022ad2fd12ae2, type: 3}
+--- !u!114 &8172605490887020072 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5979673443315535708, guid: 53f59540cbc1501459d022ad2fd12ae2,
+    type: 3}
+  m_PrefabInstance: {fileID: 8172605490887020071}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91fb059de3999c44e87ba5d29642fcf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8347970975839338076
 Transform:
   m_ObjectHideFlags: 0
