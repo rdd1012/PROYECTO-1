@@ -2146,21 +2146,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 532427435}
     m_Modifications:
-    - target: {fileID: 4817894144001681223, guid: d74a397c48fcd2649a1dd97b7e072c7d,
-        type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 920528533}
-    - target: {fileID: 4817894144001681223, guid: d74a397c48fcd2649a1dd97b7e072c7d,
-        type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 4179789230362554413}
-    - target: {fileID: 4817894144001681223, guid: d74a397c48fcd2649a1dd97b7e072c7d,
-        type: 3}
-      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 4179789230362554413}
     - target: {fileID: 7588295080656125647, guid: d74a397c48fcd2649a1dd97b7e072c7d,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2265,11 +2250,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cortinas (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8868327664052300896, guid: d74a397c48fcd2649a1dd97b7e072c7d,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2507,7 +2487,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1017726198}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -2522,30 +2502,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1017726192}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1649433512}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!222 &1017726197
 CanvasRenderer:
@@ -3057,7 +3013,7 @@ PrefabInstance:
     - target: {fileID: 2340103429903898484, guid: 5faf6de75f867534b9d377a5238b5d2f,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3658677812485535784, guid: 5faf6de75f867534b9d377a5238b5d2f,
         type: 3}
@@ -4725,6 +4681,9 @@ MonoBehaviour:
   abierto: {fileID: 21300000, guid: 139f115ddf58c344f9449d11a1909dc8, type: 3}
   hawktua: {fileID: 8300000, guid: a4f037f9888c7c54d9a9bb2cc67ae2b6, type: 3}
   trapo: {fileID: 8300000, guid: 8dea1d7e5130fbd4494989567f48e5a9, type: 3}
+  cerradura: {fileID: 1649433515}
+  mancha: {fileID: 1017726195}
+  cameraController: {fileID: 197615019}
 --- !u!224 &1718237745
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6920,7 +6879,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3658677813673225467}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0

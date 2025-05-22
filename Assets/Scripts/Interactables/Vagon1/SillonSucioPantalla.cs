@@ -21,7 +21,19 @@ public class SillonSucioPantalla : MonoBehaviour
         }
 
     }
-
+    [SerializeField] CameraController cameraController;
+    void OnEnable()
+    {
+        if (cameraController != null)
+            cameraController.ToggleCameraControl(false);
+        PlayerController.Instance.TogglePlayerControl(false);
+    }
+    private void OnDisable()
+    {
+        if (cameraController != null)
+            cameraController.ToggleCameraControl(true);
+        PlayerController.Instance.TogglePlayerControl(true);
+    }
     public void SalirPantalla()
     {
         this.gameObject.SetActive(false);

@@ -38,9 +38,18 @@ public class PuzzleMaletin : MonoBehaviour {
             StartCoroutine(VerificacionRetrasada());
         }
     }
-    void OnDisable()
+    [SerializeField] CameraController cameraController;
+    void OnEnable()
     {
-        Time.timeScale = 1f;
+        if (cameraController != null)
+            cameraController.ToggleCameraControl(false);
+        PlayerController.Instance.TogglePlayerControl(false);
+    }
+    private void OnDisable()
+    {
+        if (cameraController != null)
+            cameraController.ToggleCameraControl(true);
+        PlayerController.Instance.TogglePlayerControl(true);
     }
 
     IEnumerator VerificacionRetrasada()
@@ -83,10 +92,7 @@ public class PuzzleMaletin : MonoBehaviour {
         ComprobarResultadoPuzzle();
     }
 
-    private void OnEnable()
-    {
-        Time.timeScale = 0f;
-    }
+  
 
     public void SalirPuzzle()
     {

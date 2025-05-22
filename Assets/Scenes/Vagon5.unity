@@ -240,6 +240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactableTermostato: {fileID: 1531356714}
   sliderTemp: {fileID: 1772641419}
+  cameraController: {fileID: 477341358}
 --- !u!1 &76602017
 GameObject:
   m_ObjectHideFlags: 0
