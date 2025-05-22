@@ -47,7 +47,8 @@ MonoBehaviour:
   volumen: 0.2
   musicGroup: {fileID: -3690381190940102342, guid: 5d7f157b44493f24eb34ad29335427d1,
     type: 2}
-  listaMusicaMenu: []
+  listaMusicaMenu:
+  - {fileID: 8300000, guid: 85a4812bc49eea44583e0977a9042551, type: 3}
   listaMusicaVagonesNormales:
   - {fileID: 8300000, guid: 2abe4ad441c5d0a419dcb40c324e973f, type: 3}
   - {fileID: 8300000, guid: 9ee9bf79817d1f94ebb862363459b72b, type: 3}

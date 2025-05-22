@@ -8,13 +8,12 @@ public class PlayerController : MonoBehaviour {
     Animator anim;
     private bool controlsEnabled = true;
     public bool ControlsEnabled { get { return controlsEnabled;  } }
-    [SerializeField] AudioSource audioSourceSeleccion;
-    [SerializeField] AudioSource audioSourceError;
-    [SerializeField] AudioClip seleccionSonido;
-    [SerializeField] SpriteRenderer playerSpriteRenderer;
+    AudioSource audioSourceSeleccion;
+    SpriteRenderer playerSpriteRenderer;
     private void Start()
     {
         anim = GetComponentInChildren<Animator>();
+        playerSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
         audioSourceSeleccion = GetComponent<AudioSource>();
         anim.Play("Idle");
         anim.SetBool("EstaCaminando", false);
@@ -23,7 +22,7 @@ public class PlayerController : MonoBehaviour {
     {
         controlsEnabled = state;
     }
-        void Awake()
+    void Awake()
     {
         if (Instance == null)
         {
@@ -48,8 +47,6 @@ public class PlayerController : MonoBehaviour {
         else StartCoroutine(itemvisuals.SelectAnimation());
         if (interactableItem == null || !interactableItem.IsInteractable()) { return; }
         Debug.Log("IsInteractable? " + interactableItem.IsInteractable());
-
-        audioSourceSeleccion.clip = seleccionSonido;
         audioSourceSeleccion.Play();
 
         Vector2 targetPoint = new Vector2(item.GoToPoint.position.x, transform.position.y);
@@ -158,6 +155,6 @@ public class PlayerController : MonoBehaviour {
     public void Interact(IInteractable item)
     {
         item.OnClickAction();
-        if (!item.TieneItem()) { audioSourceError.Play(); }
+        //if (!item.TieneItem()) { audioSourceError.Play(); }
     }
 }
