@@ -48,6 +48,7 @@ public class InteractableNPCZapatos : NPCBase,IInteractable
 
             else StartCoroutine(Yap(dialogos.frases[0], hablando, normal, spriteRenderer, yapBubble));
         }
+        else StartCoroutine(Yap(dialogos.frases[2], hablando, normal, spriteRenderer, yapBubble));
     }
     public IEnumerator BlinkLimpio(Sprite _pestañeo, SpriteRenderer _spriteRenderer)
     {
