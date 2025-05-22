@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour {
     AudioSource audioSource;
     [SerializeField] AudioClip sonidoCerrarPuerta;
     [SerializeField] Item cartaInicial;
+    bool cambioRatonActivado = true;
 
     
     void Awake()
@@ -46,9 +47,16 @@ public class GameManager : MonoBehaviour {
             Destroy(gameObject);
         }
     }
+    public void GestionarCambioRaton(bool value) 
+    {
+        cambioRatonActivado= value;
+        SetCursorDefault();
+
+    }
     private void Update()
     {
-        HandleHoveringInteraction();
+        if(cambioRatonActivado)
+            HandleHoveringInteraction();
     }
 
     private void HandleHoveringInteraction()
@@ -73,7 +81,7 @@ public class GameManager : MonoBehaviour {
 
         if (iInteractable != null)
         {
-            // Debug.Log("Interactable found: " + hitObject.gameObject.name);
+            
             SetCursorInteractable();
         }
         else
