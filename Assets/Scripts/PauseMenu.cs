@@ -66,8 +66,4 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("Quit");
         Application.Quit();
     }
-    public void GoMenu ()
-    {
-        SceneManager.LoadScene(0);
-    }
 }
