@@ -30,12 +30,14 @@ public class LoroPantalla : MonoBehaviour {
         if (cameraController != null)
             cameraController.ToggleCameraControl(true);
         PlayerController.Instance.TogglePlayerControl(true);
+        GameManager.Instance.GestionarCambioRaton(true);
     }
     void OnEnable()
     {
         if (cameraController != null)
             cameraController.ToggleCameraControl(false);
         PlayerController.Instance.TogglePlayerControl(false);
+        GameManager.Instance.GestionarCambioRaton(false);
     }
     IEnumerator AcariciarCR()
     {

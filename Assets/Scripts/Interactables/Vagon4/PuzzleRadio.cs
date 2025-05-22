@@ -125,6 +125,7 @@ public class PuzzleRadio : MonoBehaviour {
     void OnEnable()
     {
         playerTurn = false;
+        GameManager.Instance.GestionarCambioRaton(false);
         if (cameraController != null)
             cameraController.ToggleCameraControl(false);
         PlayerController.Instance.TogglePlayerControl(false);
@@ -144,6 +145,7 @@ public class PuzzleRadio : MonoBehaviour {
         if (cameraController != null)
             cameraController.ToggleCameraControl(true);
         PlayerController.Instance.TogglePlayerControl(true);
+        GameManager.Instance.GestionarCambioRaton(true);
     }
 
 

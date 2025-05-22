@@ -51,12 +51,14 @@ public class PuertaPantalla : MonoBehaviour
         if (cameraController != null)
             cameraController.ToggleCameraControl(false);
         PlayerController.Instance.TogglePlayerControl(false);
+        GameManager.Instance.GestionarCambioRaton(false);
     }
     private void OnDisable()
     {
         if (cameraController != null)
             cameraController.ToggleCameraControl(true);
         PlayerController.Instance.TogglePlayerControl(true);
+        GameManager.Instance.GestionarCambioRaton(true);
     }
 
     IEnumerator CRAbrirPuerta ()
