@@ -46,12 +46,7 @@ public class SlotsCarrito : MonoBehaviour, IDropHandler {
         CheckPuzzleSolved();
     }
 
-    void MoveToEmptySlot(GameObject droppedObject, ObjetosCarrito droppedObjetoCarrito)
-    {
-        droppedObjetoCarrito.ParentToReturnTo = transform;
-        droppedObject.transform.SetParent(transform);
-        droppedObject.transform.localPosition = Vector3.zero;
-    }
+    
 
     void SwapObjects(GameObject droppedObject, ObjetosCarrito droppedObjeto)
     {
