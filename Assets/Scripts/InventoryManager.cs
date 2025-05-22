@@ -218,8 +218,8 @@ public class InventoryManager : MonoBehaviour {
         copy.usos = original.usos;
         copy.isReadable = original.isReadable;
         copy.carta = original.carta;
-        copy.givesItem = original.givesItem; // Asegúrate de copiar este campo
-        copy.itemsQueDa = new List<Item>(original.itemsQueDa); // Clona la lista
+        copy.givesItem = original.givesItem; 
+        copy.itemsQueDa = new List<Item>(original.itemsQueDa); 
         return copy;
     }
 
