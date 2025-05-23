@@ -3486,7 +3486,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 920528533}
+      objectReference: {fileID: 0}
     - target: {fileID: 4817894144001681223, guid: d74a397c48fcd2649a1dd97b7e072c7d,
         type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3707,18 +3707,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 916901530}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &920528533 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9024612480868501542, guid: cca0b0dc0c838eb4f82d87f1452ed23c,
-    type: 3}
-  m_PrefabInstance: {fileID: 2083569525}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93a79bd7ab56ca64592c52a8b8067715, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &969164176
 GameObject:
   m_ObjectHideFlags: 0
@@ -4730,7 +4718,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 920528533}
+      objectReference: {fileID: 0}
     - target: {fileID: 5640523775691851359, guid: 5faf6de75f867534b9d377a5238b5d2f,
         type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5002,7 +4990,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 920528533}
+      objectReference: {fileID: 0}
     - target: {fileID: 5640523775691851359, guid: 5faf6de75f867534b9d377a5238b5d2f,
         type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -6472,7 +6460,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 920528533}
+      objectReference: {fileID: 0}
     - target: {fileID: 4817894144001681223, guid: d74a397c48fcd2649a1dd97b7e072c7d,
         type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -7660,31 +7648,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7894057356141305742, guid: cca0b0dc0c838eb4f82d87f1452ed23c,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7894057356141305742, guid: cca0b0dc0c838eb4f82d87f1452ed23c,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8436218493813891491, guid: cca0b0dc0c838eb4f82d87f1452ed23c,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8436218493813891491, guid: cca0b0dc0c838eb4f82d87f1452ed23c,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8436218493813891491, guid: cca0b0dc0c838eb4f82d87f1452ed23c,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
