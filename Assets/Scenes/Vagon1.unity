@@ -4065,18 +4065,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933455841}
   m_CullTransparentMesh: 1
---- !u!114 &946312538 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2847465079317462435, guid: f43a65ee4a4243543af66a7b5be9c09f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1740852641}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &956619767
 GameObject:
   m_ObjectHideFlags: 0
@@ -5311,18 +5299,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1196807379}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1196867292 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7943338387358465037, guid: f43a65ee4a4243543af66a7b5be9c09f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1740852641}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1267904511
 GameObject:
   m_ObjectHideFlags: 0
@@ -6271,8 +6247,8 @@ Transform:
   m_GameObject: {fileID: 1513491679}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.33, y: 1.4977746, z: 1.81}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -8.5, y: 0.98, z: 1.81}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 288271914}
@@ -6318,7 +6294,7 @@ SpriteRenderer:
   m_SortingLayerID: 830887827
   m_SortingLayer: -3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dddb5020889c522489f7110fa5564a7a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 164bc24a15b4a8d40b3a82323a2b8f76, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7177,16 +7153,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8061411358278846070, guid: f43a65ee4a4243543af66a7b5be9c09f,
-        type: 3}
-      propertyPath: fullscreenToggle
-      value: 
-      objectReference: {fileID: 946312538}
-    - target: {fileID: 8061411358278846070, guid: f43a65ee4a4243543af66a7b5be9c09f,
-        type: 3}
-      propertyPath: resolutionDropdown
-      value: 
-      objectReference: {fileID: 1196867292}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
