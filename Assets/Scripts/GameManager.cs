@@ -166,6 +166,10 @@ public class GameManager : MonoBehaviour {
 
     private IEnumerator FadeOut()
     {
+        if (PlayerController.Instance != null)
+        {
+            PlayerController.Instance.TogglePlayerControl(false);
+        }
         float elapsed = 0f;
         while (elapsed < fadeDuration)
         {
@@ -175,6 +179,7 @@ public class GameManager : MonoBehaviour {
             yield return null;
         }
         fadeImage.color = Color.black;
+        
     }
 
     private IEnumerator FadeIn()
@@ -191,19 +196,15 @@ public class GameManager : MonoBehaviour {
             yield return null;
         }
         fadeImage.color = Color.clear;
+        if (PlayerController.Instance != null)
+        {
+            PlayerController.Instance.TogglePlayerControl(true);
+        }
     }
 
-    private int CalculateRenderPriority(SpriteRenderer renderer)
-    {
-        int layerPriority = SortingLayer.GetLayerValueFromID(renderer.sortingLayerID);
-        int orderPriority = renderer.sortingOrder;
-        return (layerPriority * 1000) + orderPriority;
-    }
+    
 
-    private bool IsPointerOverUI()
-    {
-        return EventSystem.current.IsPointerOverGameObject();
-    }
+
 
     
     public void SetCursorDefault()
