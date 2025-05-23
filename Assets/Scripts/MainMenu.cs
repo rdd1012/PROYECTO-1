@@ -63,6 +63,10 @@ public class MainMenu : MonoBehaviour {
 
         rawImage.texture = videoPlayer.texture;
         videoPlayer.Play();
+        foreach (AudioSource audioSource in BackGroundMusic.Instance.AudioSources)
+        {
+            audioSource.Stop();
+        }
 
         float duration = (float)videoPlayer.length;
         Debug.Log("Video playing for " + duration + " seconds");
