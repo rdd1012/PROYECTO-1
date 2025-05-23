@@ -4065,6 +4065,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933455841}
   m_CullTransparentMesh: 1
+--- !u!114 &946312538 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2847465079317462435, guid: f43a65ee4a4243543af66a7b5be9c09f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1740852641}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &956619767
 GameObject:
   m_ObjectHideFlags: 0
@@ -4379,8 +4391,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 305527380500004338, guid: a90fdfe3a5510934eb4aff952335018b,
         type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d00a005a27e5084d8a29d6fa4fba493,
+        type: 2}
+    - target: {fileID: 305527380500004338, guid: a90fdfe3a5510934eb4aff952335018b,
+        type: 3}
       propertyPath: m_fontSizeBase
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 305527380500004338, guid: a90fdfe3a5510934eb4aff952335018b,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2854575242453168398, guid: 5d00a005a27e5084d8a29d6fa4fba493,
+        type: 2}
+    - target: {fileID: 305527380500004338, guid: a90fdfe3a5510934eb4aff952335018b,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 554421799024999286, guid: a90fdfe3a5510934eb4aff952335018b,
         type: 3}
@@ -4407,6 +4436,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: YapBubble
       objectReference: {fileID: 0}
+    - target: {fileID: 8262373836911771096, guid: a90fdfe3a5510934eb4aff952335018b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2854575242453168398, guid: 5d00a005a27e5084d8a29d6fa4fba493,
+        type: 2}
     - target: {fileID: 8269984017475107805, guid: a90fdfe3a5510934eb4aff952335018b,
         type: 3}
       propertyPath: m_Pivot.x
@@ -5276,6 +5311,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1196807379}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1196867292 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7943338387358465037, guid: f43a65ee4a4243543af66a7b5be9c09f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1740852641}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1267904511
 GameObject:
   m_ObjectHideFlags: 0
@@ -7134,12 +7181,12 @@ PrefabInstance:
         type: 3}
       propertyPath: fullscreenToggle
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 946312538}
     - target: {fileID: 8061411358278846070, guid: f43a65ee4a4243543af66a7b5be9c09f,
         type: 3}
       propertyPath: resolutionDropdown
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1196867292}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
